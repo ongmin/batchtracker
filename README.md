@@ -10,7 +10,7 @@ Purpose: For consumers to check expiry date based on batch numbers
 
 ####DB Details
 - Collection 1: ProductDetails - General information on product (Linking SKU# to Product Name)
-- Collection 2: BatchExpiry - Linking Batch Number to Possible SKUs (Note: Batch# are not unique)
+- Collection 2: BatchRecord - Linking Batch Number to Possible SKUs (Note: Batch# are not unique)
 - Unique key: SKU# + Batch#
 
 
