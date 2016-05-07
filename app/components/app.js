@@ -2,17 +2,17 @@
 
 var React = require('react')
 var Header = require('./common/header')
-var RouteHandler = require('react-router').RouteHandler
+import { render } from 'react-dom'
+import { Router, Route, Link } from 'react-router'
+// var RouteHandler = require('react-router').RouteHandler
 
 var App = React.createClass({
   render: function () {
     return (
       <div>
-        <div className='headerContainer'>
         <Header />
-        </div>
         <div className='bodyContainer'>
-        <RouteHandler/>
+          {this.props.children}
         </div>
       </div>
     )

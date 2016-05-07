@@ -3,9 +3,14 @@ var express = require('express')
 var app = express()
 var bodyParser = require('body-parser')
 var mongoose = require('mongoose')
+import path from 'path'
+import cors from 'cors'
+import fallback from 'express-history-api-fallback'
 
 // Identify connection to MongoDB
 import dbUri from './db/uri'
+
+const root = path.join(__dirname, '../dist')
 
 // const dbUri = 'mongodb://' +
 // process.env.BATCHTRACKER_MONGODB_USER + ':' + process.env.BATCHTRACKER_MONGODB_PASSWORD +
@@ -16,6 +21,11 @@ mongoose.connect(dbUri)
 
 // <== Section: Middleware ==>
 app.use(bodyParser.json())
+app.use(express.static(root))
+app.use(cors())
+
+// should we program another index.html fallback without JS?
+app.use(fallback('index.html', { root }))
 
 // <== Section: Underwear starts here: ==>
 
@@ -30,7 +40,7 @@ var BatchRecord = mongoose.model('BatchRecord', {
 })
 
 // Returns whole database
-app.get('/', function (req, res) {
+app.get('/all', function (req, res) {
   console.log('get is working')
 
   BatchRecord.find({}, function (err, record) {
