@@ -1,4 +1,4 @@
 export default 'mongodb://' +
-  process.env.BATCHTRACKER_MONGODB_USER + ':' +
-  process.env.BATCHTRACKER_MONGODB_PASSWORD + '@' +
-  process.env.BATCHTRACKER_MONGODB_URI
+  process.env.MONGODB_USER + ':' +
+  process.env.MONGODB_PASSWORD + '@' +
+  process.env.MONGODB_URI
