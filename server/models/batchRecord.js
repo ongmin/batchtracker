@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+var mongoose = require('mongoose')
 
 var Schema = mongoose.Schema
 // batchRecordSchema
@@ -29,4 +29,5 @@ batchRecordSchema.methods.getProductName = function () {
   // return productName
 }
 
-export default mongoose.model('BatchRecord', batchRecordSchema)
+var BatchRecord = mongoose.model('BatchRecord', batchRecordSchema)
+module.exports = BatchRecord
