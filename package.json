@@ -9,10 +9,11 @@
   "scripts": {
     "start": "npm run build && npm run start-server",
     "start-server": "nodemon dist_server/server.js",
-    "build": "npm run clean && mkdir dist && npm run build-css && npm run build-ejs && npm run build-webpack && npm run build-server",
+    "build": "npm run clean && mkdir dist && npm run build-css && npm run build-html && npm run build-webpack && npm run build-server",
+
     "clean": "rm -rf dist && rm -rf dist_server",
     "build-css": "cp app/main.css dist/bundle.css",
-    "build-ejs": "cp app/index.ejs dist/index.ejs",
+    "build-html": "cp app/index.html dist/index.html",
     "build-webpack": "webpack",
     "build-server": "babel server -d dist_server",
     "test": "mocha"
@@ -34,7 +35,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "body-parser": "^1.15.1",
     "cors": "^2.7.1",
-    "ejs": "^2.4.1",
+    "ejs": "^2.4.2",
     "express": "^4.13.4",
     "express-history-api-fallback": "^2.0.0",
     "fs": "0.0.2",

@@ -1,27 +1,21 @@
-import React from 'react'
-import { Router, Route, IndexRoute } from 'react-router'
-import HomePage from './homePage'
-import About from './about/aboutPage'
-import Header from './common/header'
-import { browserHistory, createMemoryHistory } from 'react-router'
-// import createMemoryHistory from 'history/lib/createMemoryHistory';
 
-var history;
-if (typeof(window) !== 'undefined'){
-  history = browserHistory;
-}
-else {
-  history = createMemoryHistory(); //This kind of history is needed for server-side rendering.
-}
+var React = require('react')
+var Header = require('./common/header')
+import { render } from 'react-dom'
+import { Router, Route, Link } from 'react-router'
+// var RouteHandler = require('react-router').RouteHandler
 
-export default (props) => {
-  return (
+var App = React.createClass({
+  render: function () {
+    return (
+      <div>
+        <Header />
+        <div className='bodyContainer'>
+          {this.props.children}
+        </div>
+      </div>
+    )
+  }
+})
 
-    <Router history={history}>
-      <Route path='/' component={Header}>
-        <IndexRoute component={HomePage}/>
-        <Route path='about' component={About} />
-      </Route>
-    </Router>
-  )
-}
+module.exports = App

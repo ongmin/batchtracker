@@ -14,7 +14,7 @@ module.exports = function(app) {
     path: '/',
     component: require('./../../app/components/common/Header'),
     indexRoute: {
-      component: HomePage
+      component: require('./../../app/components/homePage')
     },
     childRoutes: [
       {
@@ -26,9 +26,11 @@ module.exports = function(app) {
 
   app.use((req, res, next) => {
     const location = createLocation(req.path);
-
     // Note that req.url here should be the full URL path from
     // the original request, including the query string.
+    // renderProps: The props you should pass to the routing context
+    // if the route matched, undefined otherwise.
+
     match({
       routes,
       location
@@ -38,6 +40,7 @@ module.exports = function(app) {
       } else if (redirectLocation) {
         res.redirect(302, redirectLocation.pathname + redirectLocation.search)
       } else if (renderProps) {
+        console.log(renderProps)
         renderWithData(req, res, renderProps);
       } else {
         next()
@@ -48,14 +51,16 @@ module.exports = function(app) {
 
 function renderWithData(req, res, renderProps) {
   if (req.url == "/") {
-    BatchRecord.find(function(error, doc) {
-      var data = doc;
+    BatchRecord.find({}, function(error, batchRecords) {
+      var data = batchRecords;
       renderIsoOutput(data, renderProps, res);
-    });
+    })
   } else {
     renderIsoOutput([], renderProps, res);
   }
 }
+// A <RouterContext> renders the component tree for a given router state.
+// Used by <Router> but also useful for server rendering.
 
 function renderIsoOutput(data, renderProps, res){
     var generated = renderToString(<DataWrapper data={ data }><RouterContext {...renderProps} /></DataWrapper>);
