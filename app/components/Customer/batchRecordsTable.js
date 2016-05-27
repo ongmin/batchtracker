@@ -9,7 +9,7 @@ var batchRecordsTable = React.createClass({
       var rows = []
       this.props.batchRecords.forEach(function(batchRecord) {
         rows.push(<BatchRecordRow productName={batchRecord.productName} skuNum={batchRecord.skuNum}
-          expiryMonth={batchRecord.expiryDate.month} expiryYear={batchRecord.expiryDate.year} />)
+          expiryMonth={batchRecord.expiryDate.month} expiryYear={batchRecord.expiryDate.year} key={ batchRecord.skuNum + batchRecord.batchNumber }/>)
       })
       return (
         <table>

@@ -14,7 +14,7 @@ var filterableBatchRecordsTable = React.createClass({
   render: function () {
     return (
             <div>
-              <searchBar />
+              <SearchBar />
               <BatchRecordsTableHeader />
               <BatchRecordsTable batchRecords={this.state.batchRecords}/>
             </div>

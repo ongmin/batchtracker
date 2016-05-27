@@ -1,6 +1,6 @@
 var React = require('react')
 import AppActions from '../../actions/app-actions'
-var searchBarButton = require('./searchBar-button')
+var SearchBarButton = require('./searchBarButton')
 
 // Takes in an input queryBatchNumber
 // Rewrite this as stateless functional component and remove this comment
@@ -11,7 +11,7 @@ var searchBar = React.createClass({
         <form>
           <input type='text' placeholder='Batch Number' value={this.props.queryBatchNumber}/>
         </form>
-        <searchBarButton txt='Search' handler={AppActions.getBatchRecords.bind(null, this.props.queryBatchNumber)} />
+        <SearchBarButton txt='Search'/>
       </div>
     )
   }
