@@ -1,20 +1,15 @@
 // <== Section: Upperware ==>
-var express = require('express')
-var app = express()
-var bodyParser = require('body-parser')
-var mongoose = require('mongoose')
+const express = require('express')
+const app = express()
+const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
 import path from 'path'
 import cors from 'cors'
 import fallback from 'express-history-api-fallback'
-
 // Identify connection to MongoDB
 import dbUri from './db/uri'
 
 const root = path.join(__dirname, '../dist')
-
-// const dbUri = 'mongodb://' +
-// process.env.BATCHTRACKER_MONGODB_USER + ':' + process.env.BATCHTRACKER_MONGODB_PASSWORD +
-// '@' + process.env.BATCHTRACKER_MONGODB_URI
 
 // Launch connection
 mongoose.connect(dbUri)

@@ -17,14 +17,21 @@ body {
   bottom: 10px;
   left: 10px;
   right: 10px;
-  /* width: 100vw; */
-  /* height: 92vh; */
-  /* margin-top: 10vh; */
   background-color: green;
   font: 1em "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: black;
   text-align: center;
 }
+
+.contentContainer {
+  padding: 20px 0px;
+  align-content: center;
+  background: white;
+  text-align: center;
+}
+
+
+/*<== Styling: TopBar ==>*/
 
 .topbar {
   position: fixed;
@@ -35,14 +42,6 @@ body {
   font: 1em Courier, monospace;
   background: rgba(255,255,255,0.9);
   z-index: 2;
-}
-
-.contentContainer {
-  padding-top: 12vh;
-  margin-bottom: 10vh;
-  align-content: center;
-  background: white;
-  text-align: center;
 }
 
 ul#topbar-right {
