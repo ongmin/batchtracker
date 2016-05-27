@@ -1,4 +1,3 @@
-// Disabling check because we can't run strict mode. Need global vars.
 
 var React = require('react')
 var Header = require('./common/header')
