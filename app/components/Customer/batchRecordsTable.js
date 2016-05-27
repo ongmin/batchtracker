@@ -1,7 +1,9 @@
 var React = require('react')
 var BatchRecordRow = require('./batchRecordRow')
 
-// Stateless functional component
+// Displays all batchRecords matching input after searchBar-button is clicked
+// When there is input change in searchbar, unmount component until searchBar-button is clicked again
+// If no results, display that there are no results
 var batchRecordsTable = React.createClass({
   render: function () {
       var rows = []

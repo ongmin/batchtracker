@@ -4,7 +4,7 @@ var BatchRecordsTableHeader = require('./batchRecordsTableHeader')
 var BatchRecordsTable = require('./batchRecordsTable')
 
 // State lives in filterableBatchRecordsTable component
-// Client inserts queryId into searchBar and hits searchBar-button
+// Customer inputs queryBatchNumber into searchBar and hits searchBar-button
 // Action makes request to server and receives results
 // Dispatcher dispatches a function with results payload to whoever is interseted
 // Store's state changes due to new result received by the action
@@ -21,7 +21,7 @@ var filterableBatchRecordsTable = React.createClass({
           ) },
     getInitialState: function() {
       return {
-        queryId: '',
+        queryBatchNumber: '',
         batchRecords: []
       }
     }
