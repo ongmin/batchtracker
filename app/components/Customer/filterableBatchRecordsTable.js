@@ -21,7 +21,7 @@ var filterableBatchRecordsTable = React.createClass({
   },
   loadDataFromServer: function () {
     $.ajax({
-      url: batchRecordsEndpoint,
+      url: batchRecordsEndpoint + this.state.queryBatchNumber,
       dataType: 'json',
       type: 'GET',
       cache: false,
@@ -51,7 +51,6 @@ var filterableBatchRecordsTable = React.createClass({
                 batchRecords={this.state.batchRecords}/>
             </div>
   ) }
-
 })
 
 module.exports = filterableBatchRecordsTable
