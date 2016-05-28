@@ -9,7 +9,7 @@ var searchBar = React.createClass({
     onQuerySubmit: React.PropTypes.func.isRequired
   },
   getInitialState: function () {
-    return {queryBatchNumber: '21686A'}
+    return {queryBatchNumber: ''}
   },
 
   handleInputChange: function (e) {
