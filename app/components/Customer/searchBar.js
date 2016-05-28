@@ -24,7 +24,7 @@ var searchBar = React.createClass({
       return
     }
     this.props.onQuerySubmit({queryBatchNumber: queryBatchNumber})
-    // this.setState({queryBatchNumber: ''})
+    this.setState({queryBatchNumber: ''})
   },
   render: function () {
     return (
@@ -36,7 +36,10 @@ var searchBar = React.createClass({
             value={this.state.queryBatchNumber}
             onChange={this.handleInputChange} />
           <div>'value' + {this.state.queryBatchNumber}</div>
-          <input type='submit' value='post' txt='Search' />
+          <input
+            type='submit'
+            value='post'
+            txt='Search' />
         </form>
       </div>
     )
