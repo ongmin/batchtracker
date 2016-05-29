@@ -12,6 +12,7 @@ var Header = React.createClass({
         </ul>
       <ul id='topbar-right'>
         <li><Link to='/'>Home</Link></li>
+        <li><Link to='/inputform'>Staff</Link></li>
         <li><Link to='about'>About</Link></li>
       </ul>
     </div>

@@ -21,9 +21,10 @@ body {
   display: block;
   position: absolute;
   top: 60px;
-  bottom: 10px;
+  /* bottom: 10px; */
   left: 10px;
   right: 10px;
+  margin-bottom: 10px;
   /* width: 100vw; */
   /* height: 92vh; */
   /* margin-top: 10vh; */
@@ -46,7 +47,8 @@ body {
 
 .contentContainer {
   padding-top: 12vh;
-  margin-bottom: 10vh;
+  padding-bottom: 12vh;
+  /* margin-bottom: 0px; */
   align-content: center;
   background: white;
   text-align: center;
@@ -118,4 +120,22 @@ div#container-search-whereto {
     text-decoration: underline;
     cursor: pointer;
     margin-left: -38px;
+}
+
+
+/*<=== Styling: Staff View - Input Page ===>*/
+
+input.input-form-field {
+    font-size: 10.5pt;
+    padding: 3px 5px;
+    text-align: center;
+}
+
+input#input-form-batch-input-button {
+    padding: 0px 10px;
+    margin-left: 5px;
+    border-radius: 1px;
+    background-color: pink;
+    border: 1px solid #ccc;
+    cursor: pointer;
 }

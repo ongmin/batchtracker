@@ -1,18 +1,12 @@
 var React = require('react')
-var SearchBar = require('./searchBar')
-var BatchRecordsTableHeader = require('./batchRecordsTableHeader')
-var BatchRecordsTable = require('./batchRecordsTable')
-
-// State lives in filterableBatchRecordsTable component
-// Customer inputs queryBatchNumber into searchBar and hits searchBar-button
-// Action makes request to server and receives results
-// Dispatcher dispatches a function with results payload to whoever is interseted
-// Store's state changes due to new result received by the action
-// The View re-renders by listening to Store's change
+var InputForm = require('./inputForm')
+var InputTableHeader = require('./inputTableHeader')
+var InputTable = require('./inputTable')
+var InputFormMatchingProduct = require('./InputFormMatchingProduct')
 
 var batchRecordsEndpoint = '/api/batchrecords/'
 
-var filterableBatchRecordsTable = React.createClass({
+var inputView = React.createClass({
   getInitialState: function () {
     return {
       queryBatchNumber: '',
@@ -40,13 +34,16 @@ var filterableBatchRecordsTable = React.createClass({
   handleInputChange: function (e) {
     this.setState({queryBatchNumber: e.target.value})
   },
-  handleQuerySubmit: function (obj) {
-    this.setState({ queryBatchNumber: '21686A' }, function () {
+  handlePostSubmit: function (obj) {
+    console.log(obj)
+
+    this.setState({ skuNum: obj['skuNum'], batchNum: obj['batchNumber'], expiryMonth: obj['expiryDate']['month'], expiryYear: obj['expiryDate']['year'] }, function () {
       $.ajax({
-        url: batchRecordsEndpoint + this.state.queryBatchNumber,
+        url: batchRecordsEndpoint,
         dataType: 'json',
-        type: 'GET',
+        type: 'POST',
         cache: false,
+        data: obj,
         success: function (data) {
           console.log(data)
           this.setState({batchRecords: data})
@@ -60,16 +57,17 @@ var filterableBatchRecordsTable = React.createClass({
   render: function () {
     return (
             <div>
-              <SearchBar
+              <InputForm
                 value={this.state.queryBatchNumber}
                 onChange={this.handleInputChange}
-                onQuerySubmit={this.handleQuerySubmit} />
-              <BatchRecordsTableHeader
+                onPostSubmit={this.handlePostSubmit} />
+              <InputFormMatchingProduct />
+              <InputTableHeader
                 queryBatchNumber={this.state.queryBatchNumber} />
-              <BatchRecordsTable
+              <InputTable
                 batchRecords={this.state.batchRecords} />
             </div>
   ) }
 })
 
-module.exports = filterableBatchRecordsTable
+module.exports = inputView

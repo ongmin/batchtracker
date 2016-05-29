@@ -41,7 +41,9 @@ var filterableBatchRecordsTable = React.createClass({
     this.setState({queryBatchNumber: e.target.value})
   },
   handleQuerySubmit: function (obj) {
-    this.setState({ queryBatchNumber: '21686A' }, function () {
+    console.log(obj)
+
+    this.setState({ queryBatchNumber: obj["queryBatchNumber"] }, function () {
       $.ajax({
         url: batchRecordsEndpoint + this.state.queryBatchNumber,
         dataType: 'json',
@@ -64,6 +66,7 @@ var filterableBatchRecordsTable = React.createClass({
                 value={this.state.queryBatchNumber}
                 onChange={this.handleInputChange}
                 onQuerySubmit={this.handleQuerySubmit} />
+              <div>'Test-Parent ' + {this.state.queryBatchNumber} </div>
               <BatchRecordsTableHeader
                 queryBatchNumber={this.state.queryBatchNumber} />
               <BatchRecordsTable
