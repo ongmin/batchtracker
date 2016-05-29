@@ -1,7 +1,7 @@
 'use strict'
 
 var React = require('react')
-var FilterableBatchRecordsTable = require('./Customer/filterableBatchRecordsTable')
+var FilterableBatchRecordsTable = require('./customer/filterableBatchRecordsTable')
 var Home = React.createClass({
   render: function () {
     return (

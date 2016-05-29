@@ -10,6 +10,7 @@ render((
     <Route path='/' component={require('./components/app')}>
       <IndexRoute component={require('./components/homePage')} />
       <Route path='about' component={require('./components/about/aboutPage')}/>
+      <Route path='inputform' component={require('./components/staffView')}/>
       <Route path='*' component={require('./components/notFoundPage')}/>
     </Route>
   </Router>

@@ -4,7 +4,7 @@ var React = require('react')
 
 // Takes in an input queryBatchNumber
 // Rewrite this as stateless functional component and remove this comment
-var searchBar = React.createClass({
+var inputForm = React.createClass({
   propTypes: {
     onQuerySubmit: React.PropTypes.func.isRequired
   },
@@ -28,20 +28,41 @@ var searchBar = React.createClass({
   },
   render: function () {
     return (
-      <div id='container-search'>
+      <div id='container-input-form'>
         <form onSubmit={this.handleSubmit}>
           <input
-            id='batchsearch-search-input'
+            className='input-form-field'
+            id='input-form-sku'
             type='text'
-            placeholder='Batch Number'
-            value={this.state.queryBatchNumber}
+            placeholder='SKU Number'
+            value={this.state.inputValueSKU}
             onChange={this.handleInputChange} />
+            <input
+              className='input-form-field'
+              id='input-form-batch'
+              type='text'
+              placeholder='Batch Number'
+              value={this.state.inputValueBatch}
+              onChange={this.handleInputChange} />
+            <input
+              className='input-form-field'
+              id='input-form-expiry-month'
+              type='number'
+              placeholder='Expiry Month (eg. 08 for August)'
+              value={this.state.inputValueExpiryMonth}
+              onChange={this.handleInputChange} />
+            <input
+              className='input-form-field'
+              id='input-form-expiry-year'
+              type='number'
+              placeholder='Expiry Year (eg. 2016)'
+              value={this.state.inputValueExpiryYear}
+              onChange={this.handleInputChange} />
           <input
-            id='batchsearch-input-button'
+            id='input-form-batch-input-button'
             type='submit'
             value='Search'
             txt='Search' />
-          <div id='container-search-whereto'>Where to find the Batch Number?</div>
           <div>'value' + {this.state.queryBatchNumber}</div>
         </form>
       </div>
@@ -49,4 +70,4 @@ var searchBar = React.createClass({
   }
 })
 
-module.exports = searchBar
+module.exports = inputForm
