@@ -1,3 +1,10 @@
+
+/*********************************/
+/*<=== General Styling ===>*/
+/*<=== Styling: Search Page ===>*/
+/********************************/
+
+/*<=== General Styling ===>*/
 body {
   background-color: pink;
   color: black;
@@ -77,4 +84,38 @@ ul#topbar-left > li {
 
 #topbar-left > li > a {
     text-decoration: none;
+}
+
+/*<=== Styling: Search Page ===>*/
+
+table#results-table {
+    margin: 0 auto;
+}
+
+div#results-table-header {
+    text-decoration: underline;
+}
+
+input#batchsearch-search-input {
+    height: 25px;
+    width: 200px;
+    padding: 0px 10px;
+}
+
+input#batchsearch-input-button {
+    height: 29px;
+    padding: 0px 10px;
+    margin-left: 5px;
+    border-radius: 1px;
+    background-color: pink;
+    border: 1px solid#ccc;
+    cursor: pointer;
+}
+
+div#container-search-whereto {
+    font-size: 7pt;
+    color: #aaa;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: -38px;
 }

@@ -12,7 +12,7 @@ var batchRecordsTable = React.createClass({
           expiryMonth={batchRecord.expiryDate.month} expiryYear={batchRecord.expiryDate.year} key={ batchRecord.skuNum + batchRecord.batchNumber }/>)
       })
       return (
-        <table>
+        <table id='results-table'>
           <thead>
             <tr>
               <th>Batch Number</th>
