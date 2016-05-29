@@ -5,7 +5,9 @@ var React = require('react')
 
 var batchRecordsTableHeader = React.createClass({
   render: function () {
-    return (<p>All products in Batch</p>)
+    return (
+      <p>All products in Batch {this.props.queryBatchNumber}</p>
+    )
   }
 })
 
