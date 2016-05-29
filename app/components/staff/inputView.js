@@ -34,30 +34,16 @@ var inputView = React.createClass({
   handleInputChange: function (e) {
     this.setState({queryBatchNumber: e.target.value})
   },
-  handleQuerySubmit: function (obj) {
-    this.setState({ queryBatchNumber: this.state.queryBatchNumber }, function () {
+  handlePostSubmit: function (obj) {
+    console.log(obj)
+
+    this.setState({ skuNum: obj['skuNum'], batchNum: obj['batchNumber'], expiryMonth: obj['expiryDate']['month'], expiryYear: obj['expiryDate']['year'] }, function () {
       $.ajax({
-        url: batchRecordsEndpoint + this.state.queryBatchNumber,
+        url: batchRecordsEndpoint,
         dataType: 'json',
-        type: 'GET',
+        type: 'POST',
         cache: false,
-        success: function (data) {
-          console.log(data)
-          this.setState({batchRecords: data})
-        }.bind(this),
-        error: function (xhr, status, err) {
-          console.error(batchRecordsEndpoint, status, err.toString())
-        }
-      })
-    })
-  },
-  handleInputSubmit: function (obj) {
-    this.setState({ queryBatchNumber: '21686A' }, function () {
-      $.ajax({
-        url: batchRecordsEndpoint + this.state.queryBatchNumber,
-        dataType: 'json',
-        type: 'GET',
-        cache: false,
+        data: obj,
         success: function (data) {
           console.log(data)
           this.setState({batchRecords: data})
@@ -74,7 +60,7 @@ var inputView = React.createClass({
               <InputForm
                 value={this.state.queryBatchNumber}
                 onChange={this.handleInputChange}
-                onQuerySubmit={this.handleQuerySubmit} />
+                onPostSubmit={this.handlePostSubmit} />
               <InputFormMatchingProduct />
               <InputTableHeader
                 queryBatchNumber={this.state.queryBatchNumber} />

@@ -66,6 +66,7 @@ var filterableBatchRecordsTable = React.createClass({
                 value={this.state.queryBatchNumber}
                 onChange={this.handleInputChange}
                 onQuerySubmit={this.handleQuerySubmit} />
+              <div>'Test-Parent ' + {this.state.queryBatchNumber} </div>
               <BatchRecordsTableHeader
                 queryBatchNumber={this.state.queryBatchNumber} />
               <BatchRecordsTable
