@@ -34,7 +34,6 @@
     "babel-preset-stage-0": "^6.5.0",
     "body-parser": "^1.15.1",
     "cors": "^2.7.1",
-    "ejs": "^2.4.2",
     "express": "^4.13.4",
     "express-history-api-fallback": "^2.0.0",
     "flux": "^2.1.1",
@@ -49,7 +48,6 @@
     "react-router": "^2.4.0",
     "superagent": "^1.8.3",
     "underscore": "^1.8.3",
-    "webpack": "^1.13.0"
   },
   "keywords": [
     "paulaschoice",
