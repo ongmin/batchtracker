@@ -9,7 +9,13 @@ var inputForm = React.createClass({
     onPostSubmit: React.PropTypes.func.isRequired
   },
   getInitialState: function () {
-    return {queryBatchNumber: ''}
+    return {
+      queryBatchNumber: '',
+      inputValueSKU: '',
+      inputValueBatch: '',
+      inputValueExpiryMonth: '',
+      inputValueExpiryYear:''
+    }
   },
 
   handleInputChangeSKU: function (e) {
@@ -30,13 +36,12 @@ var inputForm = React.createClass({
     var batchNum = this.state.inputValueBatch
     var expiryMonth = this.state.inputValueExpiryMonth
     var expiryYear = this.state.inputValueExpiryYear
-    var expiryDate = { year: expiryYear, month: expiryMonth }
 
     if (!skuNum || !batchNum || !expiryMonth || !expiryYear) {
       return
     }
 
-    this.props.onPostSubmit({skuNum: skuNum, batchNumber: batchNum, expiryDate: expiryDate})
+    this.props.onPostSubmit({skuNum: skuNum, batchNumber: batchNum, month: expiryMonth, year: expiryYear })
     this.setState({skuNum: '', batchNum: '', expiryMonth: '', expiryYear: ''})
   },
   render: function () {

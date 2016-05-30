@@ -36,7 +36,6 @@
     "cors": "^2.7.1",
     "express": "^4.13.4",
     "express-history-api-fallback": "^2.0.0",
-    "flux": "^2.1.1",
     "fs": "0.0.2",
     "history": "^2.1.1",
     "mongoose": "^4.4.14",
@@ -47,7 +46,7 @@
     "react-dom": "^15.0.2",
     "react-router": "^2.4.0",
     "superagent": "^1.8.3",
-    "underscore": "^1.8.3",
+    "underscore": "^1.8.3"
   },
   "keywords": [
     "paulaschoice",
