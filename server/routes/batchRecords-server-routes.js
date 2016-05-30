@@ -1,6 +1,5 @@
-module.exports = function (app) {
+module.exports = function (app, moltin) {
   var batchRecords = require('./../controllers/batchRecords-server-controller.js')
-	// var users = require('./../controllers/users.server.controller.js')
   app.route('/api/batchRecords')
   .post(batchRecords.create)
   .get(batchRecords.all)

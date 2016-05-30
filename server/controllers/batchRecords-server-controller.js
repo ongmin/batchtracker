@@ -4,6 +4,14 @@ var BatchRecord = require('./../models/batchRecord.js')
 // create
 exports.create = function (req, res) {
   var newBatchRecord = new BatchRecord()
+    moltin.Product.Find({sku: req.body.skuNum }, function(product) {
+      console.log('found')
+      // Handle the product
+      console.log(product.title)
+  }, function(error) {
+    console.log(error)
+      // Something went wrong...
+  })
   newBatchRecord.batchNumber = req.body.batchNumber
   newBatchRecord.skuNum = req.body.skuNum
   newBatchRecord.expiryDate.month = req.body.month
