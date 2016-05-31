@@ -20,7 +20,7 @@ var inputView = React.createClass({
       type: 'GET',
       cache: false,
       success: function (data) {
-        console.log(data)
+        var updatedBatchRecords = this.state.batchRecords
         this.setState({batchRecords: data})
       }.bind(this),
       error: function (xhr, status, err) {
@@ -43,7 +43,6 @@ var inputView = React.createClass({
         cache: false,
         data: obj,
         success: function (data) {
-          console.log(data)
           this.setState({batchRecords: data})
         }.bind(this),
         error: function (xhr, status, err) {

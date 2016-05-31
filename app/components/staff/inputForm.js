@@ -42,7 +42,7 @@ var inputForm = React.createClass({
     }
 
     this.props.onPostSubmit({skuNum: skuNum, batchNumber: batchNum, month: expiryMonth, year: expiryYear })
-    this.setState({skuNum: '', batchNum: '', expiryMonth: '', expiryYear: ''})
+    this.setState({inputValueSKU: '', inputValueBatch: '', inputValueExpiryMonth: '', inputValueExpiryYear: ''})
   },
   render: function () {
     return (

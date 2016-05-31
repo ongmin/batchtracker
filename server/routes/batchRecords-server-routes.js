@@ -8,21 +8,25 @@ module.exports = function (app, moltin) {
     var newBatchRecord = new BatchRecord()
       moltin.Product.Find({sku: req.body.skuNum }, function(product) {
         newBatchRecord.productName = product[0].title
+        newBatchRecord.batchNumber = req.body.batchNumber
+        newBatchRecord.skuNum = req.body.skuNum
+        newBatchRecord.expiryDate.month = req.body.month
+        newBatchRecord.expiryDate.year = req.body.year
+        // Save the newBatchRecord
+        newBatchRecord.save(err => {
+          if (err) return console.error(err)
+        // then return the whole database
+          BatchRecord.find({}, function (err, batchRecords) {
+            if (err) throw err
+            res.json(batchRecords)
+          })
+          console.log('batch record created!')
+        })
     }, function(error) {
       console.log(error)
         // Something went wrong...
     })
-    newBatchRecord.batchNumber = req.body.batchNumber
-    newBatchRecord.skuNum = req.body.skuNum
-    newBatchRecord.expiryDate.month = req.body.month
-    newBatchRecord.expiryDate.year = req.body.year
 
-    newBatchRecord.save(err => {
-      if (err) return console.error(err)
-      res.json(JSON.stringify(newBatchRecord))
-      console.log('batch record created!')
-      console.log(JSON.stringify(newBatchRecord))
-    })
   })
   .get(batchRecords.all)
 
