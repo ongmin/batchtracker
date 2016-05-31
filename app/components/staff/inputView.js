@@ -20,7 +20,7 @@ var inputView = React.createClass({
       type: 'GET',
       cache: false,
       success: function (data) {
-        console.log(data)
+        var updatedBatchRecords = this.state.batchRecords
         this.setState({batchRecords: data})
       }.bind(this),
       error: function (xhr, status, err) {
@@ -35,9 +35,7 @@ var inputView = React.createClass({
     this.setState({queryBatchNumber: e.target.value})
   },
   handlePostSubmit: function (obj) {
-    console.log(obj)
-
-    this.setState({ skuNum: obj['skuNum'], batchNum: obj['batchNumber'], expiryMonth: obj['expiryDate']['month'], expiryYear: obj['expiryDate']['year'] }, function () {
+    this.setState({ skuNum: obj['skuNum'], batchNum: obj['batchNumber'], expiryMonth: obj['month'], expiryYear: obj['year'] }, function () {
       $.ajax({
         url: batchRecordsEndpoint,
         dataType: 'json',
@@ -45,7 +43,6 @@ var inputView = React.createClass({
         cache: false,
         data: obj,
         success: function (data) {
-          console.log(data)
           this.setState({batchRecords: data})
         }.bind(this),
         error: function (xhr, status, err) {

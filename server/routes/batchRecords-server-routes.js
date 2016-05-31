@@ -1,8 +1,33 @@
-module.exports = function (app) {
+var mongoose = require('mongoose')
+var BatchRecord = require('./../models/batchRecord.js')
+
+module.exports = function (app, moltin) {
   var batchRecords = require('./../controllers/batchRecords-server-controller.js')
-	// var users = require('./../controllers/users.server.controller.js')
   app.route('/api/batchRecords')
-  .post(batchRecords.create)
+  .post(function (req, res) {
+    var newBatchRecord = new BatchRecord()
+      moltin.Product.Find({sku: req.body.skuNum }, function(product) {
+        newBatchRecord.productName = product[0].title
+        newBatchRecord.batchNumber = req.body.batchNumber
+        newBatchRecord.skuNum = req.body.skuNum
+        newBatchRecord.expiryDate.month = req.body.month
+        newBatchRecord.expiryDate.year = req.body.year
+        // Save the newBatchRecord
+        newBatchRecord.save(err => {
+          if (err) return console.error(err)
+        // then return the whole database
+          BatchRecord.find({}, function (err, batchRecords) {
+            if (err) throw err
+            res.json(batchRecords)
+          })
+          console.log('batch record created!')
+        })
+    }, function(error) {
+      console.log(error)
+        // Something went wrong...
+    })
+
+  })
   .get(batchRecords.all)
 
   app.route('/api/batchRecords/:id')
