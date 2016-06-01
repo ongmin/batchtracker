@@ -15,9 +15,7 @@ var inputTableRow = React.createClass({
         <td className='expiry-date'>{this.props.expiryMonth} - {this.props.expiryYear}</td>
         <td className='input-row-edit'>
           <Link to={{
-                      pathname: `/staff/batchRecords/edit/${this.props.id}`,
-                      state: { modal: true, returnTo: this.props.location.pathname }
-                    }}>edit
+                      pathname: `/staff/batchRecords/edit/${this.props.id}`                    }}>edit
           </Link>
         </td>
         <td className='input-row-delete'>delete</td>
