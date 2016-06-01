@@ -6,8 +6,6 @@ var Home = React.createClass({
   render: function () {
     return (
         <div className='contentContainer'>
-          <h2>Hello Staff</h2>
-          <p>Key in your batch codes found on the receiving document</p>
           <InputView />
       </div>
     )

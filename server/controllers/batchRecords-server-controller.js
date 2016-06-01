@@ -1,6 +1,24 @@
 var mongoose = require('mongoose')
 var BatchRecord = require('./../models/batchRecord.js')
 
+// create
+exports.create = function (req, res) {
+  var newBatchRecord = new BatchRecord()
+
+  newBatchRecord.batchNumber = req.body.batchNumber
+  newBatchRecord.skuNum = req.body.skuNum
+  newBatchRecord.expiryDate.month = req.body.month
+  newBatchRecord.expiryDate.year = req.body.year
+
+  newBatchRecord.save(err => {
+    if (err) return console.error(err)
+    BatchRecord.find({}, function (err, batchRecords) {
+      if (err) throw err
+      console.log(batchRecords)
+      res.json(batchRecords)
+    })
+  })
+}
 // update
 exports.update = function(req, res) {
   BatchRecord.findByIdAndUpdate(req.params.id, {$set: { batchNumber: req.body.batchNumber,
@@ -25,6 +43,7 @@ exports.delete = function (req, res) {
 exports.read = function (req, res) {
   BatchRecord.find().where('batchNumber').equals(req.params.batchNumber).exec(function (err, batchRecords) {
     if (err) throw err
+    console.log(batchRecords)
     res.json(batchRecords)
   })
 }

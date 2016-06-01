@@ -1,5 +1,6 @@
 var React = require('react')
 var InputForm = require('./inputForm')
+var EditForm = require('./edit/editForm')
 var InputTableHeader = require('./inputTableHeader')
 var InputTable = require('./inputTable')
 var InputFormMatchingProduct = require('./InputFormMatchingProduct')
@@ -52,12 +53,16 @@ var inputView = React.createClass({
     })
   },
   render: function () {
+    const form = this.props.form
+
     return (
             <div>
-              <InputForm
-                value={this.state.queryBatchNumber}
-                onChange={this.handleInputChange}
-                onPostSubmit={this.handlePostSubmit} />
+              <div className="form">
+                { form || <InputForm
+                  value={this.state.queryBatchNumber}
+                  onChange={this.handleInputChange}
+                  onPostSubmit={this.handlePostSubmit} />}
+              </div>
               <InputFormMatchingProduct />
               <InputTableHeader
                 queryBatchNumber={this.state.queryBatchNumber} />
