@@ -52,22 +52,39 @@ var inputView = React.createClass({
       })
     })
   },
+  handleDelete: function (id) {
+    $.ajax({
+      url: batchRecordsEndpoint + id,
+      dataType: 'json',
+      type: 'DELETE',
+      cache: false,
+      success: function (data) {
+        this.setState({batchRecords: data})
+      }.bind(this),
+      error: function (xhr, status, err) {
+        console.error(batchRecordsEndpoint + id, status, err.toString())
+      }
+    })
+  },
   render: function () {
     const form = this.props.form
 
     return (
             <div>
               <div className="form">
-                { form || <InputForm
+                <InputForm
                   value={this.state.queryBatchNumber}
                   onChange={this.handleInputChange}
-                  onPostSubmit={this.handlePostSubmit} />}
+                  onPostSubmit={this.handlePostSubmit}
+                  />
               </div>
               <InputFormMatchingProduct />
               <InputTableHeader
                 queryBatchNumber={this.state.queryBatchNumber} />
               <InputTable
-                batchRecords={this.state.batchRecords} />
+                batchRecords={this.state.batchRecords}
+                onDelete={this.handleDelete}
+              />
             </div>
   ) }
 })

@@ -36,7 +36,11 @@ exports.update = function(req, res) {
 exports.delete = function (req, res) {
   BatchRecord.findByIdAndRemove(req.params.id).exec(function (err, data) {
     if (err) return console.error(err)
-    console.log(req.params.id + ' removed. :(')
+    BatchRecord.find({}, function (err, batchRecords) {
+      if (err) throw err
+      console.log(batchRecords)
+      res.json(batchRecords)
+    })
   })
 }
 // get batchRecords

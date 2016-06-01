@@ -5,6 +5,10 @@ import { Link } from 'react-router'
 // Rewrite this as stateless functional component and remove this comment
 
 var inputTableRow = React.createClass({
+  handleDelete(){
+    this.props.onDelete(this.props.id)
+    console.log('deleted')
+  },
   render: function () {
     // var inputRowId = 'input-row' + this.props.skuNum + '-' + this.props.batchNumber
     return (
@@ -18,7 +22,7 @@ var inputTableRow = React.createClass({
                       pathname: `/staff/batchRecords/edit/${this.props.id}`                    }}>edit
           </Link>
         </td>
-        <td className='input-row-delete'>delete</td>
+        <td className='input-row-delete' onClick={this.handleDelete}>delete</td>
         </tr>
     )
   }
