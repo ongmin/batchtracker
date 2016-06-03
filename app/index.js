@@ -9,7 +9,6 @@ render((
   <Router history={browserHistory}>
     <Route path='/' component={require('./components/app')}>
       <IndexRoute component={require('./components/homePage')} />
-      <Route path='about' component={require('./components/about/aboutPage')}/>
       <Route path='staff' component={require('./components/staffView')}>
         <Route path="batchRecords" component={require('./components/staff/inputView')}>
           <Route path="edit/:id" components={ {form: require('./components/staff/edit/editForm')} } />

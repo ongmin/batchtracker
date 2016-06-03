@@ -1,3 +1,19 @@
+div#container-search-whereto div {
+    display: inline-block;
+}
+
+
+div#qmark {
+    margin-right: 10px;
+    font-weight: 800;
+    border: 1px solid #aaa;
+    background-color: #f8f8f8;
+    height: 12px;
+    line-height: 12px;
+    width: 12px;
+    border-radius: 50%;
+}
+
 
 
 
@@ -60,6 +76,7 @@ body {
 .bodyContainer img#background-image {
     opacity: 0.4;
     box-shadow: 0px 0px 1px #515151;
+    width: 80%;
 }
 
 /*<=== Styling: Topbar ===>*/
@@ -201,6 +218,11 @@ ul#topbar-middle-right {
 
 table#results-table {
     margin: 0 auto;
+    min-width: 600px;
+    max-width: 900px;
+    width: 60%;
+    background-color: #f8f8f8;
+    border: 1px solid white;
 }
 
 div#results-table-header {
@@ -232,27 +254,36 @@ input#batchsearch-input-button {
 }
 
 div#container-search-whereto {
-    font-size: 7pt;
+    margin: 0 auto;
+    margin-top: 5px;
+    font-size: 8pt;
     color: #aaa;
     text-decoration: underline;
     cursor: pointer;
-    margin-left: -38px;
+    margin-left: -47px;
 }
 
 
 /*<=== Styling: Staff View - Input Page ===>*/
 
 input.input-form-field {
-    font-size: 10.5pt;
-    padding: 3px 5px;
+    font-size: 10pt;
+    border: 3px solid #27bbcd;
+    height: 29px;
+    padding: 3px 12px;
     text-align: center;
+    color: #27bbcd;
+    margin-right: 7px;
 }
 
 input#input-form-batch-input-button {
-    padding: 0px 10px;
-    margin-left: 5px;
-    border-radius: 1px;
-    background-color: pink;
-    border: 1px solid #ccc;
-    cursor: pointer;
+      height: 41px;
+      padding: 5px 10px;
+      margin-left: 5px;
+      border-radius: 1px;
+      background-color: #27bbcd;
+      color: #f8f8f8;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: 1px solid whitesmoke;
 }

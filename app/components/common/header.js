@@ -15,8 +15,9 @@ var Header = React.createClass({
         </ul>
         <ul id='topbar-top-right'>
         <li><Link to='/'>Home</Link></li>
+        <li><a href='https://www.paulaschoice.sg/'>Shop Paula&#39;s Choice</a></li>
+        <li><a href='https://advice.paulaschoice.sg/'>Expert Advice</a></li>
         <li><Link to='/staff/batchRecords'>Staff</Link></li>
-        <li><Link to='about'>About</Link></li>
         </ul>
       </div>
 

@@ -40,7 +40,7 @@ var searchBar = React.createClass({
             type='submit'
             value='Search'
             txt='Check' />
-          <div id='container-search-whereto'>Where do I find the Batch Number?</div>
+          <div id='container-search-whereto'><div id='qmark'>?</div>Where do I find the Batch Number?</div>
           <div>'Test-child ' + {this.state.queryBatchNumber}</div>
         </form>
       </div>
