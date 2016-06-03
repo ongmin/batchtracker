@@ -6,9 +6,10 @@ var Home = React.createClass({
   render: function () {
     return (
         <div className='contentContainer'>
+          <div className='contentContainer-background'>
           <h2>Welcome to Paula&#39;s Choice Singapore</h2>
-          <p>Key in your batch code found on the bottom of your product</p>
           <FilterableBatchRecordsTable />
+          </div>
       </div>
     )
   }

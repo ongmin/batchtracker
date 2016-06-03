@@ -6,7 +6,7 @@ exports.create = function (req, res) {
   var newBatchRecord = new BatchRecord()
 
   newBatchRecord.batchNumber = req.body.batchNumber
-  newBatchRecord.skuNum = req.body.skuNum
+  newBatchRecord.skuNumber = req.body.skuNumber
   newBatchRecord.expiryDate.month = req.body.month
   newBatchRecord.expiryDate.year = req.body.year
 
