@@ -28,6 +28,7 @@ module.exports = function (app, moltin) {
     })
 
   })
+  // .post(batchRecords.create)
   .get(batchRecords.all)
 
   app.route('/api/batchRecords/:id')

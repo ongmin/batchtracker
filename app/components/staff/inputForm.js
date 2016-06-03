@@ -1,9 +1,6 @@
 var React = require('react')
-// import AppActions from '../../actions/app-actions'
-// var SearchBarButton = require('./searchBarButton')
-
 // Takes in an input queryBatchNumber
-// Rewrite this as stateless functional component and remove this comment
+
 var inputForm = React.createClass({
   propTypes: {
     onPostSubmit: React.PropTypes.func.isRequired

@@ -1,5 +1,6 @@
 var React = require('react')
 var InputForm = require('./inputForm')
+var EditForm = require('./edit/editForm')
 var InputTableHeader = require('./inputTableHeader')
 var InputTable = require('./inputTable')
 var InputFormMatchingProduct = require('./InputFormMatchingProduct')
@@ -51,18 +52,39 @@ var inputView = React.createClass({
       })
     })
   },
+  handleDelete: function (id) {
+    $.ajax({
+      url: batchRecordsEndpoint + id,
+      dataType: 'json',
+      type: 'DELETE',
+      cache: false,
+      success: function (data) {
+        this.setState({batchRecords: data})
+      }.bind(this),
+      error: function (xhr, status, err) {
+        console.error(batchRecordsEndpoint + id, status, err.toString())
+      }
+    })
+  },
   render: function () {
+    const form = this.props.form
+
     return (
             <div>
-              <InputForm
-                value={this.state.queryBatchNumber}
-                onChange={this.handleInputChange}
-                onPostSubmit={this.handlePostSubmit} />
+              <div className="form">
+                <InputForm
+                  value={this.state.queryBatchNumber}
+                  onChange={this.handleInputChange}
+                  onPostSubmit={this.handlePostSubmit}
+                  />
+              </div>
               <InputFormMatchingProduct />
               <InputTableHeader
                 queryBatchNumber={this.state.queryBatchNumber} />
               <InputTable
-                batchRecords={this.state.batchRecords} />
+                batchRecords={this.state.batchRecords}
+                onDelete={this.handleDelete}
+              />
             </div>
   ) }
 })
