@@ -7,12 +7,12 @@ var inputTable = React.createClass({
   },
   render: function () {
       var rows = []
-      this.props.batchRecords.forEach((batchRecord)=> {
+      this.props.batchRecords.forEach((batchRecord) => {
         console.log(batchRecord._id)
-        rows.push(<InputTableRow batchNumber={batchRecord.batchNumber} productName={batchRecord.productName} skuNum={batchRecord.skuNum}
+        rows.push(<InputTableRow batchNumber={batchRecord.batchNumber} productName={batchRecord.productName} skuNumber={batchRecord.skuNumber}
           expiryMonth={batchRecord.expiryDate.month} expiryYear={batchRecord.expiryDate.year} key={batchRecord._id} id={batchRecord._id} onDelete={this.props.onDelete} />)
       })
-      return (
+    return (
         <table id='results-table'>
           <thead>
             <tr>
@@ -24,8 +24,8 @@ var inputTable = React.createClass({
           </thead>
           <tbody>{rows}</tbody>
         </table>
-      );
-    }
+      )
+  }
 })
 
 module.exports = inputTable

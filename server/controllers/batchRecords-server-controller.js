@@ -20,7 +20,7 @@ exports.create = function (req, res) {
   })
 }
 // update
-exports.update = function(req, res) {
+exports.update = function (req, res) {
   BatchRecord.findByIdAndUpdate(req.params.id, {$set: { batchNumber: req.body.batchNumber,
                                                         skuNum: req.body.skuNum,
                                                         'expiryDate.month': req.body.month,

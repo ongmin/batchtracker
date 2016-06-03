@@ -11,7 +11,7 @@ var inputForm = React.createClass({
       inputValueSKU: '',
       inputValueBatch: '',
       inputValueExpiryMonth: '',
-      inputValueExpiryYear:''
+      inputValueExpiryYear: ''
     }
   },
 
@@ -29,16 +29,16 @@ var inputForm = React.createClass({
   },
   handlePostSubmit: function (e) {
     e.preventDefault()
-    var skuNum = this.state.inputValueSKU
-    var batchNum = this.state.inputValueBatch
+    var skuNumber = this.state.inputValueSKU
+    var batchNumber = this.state.inputValueBatch
     var expiryMonth = this.state.inputValueExpiryMonth
     var expiryYear = this.state.inputValueExpiryYear
 
-    if (!skuNum || !batchNum || !expiryMonth || !expiryYear) {
+    if (!skuNumber || !batchNumber || !expiryMonth || !expiryYear) {
       return
     }
 
-    this.props.onPostSubmit({skuNum: skuNum, batchNumber: batchNum, month: expiryMonth, year: expiryYear })
+    this.props.onPostSubmit({ skuNumber: skuNumber, batchNumber: batchNumber, month: expiryMonth, year: expiryYear })
     this.setState({inputValueSKU: '', inputValueBatch: '', inputValueExpiryMonth: '', inputValueExpiryYear: ''})
   },
   render: function () {

@@ -36,7 +36,7 @@ var inputView = React.createClass({
     this.setState({queryBatchNumber: e.target.value})
   },
   handlePostSubmit: function (obj) {
-    this.setState({ skuNum: obj['skuNum'], batchNum: obj['batchNumber'], expiryMonth: obj['month'], expiryYear: obj['year'] }, function () {
+    this.setState({ skuNumber: obj['skuNumber'], batchNumber: obj['batchNumber'], expiryMonth: obj['month'], expiryYear: obj['year'] }, function () {
       $.ajax({
         url: batchRecordsEndpoint,
         dataType: 'json',
@@ -71,7 +71,7 @@ var inputView = React.createClass({
 
     return (
             <div>
-              <div className="form">
+              <div className='form'>
                 <InputForm
                   value={this.state.queryBatchNumber}
                   onChange={this.handleInputChange}

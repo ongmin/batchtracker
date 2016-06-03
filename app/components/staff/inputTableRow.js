@@ -15,7 +15,7 @@ var inputTableRow = React.createClass({
         <tr>
         <td className='batch-number'>{this.props.batchNumber}</td>
         <td className='product-name'>{this.props.productName}</td>
-        <td className='sku-number'>{this.props.skuNum}</td>
+        <td className='sku-number'>{this.props.skuNumber}</td>
         <td className='expiry-date'>{this.props.expiryMonth} - {this.props.expiryYear}</td>
         <td className='input-row-edit'>
           <Link to={{
