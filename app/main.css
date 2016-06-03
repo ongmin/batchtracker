@@ -1,9 +1,6 @@
 
 
 
-
-
-
 /***********************************************/
 /*<===== General Styling =====================>*/
 /*<===== Styling: Topbar =====================>*/
@@ -13,7 +10,7 @@
 
 /*<=== General Styling ===>*/
 body {
-  background-color: pink;
+  background-color: white;
   color: black;
   font: 400 12px/1.75 'ProximaNova-SemiBold',Helvetica,Arial,sans-serif;
 }
@@ -27,12 +24,13 @@ body {
 
 .bodyContainer {
   display: block;
-  position: absolute;
-  top: 140px;
-  left: 10px;
-  right: 10px;
+  position: relative;
+  top: 130px;
+  /* left: 10px; */
+  /* right: 10px; */
+  margin: 0 auto;
   margin-bottom: 10px;
-  background-color: green;
+  background-color: white;
   font: 1em "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: black;
   text-align: center;
@@ -48,13 +46,21 @@ body {
 }
 
 .contentContainer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   padding-top: 12vh;
   padding-bottom: 12vh;
   align-content: center;
-  background: white;
   text-align: center;
+  z-index: 1;
 }
 
+.bodyContainer img#background-image {
+    opacity: 0.4;
+    box-shadow: 0px 0px 1px #515151;
+}
 
 /*<=== Styling: Topbar ===>*/
 
