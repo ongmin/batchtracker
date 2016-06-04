@@ -1,13 +1,34 @@
+div#container-search-whereto div {
+    display: inline-block;
+}
 
-/*********************************/
-/*<=== General Styling ===>*/
-/*<=== Styling: Search Page ===>*/
-/********************************/
+
+div#qmark {
+    margin-right: 10px;
+    font-weight: 800;
+    border: 1px solid #aaa;
+    background-color: #f8f8f8;
+    height: 12px;
+    line-height: 12px;
+    width: 12px;
+    border-radius: 50%;
+}
+
+
+
+
+/***********************************************/
+/*<===== General Styling =====================>*/
+/*<===== Styling: Topbar =====================>*/
+/*<===== Styling: Search Page ================>*/
+/*<===== Styling: Staff View - Input Page ====>*/
+/***********************************************/
 
 /*<=== General Styling ===>*/
 body {
-  background-color: pink;
+  background-color: white;
   color: black;
+  font: 400 12px/1.75 'ProximaNova-SemiBold',Helvetica,Arial,sans-serif;
 }
 
 .headerContainer {
@@ -19,16 +40,13 @@ body {
 
 .bodyContainer {
   display: block;
-  position: absolute;
-  top: 60px;
-  /* bottom: 10px; */
-  left: 10px;
-  right: 10px;
+  position: relative;
+  top: 130px;
+  /* left: 10px; */
+  /* right: 10px; */
+  margin: 0 auto;
   margin-bottom: 10px;
-  /* width: 100vw; */
-  /* height: 92vh; */
-  /* margin-top: 10vh; */
-  background-color: green;
+  background-color: white;
   font: 1em "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: black;
   text-align: center;
@@ -39,59 +57,172 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 50px;
-  font: 1em Courier, monospace;
   background: rgba(255,255,255,0.9);
   z-index: 2;
 }
 
 .contentContainer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   padding-top: 12vh;
   padding-bottom: 12vh;
-  /* margin-bottom: 0px; */
   align-content: center;
-  background: white;
   text-align: center;
+  z-index: 1;
 }
 
-ul#topbar-right {
+.bodyContainer img#background-image {
+    opacity: 0.4;
+    box-shadow: 0px 0px 1px #515151;
+    width: 80%;
+}
+
+/*<=== Styling: Topbar ===>*/
+
+.topbar a {
+    color: #fafafa;
+    margin: 0px;
+}
+
+.topbar > div {
+    display: block;
+    /* width: 100%; */
+}
+
+
+/*Topbar sections split into top, middle and bottom*/
+#topbar-top {
+    background-color: #27bbcd;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #f8f8f8;
+}
+
+#topbar-middle {
+    height: 70px;
+    background-color: #fafafa;
+}
+
+#topbar-bottom {
+    color: #27bbcd;
+    font-weight: 600;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #27bbcd;
+    height: 30px;
+    width: 100%;
+}
+
+#topbar-top-left li,
+#topbar-middle ul {
+    display: inline-block;
+}
+
+#topbar-top-left {
+    height: 100%;
+    line-height: 40px;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 80px;
+}
+
+ul#topbar-top-left > li {
+    list-style: none;
+    margin-right: 26px;
+}
+
+ul#topbar-top-left > li:first-child {
+    margin-right: 35px;
+}
+
+#topbar-top-left > li > a {
+    text-decoration: none;
+}
+
+#topbar-top-left li img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    margin-top: -4px;
+    vertical-align: middle;
+}
+
+ul#topbar-top-right {
     position: absolute;
     right: 0;
     top: 0;
+    margin: 0px;
+    padding: 0px;
+    padding-right: 80px;
 }
 
-ul#topbar-right > li {
+ul#topbar-top-right > li {
+    text-align: right;
     display: inline-block;
-    padding: 0px 20px;
+    margin-left: 40px;
 }
 
-ul#topbar-right > li > a {
+ul#topbar-top-right > li > a {
     text-decoration: none;
 }
 
-ul#topbar-right > li > a:hover {
+ul#topbar-top-right > li > a:hover {
     text-decoration: underline;
 }
 
-ul#topbar-left {
-    position: absolute;
-    left: 0;
-    top: 0;
+
+
+
+#topbar-middle ul {
+    display: inline-block;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
 }
 
-ul#topbar-left > li {
-    color: black;
-    list-style: none;
+ul#topbar-middle-left {
+    margin: 15px 0px;
+    height: 40px;
+    padding-left: 80px;
 }
 
-#topbar-left > li > a {
-    text-decoration: none;
+#topbar-middle-left a {
+    height: 100%;
+    width: 100%;
 }
+
+#topbar-middle-left a img {
+    height: 100%;
+}
+
+ul#topbar-middle-right {
+    color: #515151;
+    font-size: 12pt;
+    line-height: 70px;
+    float: right;
+    margin-right: 80px;
+    text-transform: uppercase;
+}
+
+#topbar-bottom div {
+    margin: 0 auto;
+    width: 400px;
+    line-height: 30px;
+    text-align: center;
+}
+
 
 /*<=== Styling: Search Page ===>*/
 
 table#results-table {
     margin: 0 auto;
+    min-width: 600px;
+    max-width: 900px;
+    width: 60%;
+    background-color: #f8f8f8;
+    border: 1px solid white;
 }
 
 div#results-table-header {
@@ -99,43 +230,60 @@ div#results-table-header {
 }
 
 input#batchsearch-search-input {
-    height: 25px;
-    width: 200px;
+    border: 3px solid #27bbcd;
+    height: 35px;
+    width: 300px;
     padding: 0px 10px;
+    text-align: center;
+    font-size: 13pt;
+    color: #27bbcd;
+    /* border: 2px solid; */
 }
 
 input#batchsearch-input-button {
-    height: 29px;
+    height: 35px;
     padding: 0px 10px;
     margin-left: 5px;
     border-radius: 1px;
-    background-color: pink;
-    border: 1px solid#ccc;
+    background-color: #27bbcd;
+    color: #f8f8f8;
+    text-transform: uppercase;
+    /* border: none; */
+    border: 3px solid #27bbcd;
     cursor: pointer;
 }
 
 div#container-search-whereto {
-    font-size: 7pt;
+    margin: 0 auto;
+    margin-top: 5px;
+    font-size: 8pt;
     color: #aaa;
     text-decoration: underline;
     cursor: pointer;
-    margin-left: -38px;
+    margin-left: -47px;
 }
 
 
 /*<=== Styling: Staff View - Input Page ===>*/
 
 input.input-form-field {
-    font-size: 10.5pt;
-    padding: 3px 5px;
+    font-size: 10pt;
+    border: 3px solid #27bbcd;
+    height: 29px;
+    padding: 3px 12px;
     text-align: center;
+    color: #27bbcd;
+    margin-right: 7px;
 }
 
 input#input-form-batch-input-button {
-    padding: 0px 10px;
-    margin-left: 5px;
-    border-radius: 1px;
-    background-color: pink;
-    border: 1px solid #ccc;
-    cursor: pointer;
+      height: 41px;
+      padding: 5px 10px;
+      margin-left: 5px;
+      border-radius: 1px;
+      background-color: #27bbcd;
+      color: #f8f8f8;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: 1px solid whitesmoke;
 }

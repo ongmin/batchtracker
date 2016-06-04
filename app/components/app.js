@@ -11,6 +11,7 @@ var App = React.createClass({
       <div>
         <Header />
         <div className='bodyContainer'>
+          <img id='background-image' src='images/BatchTracker-banner.jpg'/>
           {this.props.children}
         </div>
       </div>
@@ -19,3 +20,5 @@ var App = React.createClass({
 })
 
 module.exports = App
+
+  // <div className='contentContainer-background'></div>

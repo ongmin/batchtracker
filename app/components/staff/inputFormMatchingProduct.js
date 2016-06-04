@@ -7,7 +7,7 @@ var InputFormMatchingProduct = React.createClass({
   render: function () {
     return (
       <div id='results-table-header'>
-      <p>All products in Batch {this.props.queryBatchNumber}</p>
+      <p>Matching Product Placeholder {this.props.queryBatchNumber}</p>
       </div>
     )
   }

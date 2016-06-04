@@ -77,7 +77,7 @@ var inputForm = React.createClass({
             id='input-form-batch-input-button'
             type='submit'
             value='Post'
-            txt='Post' />
+            txt='Submit' />
           <div>'value' + {this.state.queryBatchNumber}</div>
         </form>
       </div>
