@@ -6,7 +6,7 @@ exports.create = function (req, res) {
   var newBatchRecord = new BatchRecord()
 
   newBatchRecord.batchNumber = req.body.batchNumber
-  newBatchRecord.skuNum = req.body.skuNum
+  newBatchRecord.skuNumber = req.body.skuNumber
   newBatchRecord.expiryDate.month = req.body.month
   newBatchRecord.expiryDate.year = req.body.year
 
@@ -22,7 +22,7 @@ exports.create = function (req, res) {
 // update
 exports.update = function (req, res) {
   BatchRecord.findByIdAndUpdate(req.params.id, {$set: { batchNumber: req.body.batchNumber,
-                                                        skuNum: req.body.skuNum,
+                                                        skuNumber: req.body.skuNumber,
                                                         'expiryDate.month': req.body.month,
                                                         'expiryDate.year': req.body.year }
                                                   }, {new: true}, function (err, updatedBatchRecord) {

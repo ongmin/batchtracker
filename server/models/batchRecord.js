@@ -27,7 +27,7 @@ var batchRecordSchema = Schema({
 
 // Creates compound index to ensure batchNumber and skuNum are unique pair
 batchRecordSchema.index({ batchNumber: 1,
-                          skuNum: 1
+                          skuNumber: 1
                         },
                         { unique: true })
 
