@@ -36,23 +36,12 @@ var filterableBatchRecordsTable = React.createClass({
   },
   componentDidMount: function () {
     this.loadDataFromServer()
-
-    window.fetch('/extract', {
-      method: 'GET',
-      cache: false
-    }).then(function (response) {
-      return response.json().then(function (json) {
-      console.log(json)
-      })
-    })
-
   },
   handleInputChange: function (e) {
     this.setState({queryBatchNumber: e.target.value})
   },
   handleQuerySubmit: function (obj) {
     console.log(obj)
-
     this.setState({ queryBatchNumber: obj['queryBatchNumber'] }, function () {
       $.ajax({
         url: batchRecordsEndpoint + this.state.queryBatchNumber,
