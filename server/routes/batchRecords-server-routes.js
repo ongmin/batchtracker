@@ -6,10 +6,10 @@ module.exports = function (app, moltin) {
   app.route('/api/batchRecords')
   .post(function (req, res) {
     var newBatchRecord = new BatchRecord()
-    moltin.Product.Find({ sku: req.body.skuNum }, function (product) {
+    moltin.Product.Find({ sku: req.body.skuNumber }, function (product) {
       newBatchRecord.productName = product[0].title
       newBatchRecord.batchNumber = req.body.batchNumber
-      newBatchRecord.skuNum = req.body.skuNum
+      newBatchRecord.skuNumber = req.body.skuNumber
       newBatchRecord.expiryDate.month = req.body.month
       newBatchRecord.expiryDate.year = req.body.year
       // Save the newBatchRecord

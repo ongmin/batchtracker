@@ -36,27 +36,45 @@ var inputView = React.createClass({
     this.setState({queryBatchNumber: e.target.value})
   },
   handlePostSubmit: function (obj) {
-    this.setState({ skuNumber: obj['skuNumber'], batchNumber: obj['batchNumber'], expiryMonth: obj['month'], expiryYear: obj['year'] }, function () {
-      $.ajax({
-        url: batchRecordsEndpoint,
-        dataType: 'json',
-        type: 'POST',
-        cache: false,
-        data: obj,
-        success: function (data) {
-          this.setState({batchRecords: data})
-        }.bind(this),
-        error: function (xhr, status, err) {
-          console.error(batchRecordsEndpoint, status, err.toString())
-        }
+    this.setState({ skuNumber: obj['skuNumber'],
+                    batchNumber: obj['batchNumber'],
+                    expiryMonth: obj['month'],
+                    expiryYear: obj['year'] },
+      function () {
+        $.ajax({
+          url: batchRecordsEndpoint,
+          dataType: 'json',
+          type: 'POST',
+          cache: false,
+          data: obj,
+          success: function (data) {
+            this.setState({batchRecords: data})
+          }.bind(this),
+          error: function (xhr, status, err) {
+            console.error(batchRecordsEndpoint, status, err.toString())
+          }
+        })
       })
-    })
   },
   handleDelete: function (id) {
     $.ajax({
       url: batchRecordsEndpoint + id,
       dataType: 'json',
       type: 'DELETE',
+      cache: false,
+      success: function (data) {
+        this.setState({batchRecords: data})
+      }.bind(this),
+      error: function (xhr, status, err) {
+        console.error(batchRecordsEndpoint + id, status, err.toString())
+      }
+    })
+  },
+  handleUpdate: function (id) {
+    $.ajax({
+      url: batchRecordsEndpoint + id,
+      dataType: 'json',
+      type: 'POST',
       cache: false,
       success: function (data) {
         this.setState({batchRecords: data})
@@ -84,6 +102,7 @@ var inputView = React.createClass({
               <InputTable
                 batchRecords={this.state.batchRecords}
                 onDelete={this.handleDelete}
+                onUpdate={this.handleUpdate}
               />
             </div>
   ) }

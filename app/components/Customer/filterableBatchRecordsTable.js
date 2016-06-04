@@ -43,7 +43,7 @@ var filterableBatchRecordsTable = React.createClass({
   handleQuerySubmit: function (obj) {
     console.log(obj)
 
-    this.setState({ queryBatchNumber: obj["queryBatchNumber"] }, function () {
+    this.setState({ queryBatchNumber: obj['queryBatchNumber'] }, function () {
       $.ajax({
         url: batchRecordsEndpoint + this.state.queryBatchNumber,
         dataType: 'json',
