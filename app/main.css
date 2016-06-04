@@ -1,5 +1,8 @@
 
-
+td.input-row-delete, td.input-row-edit {
+    cursor: pointer;
+    text-decoration: underline;
+}
 
 
 /***********************************************/

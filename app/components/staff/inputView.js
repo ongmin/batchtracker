@@ -14,6 +14,7 @@ var inputView = React.createClass({
       batchRecords: []
     }
   },
+
   loadDataFromServer: function () {
     $.ajax({
       url: batchRecordsEndpoint + this.state.queryBatchNumber,

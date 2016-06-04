@@ -4,6 +4,23 @@ var React = require('react')
 import { Link } from 'react-router'
 
 var Header = React.createClass({
+  getInitialState: function () {
+    return {
+      profile: null
+    }
+  },
+  showLock: function () {
+    this.props.lock.show()
+  },
+  componentDidMount: function() {
+    this.props.lock.getProfile(this.props.idToken, function (err, profile) {
+      if (err) {
+        console.log('Error loading the Profile', err)
+        return
+      }
+      this.setState({profile: profile})
+    }.bind(this))
+  },
   render: function () {
     return (
     <div className='topbar'>
@@ -18,6 +35,7 @@ var Header = React.createClass({
         <li><a href='https://www.paulaschoice.sg/'>Shop Paula&#39;s Choice</a></li>
         <li><a href='https://advice.paulaschoice.sg/'>Expert Advice</a></li>
         <li><Link to='/staff/batchRecords'>Staff</Link></li>
+        <li><div className='login-box'><a onClick={this.showLock}>Sign In</a></div></li>
         </ul>
       </div>
 
@@ -29,7 +47,7 @@ var Header = React.createClass({
           </a>
         </ul>
         <ul id='topbar-middle-right'>
-          Expiry Batch Tracker
+          Expiry Date Tracker
         </ul>
       </div>
 
