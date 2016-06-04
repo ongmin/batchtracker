@@ -12,6 +12,8 @@ module.exports = function (app, moltin) {
       newBatchRecord.skuNumber = req.body.skuNumber
       newBatchRecord.expiryDate.month = req.body.month
       newBatchRecord.expiryDate.year = req.body.year
+      console.log(product[0].title)
+
       // Save the newBatchRecord
       newBatchRecord.save(err => {
         if (err) return console.error(err)
