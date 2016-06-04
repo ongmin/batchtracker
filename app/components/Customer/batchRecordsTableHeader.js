@@ -5,11 +5,19 @@ var React = require('react')
 
 var batchRecordsTableHeader = React.createClass({
   render: function () {
-    return (
-      <div id='results-table-header'>
-      <p>All products in Batch {this.props.queryBatchNumber}</p>
-      </div>
-    )
+    if (this.props.queryBatchNumber.length > 0) {
+      return (
+        <div id='results-table-header'>
+          <p>All products in Batch {this.props.queryBatchNumber}</p>
+        </div>
+      )
+    } else if (this.props.queryBatchNumber.length === 0){
+      return (
+        <div id='results-table-header'>
+          <p>Search for a batch number to see results</p>
+        </div>
+      )
+    }
   }
 })
 

@@ -21,7 +21,7 @@ const moltin = require('moltin')({
 const root = path.join(__dirname, '../dist')
 
 mongoose.connect(dbUri)
-// app.use('/staff/batchRecords/', jwtCheck)
+app.use('/staff/batchRecords/', jwtCheck)
 
 moltin.Authenticate(function () {
   // Application starting point: Recommended to wrap  application's entry point inside the

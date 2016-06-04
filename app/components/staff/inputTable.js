@@ -8,18 +8,26 @@ var inputTable = React.createClass({
   render: function () {
       var rows = []
       this.props.batchRecords.forEach((batchRecord) => {
+        var row = <InputTableRow
+                    batchNumber={batchRecord.batchNumber}
+                    productName={batchRecord.productName}
+                    skuNumber={batchRecord.skuNumber}
+                    expiryMonth={batchRecord.expiryDate.month}
+                    expiryYear={batchRecord.expiryDate.year}
+                    key={batchRecord._id} id={batchRecord._id}
+                    onDelete={this.props.onDelete}
+                  />
         console.log(batchRecord._id)
-        rows.push(<InputTableRow batchNumber={batchRecord.batchNumber} productName={batchRecord.productName} skuNumber={batchRecord.skuNumber}
-          expiryMonth={batchRecord.expiryDate.month} expiryYear={batchRecord.expiryDate.year} key={batchRecord._id} id={batchRecord._id} onDelete={this.props.onDelete} />)
+        rows.push(row)
       })
     return (
         <table id='results-table'>
           <thead>
             <tr>
-              <th>Batch Number</th>
-              <th>Product Name</th>
-              <th>SKU Number</th>
-              <th>Expiry Date</th>
+              <th className='sku-number'>SKU Number</th>
+              <th className='product-name'>Product Name</th>
+              <th className='batch-number'>Batch Number</th>
+              <th className='expiry-date'>Expiry Date</th>
             </tr>
           </thead>
           <tbody>{rows}</tbody>

@@ -6,6 +6,7 @@ var Home = React.createClass({
   render: function () {
     return (
         <div className='contentContainer'>
+          <h2>Input batch records received</h2>
           <InputView />
       </div>
     )

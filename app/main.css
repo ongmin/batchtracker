@@ -1,8 +1,4 @@
 
-td.input-row-delete, td.input-row-edit {
-    cursor: pointer;
-    text-decoration: underline;
-}
 
 
 /***********************************************/
@@ -10,6 +6,7 @@ td.input-row-delete, td.input-row-edit {
 /*<===== Styling: Topbar =====================>*/
 /*<===== Styling: Search Page ================>*/
 /*<===== Styling: Staff View - Input Page ====>*/
+/*<===== Styling: Results Table ==============>*/
 /***********************************************/
 
 /*<=== General Styling ===>*/
@@ -160,9 +157,6 @@ ul#topbar-top-right > li > a:hover {
     text-decoration: underline;
 }
 
-
-
-
 #topbar-middle ul {
     display: inline-block;
     height: 100%;
@@ -207,14 +201,20 @@ ul#topbar-middle-right {
 table#results-table {
     margin: 0 auto;
     min-width: 600px;
-    max-width: 900px;
-    width: 60%;
+    max-width: 950px;
+    /* width: 60%; */
     background-color: #f8f8f8;
     border: 1px solid white;
 }
 
 div#results-table-header {
     text-decoration: underline;
+}
+
+table#results-table tbody tr td,
+table#results-table thead tr th {
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 input#batchsearch-search-input {
@@ -225,7 +225,6 @@ input#batchsearch-search-input {
     text-align: center;
     font-size: 13pt;
     color: #27bbcd;
-    /* border: 2px solid; */
 }
 
 input#batchsearch-input-button {
@@ -266,8 +265,6 @@ div#qmark {
     border-radius: 50%;
 }
 
-
-
 /*<=== Styling: Staff View - Input Page ===>*/
 
 input.input-form-field {
@@ -290,4 +287,20 @@ input#input-form-batch-input-button {
       text-transform: uppercase;
       cursor: pointer;
       border: 1px solid whitesmoke;
+}
+
+td.input-row-edit a {
+    color: black;
+}
+
+td.input-row-delete, td.input-row-edit {
+    color: black;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+/*<=== Styling: Results Table ===>*/
+.product-name {
+    text-align: left;
 }
