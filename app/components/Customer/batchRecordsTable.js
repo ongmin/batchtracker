@@ -6,12 +6,19 @@ var BatchRecordRow = require('./batchRecordRow')
 // If no results, display that there are no results
 var batchRecordsTable = React.createClass({
   render: function () {
-      var rows = []
-      this.props.batchRecords.forEach(function (batchRecord) {
-        rows.push(<BatchRecordRow batchNumber={batchRecord.batchNumber} productName={batchRecord.productName} skuNumber={batchRecord.skuNumber}
-          expiryMonth={batchRecord.expiryDate.month} expiryYear={batchRecord.expiryDate.year} key={ batchRecord.skuNum + batchRecord.batchNumber }/>)
-      })
-      return (
+    var rows = []
+    this.props.batchRecords.forEach(function (batchRecord) {
+      var row = <BatchRecordRow
+                  batchNumber={ batchRecord.batchNumber }
+                  productName={ batchRecord.productName }
+                  skuNumber={ batchRecord.skuNumber }
+                  expiryMonth={ batchRecord.expiryDate.month }
+                  expiryYear={ batchRecord.expiryDate.year }
+                  key={ batchRecord.skuNum + batchRecord.batchNumber }
+                />
+      rows.push(row)
+    })
+    return (
         <table id='results-table'>
           <thead>
             <tr>
@@ -23,8 +30,8 @@ var batchRecordsTable = React.createClass({
           </thead>
           <tbody>{rows}</tbody>
         </table>
-      );
-    }
+      )
+  }
 })
 
 module.exports = batchRecordsTable

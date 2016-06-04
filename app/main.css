@@ -1,20 +1,8 @@
-div#container-search-whereto div {
-    display: inline-block;
+
+td.input-row-delete, td.input-row-edit {
+    cursor: pointer;
+    text-decoration: underline;
 }
-
-
-div#qmark {
-    margin-right: 10px;
-    font-weight: 800;
-    border: 1px solid #aaa;
-    background-color: #f8f8f8;
-    height: 12px;
-    line-height: 12px;
-    width: 12px;
-    border-radius: 50%;
-}
-
-
 
 
 /***********************************************/
@@ -262,6 +250,22 @@ div#container-search-whereto {
     cursor: pointer;
     margin-left: -47px;
 }
+
+div#container-search-whereto div {
+    display: inline-block;
+}
+
+div#qmark {
+    margin-right: 10px;
+    font-weight: 800;
+    border: 1px solid #aaa;
+    background-color: #f8f8f8;
+    height: 12px;
+    line-height: 12px;
+    width: 12px;
+    border-radius: 50%;
+}
+
 
 
 /*<=== Styling: Staff View - Input Page ===>*/
