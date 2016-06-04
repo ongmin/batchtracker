@@ -14,7 +14,7 @@ var batchRecordsTable = React.createClass({
                   skuNumber={ batchRecord.skuNumber }
                   expiryMonth={ batchRecord.expiryDate.month }
                   expiryYear={ batchRecord.expiryDate.year }
-                  key={ batchRecord.skuNum + batchRecord.batchNumber }
+                  key={batchRecord._id}
                 />
       rows.push(row)
     })
