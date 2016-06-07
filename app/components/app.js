@@ -31,7 +31,6 @@ var App = React.createClass({
         <div>
           <Header lock={this.lock} idToken={this.state.idToken} />
           <div className='bodyContainer'>
-            <img id='background-image' src='images/BatchTracker-banner.jpg'/>
             {this.props.children}
           </div>
         </div>
@@ -41,7 +40,6 @@ var App = React.createClass({
         <div>
           <Header lock={this.lock}/>
           <div className='bodyContainer'>
-            <img id='background-image' src='images/BatchTracker-banner.jpg'/>
             {this.props.children}
           </div>
         </div>

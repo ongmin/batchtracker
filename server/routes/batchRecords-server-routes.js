@@ -34,7 +34,26 @@ module.exports = function (app, moltin) {
 
   app.route('/api/batchRecords/:id')
   .delete(batchRecords.delete)
-  .put(batchRecords.update)
+  .put(function (req, res) {
+    console.log(req.body.id)
+    moltin.Product.Find({ sku: req.body.skuNumber }, function (product) {
+      BatchRecord.findByIdAndUpdate(req.body.id,
+        {$set: {  productName: product[0].title,
+                  batchNumber: req.body.batchNumber,
+                  skuNumber: req.body.skuNumber,
+                  'expiryDate.month': req.body.month,
+                  'expiryDate.year': req.body.year }},
+        {new: true},
+        function (err, updatedBatchRecord) {
+          if (err) return console.error(err)
+          // then return the whole database
+            BatchRecord.find({}, function (err, batchRecords) {
+              if (err) throw err
+              res.json(batchRecords)
+            })
+        })
+    })
+  })
 
   app.route('/api/batchRecords/:batchNumber')
   .get(batchRecords.read)

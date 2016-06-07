@@ -24,17 +24,8 @@ body {
 }
 
 .bodyContainer {
-  display: block;
-  position: relative;
-  top: 130px;
-  /* left: 10px; */
-  /* right: 10px; */
   margin: 0 auto;
-  margin-bottom: 10px;
-  background-color: white;
-  font: 1em "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: black;
-  text-align: center;
+  margin-top: 140px;
 }
 
 .topbar {
@@ -46,7 +37,7 @@ body {
   z-index: 2;
 }
 
-.contentContainer {
+/*.contentContainer {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -56,13 +47,13 @@ body {
   align-content: center;
   text-align: center;
   z-index: 1;
-}
+}*/
 
-.bodyContainer img#background-image {
+/*.bodyContainer img#background-image {
     opacity: 0.4;
     box-shadow: 0px 0px 1px #515151;
     width: 80%;
-}
+}*/
 
 /*<=== Styling: Topbar ===>*/
 
@@ -183,6 +174,7 @@ ul#topbar-middle-right {
     color: #515151;
     font-size: 12pt;
     line-height: 70px;
+    letter-spacing: 1pt;
     float: right;
     margin-right: 80px;
     text-transform: uppercase;
@@ -232,7 +224,7 @@ input#batchsearch-input-button {
     padding: 0px 10px;
     margin-left: 5px;
     border-radius: 1px;
-    background-color: #27bbcd;
+    background-color: #94d5d1;
     color: #f8f8f8;
     text-transform: uppercase;
     /* border: none; */
@@ -267,6 +259,17 @@ div#qmark {
 
 /*<=== Styling: Staff View - Input Page ===>*/
 
+#container-input-form {
+  border: 1px solid #e1e5e6;
+  border-top: none;
+  background-image: url('images/BatchTracker-banner.jpg');
+  height: 225px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 245px
+}
+
 input.input-form-field {
     font-size: 10pt;
     border: 3px solid #27bbcd;
@@ -281,12 +284,11 @@ input#input-form-batch-input-button {
       height: 41px;
       padding: 5px 10px;
       margin-left: 5px;
-      border-radius: 1px;
-      background-color: #27bbcd;
+      border: none;
+      background-color: #94d5d1;
       color: #f8f8f8;
       text-transform: uppercase;
       cursor: pointer;
-      border: 1px solid whitesmoke;
 }
 
 td.input-row-edit a {
@@ -303,4 +305,45 @@ td.input-row-delete, td.input-row-edit {
 /*<=== Styling: Results Table ===>*/
 .product-name {
     text-align: left;
+}
+
+/*<=== Styling: Input Table ===>*/
+#results-table {
+  display: table;
+  margin: 0 auto;
+  width: 1200px;
+  font-size: 10pt;
+  border: 1px solid #d9e1e3;
+  bottom-top: 0;
+}
+#results-table  .results-table-header {
+  color: #605f5f;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.input-table-row {
+  color: #6d6d6d;
+  margin-top: 5px;
+  width: 1000px;
+  margin: 0 auto;
+}
+.sku-number , .batch-number, .input-row-edit, .input-row-delete, .product-name, .expiry-date  {
+  display: inline-block;
+}
+
+.sku-number , .batch-number {
+  width: 15%;
+}
+.input-row-edit {
+  width: 4%;
+}
+.input-row-delete {
+  width: 6%;
+}
+.product-name {
+  width: 45%;
+}
+.expiry-date {
+  width: 15%;
 }

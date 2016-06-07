@@ -1,13 +1,22 @@
 var React = require('react')
 import { Link } from 'react-router'
+var EditForm = require('./edit/editForm')
 
 // Displays single batchRecord details
 // Rewrite this as stateless functional component and remove this comment
 
 var inputTableRow = React.createClass({
-  handleDelete(){
+  getInitialState: function () {
+    return {
+      isEditFormOpen: false
+    }
+  },
+  handleDelete: function () {
     this.props.onDelete(this.props.id)
     console.log('deleted')
+  },
+  showEditForm: function () {
+    this.setState({isEditFormOpen: true})
   },
   render: function () {
     var expMonth = ''
@@ -26,20 +35,40 @@ var inputTableRow = React.createClass({
       case 12: expMonth = 'Dec'; break
       default: expMonth = 'Year'
     }
-    return (
-        <tr>
-        <td className='sku-number'>{this.props.skuNumber}</td>
-        <td className='product-name'>{this.props.productName}</td>
-        <td className='batch-number'>{this.props.batchNumber}</td>
-        <td className='expiry-date'> {expMonth} / {this.props.expiryYear}</td>
-        <td className='input-row-edit'>
-          <Link to={{
-                      pathname: `/staff/batchRecords/edit/${this.props.id}`                    }}>edit
-          </Link>
-        </td>
-        <td className='input-row-delete' onClick={this.handleDelete}>delete</td>
-        </tr>
-    )
+    if(this.state.isEditFormOpen) {
+      return (
+          <div className="input-table-row">
+            <span className='sku-number'>{this.props.skuNumber}</span>
+            <span className='product-name'>{this.props.productName}</span>
+            <span className='batch-number'>{this.props.batchNumber}</span>
+            <span className='expiry-date'> {expMonth} / {this.props.expiryYear}</span>
+            <span className='input-row-edit' onClick={this.showHideEditForm}>edit</span>
+            <span className='input-row-delete' onClick={this.handleDelete}>delete</span>
+            <EditForm
+              batchNumber={this.props.batchNumber}
+              productName={this.props.productName}
+              skuNumber={this.props.skuNumber}
+              expiryMonth={this.props.expiryMonth}
+              expiryYear={this.props.expiryYear}
+              id={this.props.id}
+              onPutSubmit={this.props.onUpdate}
+              />
+          </div>
+      )
+    }
+    else {
+      return (
+          <div className="input-table-row">
+            <span className='sku-number'>{this.props.skuNumber}</span>
+            <span className='product-name'>{this.props.productName}</span>
+            <span className='batch-number'>{this.props.batchNumber}</span>
+            <span className='expiry-date'> {expMonth} / {this.props.expiryYear}</span>
+            <span className='input-row-edit' onClick={this.showEditForm}>edit</span>
+            <span className='input-row-delete' onClick={this.handleDelete}>delete</span>
+          </div>
+      )
+    }
+
   }
 })
 

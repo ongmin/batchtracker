@@ -3,7 +3,8 @@ var InputTableRow = require('./inputTableRow')
 
 var inputTable = React.createClass({
   propTypes: {
-    onDelete: React.PropTypes.func.isRequired
+    onDelete: React.PropTypes.func.isRequired,
+    onUpdate: React.PropTypes.func.isRequired
   },
   render: function () {
       var rows = []
@@ -16,22 +17,23 @@ var inputTable = React.createClass({
                     expiryYear={batchRecord.expiryDate.year}
                     key={batchRecord._id} id={batchRecord._id}
                     onDelete={this.props.onDelete}
+                    onUpdate={this.props.onUpdate}
                   />
         console.log(batchRecord._id)
         rows.push(row)
       })
     return (
-        <table id='results-table'>
-          <thead>
-            <tr>
-              <th className='sku-number'>SKU Number</th>
-              <th className='product-name'>Product Name</th>
-              <th className='batch-number'>Batch Number</th>
-              <th className='expiry-date'>Expiry Date</th>
-            </tr>
-          </thead>
-          <tbody>{rows}</tbody>
-        </table>
+        <div id='results-table'>
+          <div className="results-table-header">
+            <div className='sku-number'>SKU Number</div>
+            <div className='product-name'>Product Name</div>
+            <div className='batch-number'>Batch Number</div>
+            <div className='expiry-date'>Expiry Date</div>
+            <div className='input-row-edit'></div>
+            <div className='input-row-delete'></div>
+          </div>
+          <div className='results-table-body'>{rows}</div>
+        </div>
       )
   }
 })
