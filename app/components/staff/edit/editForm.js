@@ -9,7 +9,6 @@ var editForm = React.createClass({
       editValueExpiryYear: this.props.expiryYear
     }
   },
-
   handleInputChangeSKU: function (e) {
     this.setState({editValueSKU: e.target.value})
   },
@@ -35,6 +34,9 @@ var editForm = React.createClass({
 
     this.props.onPutSubmit({ skuNumber: skuNumber, batchNumber: batchNumber, month: expiryMonth, year: expiryYear, id: this.props.id})
     this.setState({editValueSKU: skuNumber, editValueBatch: batchNumber, editValueExpiryMonth: expiryMonth, editValueExpiryYear: expiryYear})
+  },
+  closeEdit: function () {
+    console.log('close sesame')
   },
   render: function () {
     return (
@@ -71,9 +73,10 @@ var editForm = React.createClass({
           <input
             id='edit-form-batch-input-button'
             type='submit'
-            value='Put'
+            value='Save'
             txt='Save' />
         </form>
+        <span onClick={this.props.closeEditForm}>X</span>
       </div>
     )
   }

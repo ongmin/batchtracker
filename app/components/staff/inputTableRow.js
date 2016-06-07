@@ -18,6 +18,9 @@ var inputTableRow = React.createClass({
   showEditForm: function () {
     this.setState({isEditFormOpen: true})
   },
+  closeEditForm: function () {
+    this.setState({isEditFormOpen: false})
+  },
   render: function () {
     var expMonth = ''
     switch (this.props.expiryMonth) {
@@ -52,6 +55,7 @@ var inputTableRow = React.createClass({
               expiryYear={this.props.expiryYear}
               id={this.props.id}
               onPutSubmit={this.props.onUpdate}
+              closeEditForm={this.closeEditForm}
               />
           </div>
       )
