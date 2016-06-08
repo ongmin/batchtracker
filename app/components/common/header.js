@@ -1,16 +1,18 @@
 'use strict'
 
 var React = require('react')
-import { Link } from 'react-router'
+import { Link, withRouter } from 'react-router'
 
-var Header = React.createClass({
+var Header = withRouter ( React.createClass({
   getInitialState: function () {
     return {
       profile: null
     }
   },
   showLock: function () {
-    this.props.lock.show()
+    this.props.lock.show({
+      // callbackURL: 'http://localhost:8080/staff/batchRecords'
+    })
   },
   componentDidMount: function() {
     this.props.lock.getProfile(this.props.idToken, function (err, profile) {
@@ -20,6 +22,10 @@ var Header = React.createClass({
       }
       this.setState({profile: profile})
     }.bind(this))
+  },
+  logOut: function() {
+    localStorage.removeItem('userToken')
+    this.props.router.replace('/')
   },
   render: function () {
     return (
@@ -34,8 +40,14 @@ var Header = React.createClass({
         <li><Link to='/'>Home</Link></li>
         <li><a href='https://www.paulaschoice.sg/'>Shop Paula&#39;s Choice</a></li>
         <li><a href='https://advice.paulaschoice.sg/'>Expert Advice</a></li>
-        <li><Link to='/staff/batchRecords'>Staff</Link></li>
-        <li><div className='login-box'><a onClick={this.showLock}>Sign In</a></div></li>
+        {!!localStorage.userToken ?
+          <li><Link to='/staff/batchRecords'>Staff</Link></li>
+          : <li><div className='login-box'><a onClick={this.showLock}>Sign In</a></div></li>
+        }
+        {!!localStorage.userToken ?
+          <li><a onClick={this.logOut}>Logout</a></li> :
+          null
+        }
         </ul>
       </div>
 
@@ -57,7 +69,7 @@ var Header = React.createClass({
     </div>
     )
   }
-})
+}))
 
 module.exports = Header
 

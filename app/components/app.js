@@ -7,7 +7,8 @@ import { Router, Route, Link } from 'react-router'
 
 var App = React.createClass({
   componentWillMount: function () {
-      this.lock = new Auth0Lock('KIiRYkKqHIoj8wphC5YOLWge55ipeCTF', 'makantime.auth0.com')
+      // this.lock = new Auth0Lock('KIiRYkKqHIoj8wphC5YOLWge55ipeCTF', 'makantime.auth0.com')
+      this.lock = new Auth0Lock('pyoICxnYbHkIf0azgqVB2bucWqAFUdKY', 'belgian-chocolate.auth0.com');
       this.setState({idToken: this.getIdToken()})
   },
   getIdToken: function () {
