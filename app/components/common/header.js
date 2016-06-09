@@ -3,21 +3,15 @@
 var React = require('react')
 import { Link, withRouter } from 'react-router'
 
-var Header = withRouter ( React.createClass({
-  getInitialState: function () {
+var Header = withRouter (
+  React.createClass({
+    getInitialState: function () {
     return {
       profile: null
     }
   },
   showLock: function () {
     this.props.lock.show()
-    const { location } = this.props
-
-    if (location.state && location.state.nextPathname) {
-      this.props.router.replace(location.state.nextPathname)
-    } else {
-      this.props.router.replace('/')
-    }
   },
   componentDidMount: function() {
     this.props.lock.getProfile(this.props.idToken, function (err, profile) {
