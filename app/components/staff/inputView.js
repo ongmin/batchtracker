@@ -6,15 +6,20 @@ var InputFormMatchingProduct = require('./InputFormMatchingProduct')
 
 var batchRecordsEndpoint = '/api/batchrecords/'
 var batchRecordsProtectedEndpoint = '/api/protected/batchrecords/'
+import Pagination from "react-js-pagination";
 
 var inputView = React.createClass({
   getInitialState: function () {
     return {
       queryBatchNumber: '',
-      batchRecords: []
+      batchRecords: [],
+      activePage: 1
     }
   },
-
+  handlePageChange(pageNumber) {
+     this.setState({activePage: pageNumber});
+     console.log(`active page is ${pageNumber}`);
+   },
   loadDataFromServer: function () {
     $.ajax({
       beforeSend: function(xhr) {
@@ -113,7 +118,6 @@ var inputView = React.createClass({
   },
   render: function () {
     const form = this.props.form
-
     return (
             <div>
               <InputForm
@@ -126,6 +130,12 @@ var inputView = React.createClass({
                 onDelete={this.handleDelete}
                 onUpdate={this.handleUpdate}
               />
+              <Pagination
+                 activePage={this.state.activePage}
+                 totalItemsCount={this.state.batchRecords.length}
+                 itemsCountPerPage={2}
+                 onChange={this.handlePageChange}
+               />
             </div>
   ) }
 })
