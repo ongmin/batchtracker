@@ -10,9 +10,14 @@ var Header = withRouter ( React.createClass({
     }
   },
   showLock: function () {
-    this.props.lock.show({
-      // callbackURL: 'http://localhost:8080/staff/batchRecords'
-    })
+    this.props.lock.show()
+    const { location } = this.props
+
+    if (location.state && location.state.nextPathname) {
+      this.props.router.replace(location.state.nextPathname)
+    } else {
+      this.props.router.replace('/')
+    }
   },
   componentDidMount: function() {
     this.props.lock.getProfile(this.props.idToken, function (err, profile) {

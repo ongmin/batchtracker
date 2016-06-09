@@ -4,6 +4,9 @@ var BatchRecord = require('./../models/batchRecord.js')
 module.exports = function (app, moltin) {
   var batchRecords = require('./../controllers/batchRecords-server-controller.js')
   app.route('/api/batchRecords')
+  .get(batchRecords.all)
+
+  app.route('/api/protected/batchRecords')
   .post(function (req, res) {
     var newBatchRecord = new BatchRecord()
     moltin.Product.Find({ sku: req.body.skuNumber }, function (product) {
@@ -30,9 +33,8 @@ module.exports = function (app, moltin) {
     })
   })
   // .post(batchRecords.create)
-  .get(batchRecords.all)
 
-  app.route('/api/batchRecords/:id')
+  app.route('/api/protected/batchRecords/:id')
   .delete(batchRecords.delete)
   .put(function (req, res) {
     console.log(req.body.id)

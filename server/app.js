@@ -9,8 +9,12 @@ import dbUri from './models/uri'
 import jwt from 'express-jwt'
 const app = express()
 
-var jwtCheck = jwt({ secret: new Buffer(process.env.BATCHTRACKER_AUTH0_BACK_KEY, 'base64'),
-  audience: process.env.BATCHTRACKER_AUTH0_BACK_CLIENTID
+// var jwtCheck = jwt({ secret: new Buffer(process.env.BATCHTRACKER_AUTH0_BACK_KEY, 'base64'),
+//   audience: process.env.BATCHTRACKER_AUTH0_BACK_CLIENTID
+// })
+var jwtCheck = jwt({
+  secret: new Buffer('Z5MvqjrzO224Y2kcMQo7Ovj54V6rFkhWyjgJDWsjpGcPpHWXmoe5dVvmlCmRmxKu', 'base64'),
+  audience: 'pyoICxnYbHkIf0azgqVB2bucWqAFUdKY'
 })
 
 const moltin = require('moltin')({
@@ -21,7 +25,7 @@ const moltin = require('moltin')({
 const root = path.join(__dirname, '../dist')
 
 mongoose.connect(dbUri)
-// app.use('/staff/batchRecords/', jwtCheck)
+app.use('/api/protected/batchRecords/', jwtCheck)
 
 moltin.Authenticate(function () {
   // Application starting point: Recommended to wrap  application's entry point inside the
@@ -33,7 +37,7 @@ moltin.Authenticate(function () {
   app.use(express.static(root))
   app.use(cors())
 
-  require('./routes/batchRecords-server-routes.js')(app, moltin)
+  require('./routes/batchRecords-server-routes.js')(app, moltin, jwtCheck)
 
   app.get('/', function (req, res) { res.render('../app/index.html') })
   app.use(fallback('index.html', { root: root }))

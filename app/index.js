@@ -11,10 +11,12 @@ function loggedIn() {
 }
 
 function requireAuth (nextState, replace) {
-  console.log(loggedIn())
+  console.log("Is logged in?", loggedIn())
+  console.log('in require auth')
+  console.log(nextState)
   if (!loggedIn()) {
       replace({
-        pathname: '/',
+        pathname: '/forbidden',
         state: { nextPathname: nextState.location.pathname }
       })
     }
@@ -24,8 +26,9 @@ render((
   <Router history={browserHistory}>
     <Route path='/' component={require('./components/app')}>
       <IndexRoute component={require('./components/homePage')} />
+      <Route path="forbidden" component={require('./components/forbidden')} />
       <Route path='staff' component={require('./components/staffView')}>
-        <Route path="batchRecords" component={require('./components/staff/inputView')} onEnter={requireAuth}>
+        <Route path="batchRecords" component={require('./components/staff/inputView')}>
           <Route path="edit/:id" components={ {form: require('./components/staff/edit/editForm')} } />
         </Route>
       </Route>

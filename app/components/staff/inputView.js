@@ -5,6 +5,7 @@ var InputTable = require('./inputTable')
 var InputFormMatchingProduct = require('./InputFormMatchingProduct')
 
 var batchRecordsEndpoint = '/api/batchrecords/'
+var batchRecordsProtectedEndpoint = '/api/protected/batchrecords/'
 
 var inputView = React.createClass({
   getInitialState: function () {
@@ -16,6 +17,12 @@ var inputView = React.createClass({
 
   loadDataFromServer: function () {
     $.ajax({
+      beforeSend: function(xhr) {
+         if (localStorage.getItem('userToken')) {
+           xhr.setRequestHeader('Authorization',
+                 'Bearer ' + localStorage.getItem('userToken'));
+         }
+       },
       url: batchRecordsEndpoint + this.state.queryBatchNumber,
       dataType: 'json',
       type: 'GET',
@@ -42,7 +49,13 @@ var inputView = React.createClass({
                     expiryYear: obj['year'] },
       function () {
         $.ajax({
-          url: batchRecordsEndpoint,
+          beforeSend: function(xhr) {
+             if (localStorage.getItem('userToken')) {
+               xhr.setRequestHeader('Authorization',
+                     'Bearer ' + localStorage.getItem('userToken'));
+             }
+           },
+          url: batchRecordsProtectedEndpoint,
           dataType: 'json',
           type: 'POST',
           cache: false,
@@ -58,7 +71,13 @@ var inputView = React.createClass({
   },
   handleDelete: function (id) {
     $.ajax({
-      url: batchRecordsEndpoint + id,
+      beforeSend: function(xhr) {
+         if (localStorage.getItem('userToken')) {
+           xhr.setRequestHeader('Authorization',
+                 'Bearer ' + localStorage.getItem('userToken'));
+         }
+       },
+      url: batchRecordsProtectedEndpoint + id,
       dataType: 'json',
       type: 'DELETE',
       cache: false,
@@ -73,7 +92,13 @@ var inputView = React.createClass({
   handleUpdate: function (obj) {
     console.log(obj.id)
     $.ajax({
-      url: batchRecordsEndpoint + obj.id,
+      beforeSend: function(xhr) {
+         if (localStorage.getItem('userToken')) {
+           xhr.setRequestHeader('Authorization',
+                 'Bearer ' + localStorage.getItem('userToken'));
+         }
+       },
+      url: batchRecordsProtectedEndpoint + obj.id,
       dataType: 'json',
       type: 'PUT',
       cache: false,
@@ -82,7 +107,7 @@ var inputView = React.createClass({
         this.setState({batchRecords: data})
       }.bind(this),
       error: function (xhr, status, err) {
-        console.error(batchRecordsEndpoint + obj.id, status, err.toString())
+        console.error(batchRecordsProtectedEndpoint + obj.id, status, err.toString())
       }
     })
   },

@@ -262,12 +262,11 @@ div#qmark {
 #container-input-form {
   border: 1px solid #e1e5e6;
   border-top: none;
-  background-image: url('images/BatchTracker-banner.jpg');
-  height: 225px;
+  background-image: url('images/BatchCode-banner3.jpg');
+  height: 186px;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
-  padding-top: 245px
 }
 
 input.input-form-field {
