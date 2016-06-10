@@ -7,7 +7,8 @@ import { Router, Route, Link } from 'react-router'
 
 var App = React.createClass({
   componentWillMount: function () {
-      this.lock = new Auth0Lock('KIiRYkKqHIoj8wphC5YOLWge55ipeCTF', 'makantime.auth0.com')
+      // this.lock = new Auth0Lock('KIiRYkKqHIoj8wphC5YOLWge55ipeCTF', 'makantime.auth0.com')
+      this.lock = new Auth0Lock('pyoICxnYbHkIf0azgqVB2bucWqAFUdKY', 'belgian-chocolate.auth0.com');
       this.setState({idToken: this.getIdToken()})
   },
   getIdToken: function () {
@@ -31,7 +32,6 @@ var App = React.createClass({
         <div>
           <Header lock={this.lock} idToken={this.state.idToken} />
           <div className='bodyContainer'>
-            <img id='background-image' src='images/BatchTracker-banner.jpg'/>
             {this.props.children}
           </div>
         </div>
@@ -41,7 +41,6 @@ var App = React.createClass({
         <div>
           <Header lock={this.lock}/>
           <div className='bodyContainer'>
-            <img id='background-image' src='images/BatchTracker-banner.jpg'/>
             {this.props.children}
           </div>
         </div>

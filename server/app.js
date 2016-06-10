@@ -21,7 +21,7 @@ const moltin = require('moltin')({
 const root = path.join(__dirname, '../dist')
 
 mongoose.connect(dbUri)
-app.use('/staff/batchRecords/', jwtCheck)
+app.use('/api/protected/batchRecords/', jwtCheck)
 
 moltin.Authenticate(function () {
   // Application starting point: Recommended to wrap  application's entry point inside the
@@ -33,7 +33,7 @@ moltin.Authenticate(function () {
   app.use(express.static(root))
   app.use(cors())
 
-  require('./routes/batchRecords-server-routes.js')(app, moltin)
+  require('./routes/batchRecords-server-routes.js')(app, moltin, jwtCheck)
 
   app.get('/', function (req, res) { res.render('../app/index.html') })
   app.use(fallback('index.html', { root: root }))

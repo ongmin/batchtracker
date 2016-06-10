@@ -1,22 +1,32 @@
 var React = require('react')
 var InputForm = require('./inputForm')
-var EditForm = require('./edit/editForm')
 var InputTableHeader = require('./inputTableHeader')
 var InputTable = require('./inputTable')
 var InputFormMatchingProduct = require('./InputFormMatchingProduct')
 
 var batchRecordsEndpoint = '/api/batchrecords/'
+var batchRecordsProtectedEndpoint = '/api/protected/batchrecords/'
+import Pagination from "react-js-pagination";
 
 var inputView = React.createClass({
   getInitialState: function () {
     return {
       queryBatchNumber: '',
-      batchRecords: []
-    }
+      batchRecords: [],
+      activePage: 1    }
   },
-
+  handlePageChange(pageNumber) {
+     this.setState({activePage: pageNumber});
+     console.log(`active page is ${pageNumber}`);
+   },
   loadDataFromServer: function () {
     $.ajax({
+      beforeSend: function(xhr) {
+         if (localStorage.getItem('userToken')) {
+           xhr.setRequestHeader('Authorization',
+                 'Bearer ' + localStorage.getItem('userToken'));
+         }
+       },
       url: batchRecordsEndpoint + this.state.queryBatchNumber,
       dataType: 'json',
       type: 'GET',
@@ -43,7 +53,13 @@ var inputView = React.createClass({
                     expiryYear: obj['year'] },
       function () {
         $.ajax({
-          url: batchRecordsEndpoint,
+          beforeSend: function(xhr) {
+             if (localStorage.getItem('userToken')) {
+               xhr.setRequestHeader('Authorization',
+                     'Bearer ' + localStorage.getItem('userToken'));
+             }
+           },
+          url: batchRecordsProtectedEndpoint,
           dataType: 'json',
           type: 'POST',
           cache: false,
@@ -59,7 +75,13 @@ var inputView = React.createClass({
   },
   handleDelete: function (id) {
     $.ajax({
-      url: batchRecordsEndpoint + id,
+      beforeSend: function(xhr) {
+         if (localStorage.getItem('userToken')) {
+           xhr.setRequestHeader('Authorization',
+                 'Bearer ' + localStorage.getItem('userToken'));
+         }
+       },
+      url: batchRecordsProtectedEndpoint + id,
       dataType: 'json',
       type: 'DELETE',
       cache: false,
@@ -71,40 +93,48 @@ var inputView = React.createClass({
       }
     })
   },
-  handleUpdate: function (id) {
+  handleUpdate: function (obj) {
+    console.log(obj.id)
     $.ajax({
-      url: batchRecordsEndpoint + id,
+      beforeSend: function(xhr) {
+         if (localStorage.getItem('userToken')) {
+           xhr.setRequestHeader('Authorization',
+                 'Bearer ' + localStorage.getItem('userToken'));
+         }
+       },
+      url: batchRecordsProtectedEndpoint + obj.id,
       dataType: 'json',
-      type: 'POST',
+      type: 'PUT',
       cache: false,
+      data: obj,
       success: function (data) {
         this.setState({batchRecords: data})
       }.bind(this),
       error: function (xhr, status, err) {
-        console.error(batchRecordsEndpoint + id, status, err.toString())
+        console.error(batchRecordsProtectedEndpoint + obj.id, status, err.toString())
       }
     })
   },
   render: function () {
     const form = this.props.form
-
     return (
             <div>
-              <div className='form'>
-                <InputForm
+              <InputForm
                   value={this.state.queryBatchNumber}
                   onChange={this.handleInputChange}
                   onPostSubmit={this.handlePostSubmit}
-                  />
-              </div>
-              <InputFormMatchingProduct />
-              <InputTableHeader
-                queryBatchNumber={this.state.queryBatchNumber} />
+                />
               <InputTable
-                batchRecords={this.state.batchRecords}
+                batchRecords={this.state.batchRecords.slice(2 * (this.state.activePage-1), 2 * this.state.activePage )}
                 onDelete={this.handleDelete}
                 onUpdate={this.handleUpdate}
               />
+              <Pagination
+                 activePage={this.state.activePage}
+                 totalItemsCount={this.state.batchRecords.length}
+                 itemsCountPerPage={2}
+                 onChange={this.handlePageChange}
+               />
             </div>
   ) }
 })
