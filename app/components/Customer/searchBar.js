@@ -27,7 +27,7 @@ var searchBar = React.createClass({
   },
   render: function () {
     return (
-      <div id='container-search'>
+      <div>
         <form onSubmit={this.handleSubmit}>
           <input
             id='batchsearch-search-input'

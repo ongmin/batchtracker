@@ -245,7 +245,14 @@ div#container-search-whereto {
 div#container-search-whereto div {
     display: inline-block;
 }
-
+div#container-search {
+  background-image: url('images/BatchTracker-Banner.jpg');
+  height: 472px;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 245px;
+}
 div#qmark {
     margin-right: 10px;
     font-weight: 800;
@@ -262,6 +269,7 @@ div#qmark {
 #container-input-form {
   border: 1px solid #e1e5e6;
   border-top: none;
+  border-bottom: none;
   background-image: url('images/BatchCode-banner3.jpg');
   padding-top: 75px;
   box-sizing: border-box;

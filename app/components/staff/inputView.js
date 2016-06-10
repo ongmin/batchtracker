@@ -13,8 +13,7 @@ var inputView = React.createClass({
     return {
       queryBatchNumber: '',
       batchRecords: [],
-      activePage: 1
-    }
+      activePage: 1    }
   },
   handlePageChange(pageNumber) {
      this.setState({activePage: pageNumber});
@@ -126,7 +125,7 @@ var inputView = React.createClass({
                   onPostSubmit={this.handlePostSubmit}
                 />
               <InputTable
-                batchRecords={this.state.batchRecords}
+                batchRecords={this.state.batchRecords.slice(2 * (this.state.activePage-1), 2 * this.state.activePage )}
                 onDelete={this.handleDelete}
                 onUpdate={this.handleUpdate}
               />

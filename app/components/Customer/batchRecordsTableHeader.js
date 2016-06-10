@@ -11,7 +11,7 @@ var batchRecordsTableHeader = React.createClass({
     } else if (this.props.queryBatchNumber.length === 0){
       return (
         <div id='results-table-header'>
-          <p>Click Search to view all matching products in batch</p>
+          <p>Click check to view all matching products in batch</p>
         </div>
       )
     }

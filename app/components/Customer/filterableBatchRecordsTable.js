@@ -61,11 +61,13 @@ var filterableBatchRecordsTable = React.createClass({
   render: function () {
     return (
             <div>
-              <SearchBar
-                value={this.state.queryBatchNumber}
-                onChange={this.handleInputChange}
-                onQuerySubmit={this.handleQuerySubmit} />
-              <div>'Test-Parent ' + {this.state.queryBatchNumber} </div>
+              <div id='container-search'>
+                <SearchBar
+                  value={this.state.queryBatchNumber}
+                  onChange={this.handleInputChange}
+                  onQuerySubmit={this.handleQuerySubmit} />
+                <div>'Test-Parent ' + {this.state.queryBatchNumber} </div>
+              </div>
               <BatchRecordsTableHeader
                 queryBatchNumber={this.state.queryBatchNumber} />
               <BatchRecordsTable
