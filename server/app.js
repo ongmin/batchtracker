@@ -9,12 +9,8 @@ import dbUri from './models/uri'
 import jwt from 'express-jwt'
 const app = express()
 
-// var jwtCheck = jwt({ secret: new Buffer(process.env.BATCHTRACKER_AUTH0_BACK_KEY, 'base64'),
-//   audience: process.env.BATCHTRACKER_AUTH0_BACK_CLIENTID
-// })
-var jwtCheck = jwt({
-  secret: new Buffer('Z5MvqjrzO224Y2kcMQo7Ovj54V6rFkhWyjgJDWsjpGcPpHWXmoe5dVvmlCmRmxKu', 'base64'),
-  audience: 'pyoICxnYbHkIf0azgqVB2bucWqAFUdKY'
+var jwtCheck = jwt({ secret: new Buffer(process.env.BATCHTRACKER_AUTH0_BACK_KEY, 'base64'),
+  audience: process.env.BATCHTRACKER_AUTH0_BACK_CLIENTID
 })
 
 const moltin = require('moltin')({

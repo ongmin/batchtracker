@@ -26,7 +26,7 @@ render((
       <Route path="forbidden" component={require('./components/forbidden')} />
       <Route path='staff' component={require('./components/staffView')} onEnter={requireAuth}>
         <Route path="batchRecords" component={require('./components/staff/inputView')}>
-          <Route path="edit/:id" components={ {form: require('./components/staff/edit/editForm')} } />
+          <Route path="delete/:id" components={ {form: require('./components/staff/delete/deleteForm')} } />
         </Route>
       </Route>
       <Route path='*' component={require('./components/notFoundPage')}/>
