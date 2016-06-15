@@ -17,15 +17,19 @@ var inputForm = React.createClass({
 
   handleInputChangeSKU: function (e) {
     this.setState({inputValueSKU: e.target.value})
+    this.props.onInputChange()
   },
   handleInputChangeBatch: function (e) {
     this.setState({inputValueBatch: e.target.value})
+    this.props.onInputChange()
   },
   handleInputChangeExpiryMonth: function (e) {
     this.setState({inputValueExpiryMonth: e.target.value})
+    this.props.onInputChange()
   },
   handleInputChangeExpiryYear: function (e) {
     this.setState({inputValueExpiryYear: e.target.value})
+    this.props.onInputChange()
   },
   handlePostSubmit: function (e) {
     e.preventDefault()
@@ -33,7 +37,6 @@ var inputForm = React.createClass({
     var batchNumber = this.state.inputValueBatch
     var expiryMonth = this.state.inputValueExpiryMonth
     var expiryYear = this.state.inputValueExpiryYear
-
     if (!skuNumber || !batchNumber || !expiryMonth || !expiryYear) {
       return
     }
@@ -78,7 +81,7 @@ var inputForm = React.createClass({
             type='submit'
             value='Post'
             txt='Submit' />
-          <div>'value' + {this.state.queryBatchNumber}</div>
+          <div>{this.state.inputValueSKU}</div>
         </form>
       </div>
     )

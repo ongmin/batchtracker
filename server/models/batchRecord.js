@@ -10,10 +10,28 @@ var Schema = mongoose.Schema
 var batchRecordSchema = Schema({
   skuNumber: { type: String, required: '{PATH} is required!' },
   batchNumber: { type: String, required: '{PATH} is required!' },
-  productName: String,
+  productName: { type: String, required: 'Invalid SKU Number'},
   expiryDate: {
-    month: { type: Number, required: '{PATH} is required!', min: 1, max: 12 },
-    year: { type: Number, required: '{PATH} is required!' }
+    month: {
+      type: Number,
+      required: '{PATH} is required!',
+      min: 1,
+      max: 12
+      // validate: {
+      //   validator: Number.isInteger,
+      //   message: '{PATH} is not an integer value'
+      // }
+    },
+    year: {
+      type: Number,
+      required: '{PATH} is required!',
+      min: 2016,
+      max: 2050
+      // validate: {
+      //   validator: Number.isInteger,
+      //   message: '{PATH} is not an integer value'
+      // }
+    }
   }
 })
 

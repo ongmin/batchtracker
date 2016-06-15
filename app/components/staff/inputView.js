@@ -13,7 +13,9 @@ var inputView = React.createClass({
     return {
       queryBatchNumber: '',
       batchRecords: [],
-      activePage: 1    }
+      activePage: 1,
+      recordStatus: []
+    }
   },
   handlePageChange(pageNumber) {
      this.setState({activePage: pageNumber});
@@ -44,7 +46,8 @@ var inputView = React.createClass({
     this.loadDataFromServer()
   },
   handleInputChange: function (e) {
-    this.setState({queryBatchNumber: e.target.value})
+    // this.setState({queryBatchNumber: e.target.value})
+    this.setState({recordStatus: []})
   },
   handlePostSubmit: function (obj) {
     this.setState({ skuNumber: obj['skuNumber'],
@@ -66,10 +69,18 @@ var inputView = React.createClass({
           data: obj,
           success: function (data) {
             this.setState({batchRecords: data})
+            this.setState({recordStatus: ["Record Successfully Submitted"]})
           }.bind(this),
           error: function (xhr, status, err) {
-            console.error(batchRecordsEndpoint, status, err.toString())
-          }
+            var inputErrors = ''
+            if(xhr.responseText[0] === '[') {
+              inputErrors = JSON.parse(xhr.responseText)
+            }
+            else {
+              inputErrors = [xhr.responseText]
+            }
+            this.setState({recordStatus: inputErrors})
+          }.bind(this)
         })
       })
   },
@@ -123,6 +134,7 @@ var inputView = React.createClass({
                   value={this.state.queryBatchNumber}
                   onChange={this.handleInputChange}
                   onPostSubmit={this.handlePostSubmit}
+                  onInputChange={this.handleInputChange}
                 />
               <InputTable
                 batchRecords={this.state.batchRecords.slice(2 * (this.state.activePage-1), 2 * this.state.activePage )}
@@ -135,6 +147,7 @@ var inputView = React.createClass({
                  itemsCountPerPage={2}
                  onChange={this.handlePageChange}
                />
+               {this.state.recordStatus}
             </div>
   ) }
 })
