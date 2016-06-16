@@ -1,4 +1,5 @@
 var React = require('react')
+import { Link } from 'react-router'
 
 const modal = React.createClass({
   styles: {

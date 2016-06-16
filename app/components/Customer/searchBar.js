@@ -1,8 +1,6 @@
 var React = require('react')
-// import AppActions from '../../actions/app-actions'
+import { Link } from 'react-router'
 
-// Takes in an input queryBatchNumber
-// Rewrite this as stateless functional component and remove this comment
 var searchBar = React.createClass({
   propTypes: {
     onQuerySubmit: React.PropTypes.func.isRequired
@@ -40,7 +38,6 @@ var searchBar = React.createClass({
             type='submit'
             value='Check'
             txt='Check' />
-          <div id='container-search-whereto'><div id='qmark'>?</div>Where do I find the Batch Number?</div>
           <div>'Test-child ' + {this.state.queryBatchNumber}</div>
         </form>
       </div>

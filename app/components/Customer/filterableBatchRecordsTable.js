@@ -2,6 +2,8 @@ var React = require('react')
 var SearchBar = require('./searchBar')
 var BatchRecordsTableHeader = require('./batchRecordsTableHeader')
 var BatchRecordsTable = require('./batchRecordsTable')
+import { Link } from 'react-router'
+
 
 // State lives in filterableBatchRecordsTable component
 // Customer inputs queryBatchNumber into searchBar and hits searchBar-button
@@ -66,6 +68,12 @@ var filterableBatchRecordsTable = React.createClass({
                   value={this.state.queryBatchNumber}
                   onChange={this.handleInputChange}
                   onQuerySubmit={this.handleQuerySubmit} />
+                  <Link to={{
+                      pathname: `/guide`,
+                      state: { modal: true, returnTo: this.props.location.pathname }
+                    }}
+                  ><div id='container-search-whereto'><div id='qmark'>?</div>Where do I find the Batch Number?</div>
+                  </Link>
                 <div>'Test-Parent ' + {this.state.queryBatchNumber} </div>
               </div>
               <BatchRecordsTableHeader
