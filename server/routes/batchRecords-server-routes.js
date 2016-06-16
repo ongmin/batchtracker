@@ -74,7 +74,21 @@ module.exports = function (app, moltin) {
                   'expiryDate.year': req.body.year }},
         {new: true},
         function (err, updatedBatchRecord) {
-          if (err) return console.error(err)
+          if (err) {
+            if(err.code === 11000) {
+              res.status(409).send('Record is already in the database.')
+            }
+            else {
+              var errors = []
+              for (var property in err.errors) {
+                // console.log(err.errors[property].message)
+                  errors.push(err.errors[property].message)
+              }
+                res.status(400).json(errors)
+            }
+            return
+          }
+
           // then return the whole database
             BatchRecord.find({}, function (err, batchRecords) {
               if (err) throw err

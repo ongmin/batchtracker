@@ -35,13 +35,12 @@ var editForm = React.createClass({
     this.props.onPutSubmit({ skuNumber: skuNumber, batchNumber: batchNumber, month: expiryMonth, year: expiryYear, id: this.props.id})
     this.setState({editValueSKU: skuNumber, editValueBatch: batchNumber, editValueExpiryMonth: expiryMonth, editValueExpiryYear: expiryYear})
   },
-  closeEdit: function () {
-    console.log('close sesame')
-  },
+
   render: function () {
     return (
       <div id='container-edit-form'>
         <form onSubmit={this.handlePutSubmit}>
+        <label for="edit-form-sku">SKU Number</label>
           <input
             className='edit-form-field'
             id='edit-form-sku'
@@ -49,6 +48,7 @@ var editForm = React.createClass({
             placeholder={this.props.skuNumber}
             value={this.state.editValueSKU}
             onChange={this.handleInputChangeSKU} />
+          <label for="edit-form-batch">Batch Number</label>
             <input
               className='edit-form-field'
               id='edit-form-batch'
@@ -56,6 +56,7 @@ var editForm = React.createClass({
               placeholder={this.props.batchNumber}
               value={this.state.editValueBatch}
               onChange={this.handleInputChangeBatch} />
+            <label for="edit-form-expiry-month">Expiry Month</label>
             <input
               className='edit-form-field'
               id='edit-form-expiry-month'
@@ -63,6 +64,7 @@ var editForm = React.createClass({
               placeholder={this.props.expiryMonth}
               value={this.state.editValueExpiryMonth}
               onChange={this.handleInputChangeExpiryMonth} />
+            <label for="edit-form-expiry-year">Expiry Year</label>
             <input
               className='edit-form-field'
               id='edit-form-expiry-year'

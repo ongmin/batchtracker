@@ -105,7 +105,6 @@ var inputView = React.createClass({
     })
   },
   handleUpdate: function (obj) {
-    console.log(obj.id)
     $.ajax({
       beforeSend: function(xhr) {
          if (localStorage.getItem('userToken')) {
@@ -127,7 +126,7 @@ var inputView = React.createClass({
     })
   },
   render: function () {
-    const form = this.props.form
+    // const form = this.props.form
     return (
             <div>
               <InputForm
@@ -135,6 +134,7 @@ var inputView = React.createClass({
                   onChange={this.handleInputChange}
                   onPostSubmit={this.handlePostSubmit}
                   onInputChange={this.handleInputChange}
+                  recordStatus={this.state.recordStatus}
                 />
               <InputTable
                 batchRecords={this.state.batchRecords.slice(2 * (this.state.activePage-1), 2 * this.state.activePage )}
@@ -147,7 +147,6 @@ var inputView = React.createClass({
                  itemsCountPerPage={2}
                  onChange={this.handlePageChange}
                />
-               {this.state.recordStatus}
             </div>
   ) }
 })

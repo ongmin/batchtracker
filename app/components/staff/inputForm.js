@@ -81,7 +81,7 @@ var inputForm = React.createClass({
             type='submit'
             value='Post'
             txt='Submit' />
-          <div>{this.state.inputValueSKU}</div>
+          <div>{this.props.recordStatus}</div>
         </form>
       </div>
     )
