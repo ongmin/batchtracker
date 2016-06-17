@@ -38,7 +38,7 @@ var Header = withRouter (
           </ul>
           <div id='topbar-top-right-container'>
             <input type='checkbox' id='topbar-top-right-toggle'/>
-            <label for="toggle" class="topbar-top-right-toggle" data-open="Main Menu" data-close="Close Menu"></label>
+            <label htmlFor="topbar-top-right-toggle" className="topbar-top-right-toggle" data-open="Menu" data-close="Close"></label>
           <ul id='topbar-top-right'>
             <li><Link to='/'>Home</Link></li>
             <li><a href='https://www.paulaschoice.sg/'>Shop Paula&#39;s Choice</a></li>
