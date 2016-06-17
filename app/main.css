@@ -59,23 +59,6 @@ a:-webkit-any-link {
 a:-moz-any-link {
   text-decoration: none;
 }
-/*.contentContainer {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  padding-top: 12vh;
-  padding-bottom: 12vh;
-  align-content: center;
-  text-align: center;
-  z-index: 1;
-}*/
-
-/*.bodyContainer img#background-image {
-    opacity: 0.4;
-    box-shadow: 0px 0px 1px #515151;
-    width: 80%;
-}*/
 
 /*<=== Styling: Topbar ===>*/
 
@@ -102,8 +85,6 @@ a:-moz-any-link {
 #topbar-middle {
     height: 70px;
     background-color: #fafafa;
-    display: flex;
-    justify-content: space-around;
 }
 
 #topbar-bottom {
@@ -186,7 +167,12 @@ ul#topbar-top-right > li > a {
 ul#topbar-top-right > li > a:hover {
     text-decoration: underline;
 }
-
+.topbar-middle-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 #topbar-middle ul {
     height: 100%;
     margin: 0px;
@@ -194,10 +180,13 @@ ul#topbar-top-right > li > a:hover {
 }
 
 #topbar-middle-left {
-    width: 356px;
+    margin-top: 20px;
+    background-size: 356px 40px;
+    background-position: right;
+    width: 370px;
     height: 40px;
     background-image: url('https://www.paulaschoice.sg/skin/frontend/ultimo/default/images/pcsglogo.png');
-    background-size: cover;
+    background-repeat:no-repeat;
 }
 
 #topbar-middle-left a {
@@ -212,10 +201,11 @@ ul#topbar-top-right > li > a:hover {
 ul#topbar-middle-right {
     color: #515151;
     font-size: 12pt;
+    font-family: 'Proxima Nova Light';
     line-height: 70px;
     letter-spacing: 1pt;
     float: right;
-    margin-right: 80px;
+    margin-right: 50px;
     text-transform: uppercase;
 }
 
@@ -516,14 +506,23 @@ div.pagination li a{
     text-align: center;
   }
   #topbar-middle {
-    justify-content: center;
+    height: 100px;
+  }
+  .topbar-middle-container {
+    align-items: center;
     flex-direction: column;
   }
   #topbar-middle-left {
-    width: 100%;
-    background-image: url('images/pcsglogo-only.png');
-    background-size: contain;
+    width: 240px;
+    height: 52px;
     background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: url('images/pcsglogo-only.png');
+  }
+  ul#topbar-middle-right {
+    margin-right: 0;
+    margin-top: -25px;
+    color: #7998ac;
   }
 }
 
@@ -564,7 +563,9 @@ div.pagination li a{
 }
 
 @media (max-width: 450px) {
+  /*<=== Styling: Topbar ===>*/
 
+  /*<=== Styling: Topbar-Top ===>*/
   .topbar-top-right-toggle {
     z-index: 2;
     width: 100vw;
@@ -590,7 +591,6 @@ div.pagination li a{
       content: attr(data-close);
     }
   ul#topbar-top-right {
-    /*display: block;*/
     display: none;
     opacity: 0;
     position: absolute;
@@ -630,6 +630,7 @@ div.pagination li a{
     display: block;
     opacity: 1;
   }
+  /*<=== Styling: Customer-Results-Table ===>*/
   table#results-table td:before {
     float: none;
     display: block;

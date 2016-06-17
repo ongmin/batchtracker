@@ -57,13 +57,15 @@ var Header = withRouter (
       </div>
 
       <div id='topbar-middle'>
-      <a href='https://www.paulaschoice.sg/' title='Paula&#39;s Choice Singapore'>
-        <div id='topbar-middle-left'>
-        </div>
-      </a>
-        <ul id='topbar-middle-right'>
-          Expiry Date Checker
-        </ul>
+        <div className="topbar-middle-container">
+          <a href='https://www.paulaschoice.sg/' title='Paula&#39;s Choice Singapore'>
+            <div id='topbar-middle-left'>
+            </div>
+          </a>
+            <ul id='topbar-middle-right'>
+              Expiry Date Checker
+            </ul>
+          </div>
       </div>
 
       <div id='topbar-bottom'>
