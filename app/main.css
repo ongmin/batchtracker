@@ -601,10 +601,24 @@ div.pagination li a{
   }
 
   ul#topbar-top-right li {
+    cursor: pointer;
     background-color: #fff;
     display: block;
     margin: 0;
     width: 100%;
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+  }
+
+  ul#topbar-top-right li a:hover {
+    background-color: #F2F2F2;
+    text-decoration: none;
+  }
+  ul#topbar-top-right li:last-child {
+    border-bottom: 1px solid #27bbcd;
+
   }
   ul#topbar-top-right li a {
     display: block;
@@ -612,7 +626,7 @@ div.pagination li a{
     width: 100%;
   }
 
-  #topbar-top-right-toggle:checked ~ .topbar-top-right, .topbar-top-right-container ul.topbar-top-right {
+  #topbar-top-right-toggle:checked ~ #topbar-top-right {
     display: block;
     opacity: 1;
   }
