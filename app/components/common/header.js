@@ -36,6 +36,9 @@ var Header = withRouter (
           <li><img src='/../images/Icon-Bunny.png'/><span>Never Tested on Animals</span></li>
           <li><img src='/../images/Icon-SmartPackaging.png'/><span>Smart Packaging</span></li>
           </ul>
+          <div id='topbar-top-right-container'>
+            <input type='checkbox' id='topbar-top-right-toggle'/>
+            <label for="toggle" class="topbar-top-right-toggle" data-open="Main Menu" data-close="Close Menu"></label>
           <ul id='topbar-top-right'>
             <li><Link to='/'>Home</Link></li>
             <li><a href='https://www.paulaschoice.sg/'>Shop Paula&#39;s Choice</a></li>
@@ -49,6 +52,7 @@ var Header = withRouter (
                 null
               }
             </ul>
+          </div>
         </div>
       </div>
 

@@ -154,12 +154,21 @@ ul#topbar-top-left > li:first-child {
     margin-top: -4px;
     vertical-align: middle;
 }
+#topbar-top-right-toggle, .topbar-top-right-toggle {
+     display: none;
+     height: 40px
+}
 
-ul#topbar-top-right {
+div#topbar-top-right-container{
     margin: 0px;
     padding: 0px;
-    padding-right: 12px;
+    margin-right: 12px;
     align-self: flex-end;
+    display: flex;
+}
+ul#topbar-top-right {
+  line-height: 16px;
+  height: 40px
 }
 
 ul#topbar-top-right > li {
@@ -498,6 +507,7 @@ div.pagination li a{
     max-width: 500px;
     margin: 0 auto;
     padding: 0px;
+    line-height: 40px;
   }
   ul#topbar-top-right > li {
     text-align: center;
