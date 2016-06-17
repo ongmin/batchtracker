@@ -9,9 +9,10 @@
   "scripts": {
     "start": "npm run build && npm run start-server",
     "start-server": "nodemon dist_server/server.js",
-    "build": "npm run clean && mkdir dist && npm run build-images && npm run build-css && npm run build-html && npm run build-webpack && npm run build-server",
+    "build": "npm run clean && mkdir dist && npm run build-images && npm run build-fonts && npm run build-css && npm run build-html && npm run build-webpack && npm run build-server",
     "clean": "rm -rf dist && rm -rf dist_server",
     "build-images": "cp -r app/images dist/images",
+    "build-fonts": "cp -r app/fonts dist/fonts",
     "build-css": "cp app/main.css dist/bundle.css",
     "build-html": "cp app/index.html dist/index.html",
     "build-webpack": "webpack",

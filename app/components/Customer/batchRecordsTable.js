@@ -24,7 +24,6 @@ var batchRecordsTable = React.createClass({
             <tr>
               <th className='sku-number'>SKU Number</th>
               <th className='product-name'>Product Name</th>
-              <th className='batch-number'>Batch Number</th>
               <th className='expiry-date'>Expiry Date</th>
             </tr>
           </thead>

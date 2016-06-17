@@ -23,8 +23,8 @@ var inputTable = React.createClass({
         rows.push(row)
       })
     return (
-        <div id='results-table'>
-          <div className="results-table-header">
+        <div id='input-results-table'>
+          <div className="input-results-table-header">
             <div className='sku-number'>SKU Number</div>
             <div className='product-name'>Product Name</div>
             <div className='batch-number'>Batch Number</div>
@@ -32,7 +32,7 @@ var inputTable = React.createClass({
             <div className='input-row-edit'></div>
             <div className='input-row-delete'></div>
           </div>
-          <div className='results-table-body'>{rows}</div>
+          <div className='input-results-table-body'>{rows}</div>
         </div>
       )
   }

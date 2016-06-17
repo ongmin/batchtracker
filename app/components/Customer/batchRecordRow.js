@@ -23,10 +23,9 @@ var batchRecordRow = React.createClass({
     }
     return (
         <tr>
-        <td className='sku-number'>{this.props.skuNumber}</td>
-        <td className='product-name'>{this.props.productName}</td>
-        <td className='batch-number'>{this.props.batchNumber}</td>
-        <td className='expiry-date'>{expMonth} / {this.props.expiryYear}</td>
+        <td className='sku-number' data-label='SKU Number'>{this.props.skuNumber}</td>
+        <td className='product-name' data-label='Product Name'>{this.props.productName}</td>
+        <td className='expiry-date' data-label='Expiry Date'>{expMonth} / {this.props.expiryYear}</td>
         </tr>
     )
   }

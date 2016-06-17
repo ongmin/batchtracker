@@ -64,22 +64,25 @@ var filterableBatchRecordsTable = React.createClass({
     return (
             <div>
               <div id='container-search'>
-                <SearchBar
-                  value={this.state.queryBatchNumber}
-                  onChange={this.handleInputChange}
-                  onQuerySubmit={this.handleQuerySubmit} />
-                  <Link to={{
-                      pathname: `/guide`,
-                      state: { modal: true, returnTo: this.props.location.pathname }
-                    }}
-                  ><div id='container-search-whereto'><div id='qmark'>?</div>Where do I find the Batch Number?</div>
-                  </Link>
-                <div>'Test-Parent ' + {this.state.queryBatchNumber} </div>
+                <div className='container-search-inner'>
+                  <SearchBar
+                    value={this.state.queryBatchNumber}
+                    onChange={this.handleInputChange}
+                    onQuerySubmit={this.handleQuerySubmit} />
+                    <Link to={{
+                        pathname: `/guide`,
+                        state: { modal: true, returnTo: this.props.location.pathname }
+                      }}
+                    ><div id='container-search-whereto'><div id='qmark'>?</div>Where do I find the Batch code?</div>
+                    </Link>
+                  </div>
               </div>
-              <BatchRecordsTableHeader
-                queryBatchNumber={this.state.queryBatchNumber} />
-              <BatchRecordsTable
-                batchRecords={this.state.batchRecords} />
+              <div className="container-header-table">
+                <BatchRecordsTableHeader
+                  queryBatchNumber={this.state.queryBatchNumber} />
+                <BatchRecordsTable
+                  batchRecords={this.state.batchRecords} />
+              </div>
             </div>
   ) }
 })

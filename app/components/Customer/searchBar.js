@@ -1,5 +1,4 @@
 var React = require('react')
-import { Link } from 'react-router'
 
 var searchBar = React.createClass({
   propTypes: {
@@ -26,7 +25,7 @@ var searchBar = React.createClass({
   render: function () {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form className="search-bar" onSubmit={this.handleSubmit}>
           <input
             id='batchsearch-search-input'
             type='text'
@@ -38,7 +37,6 @@ var searchBar = React.createClass({
             type='submit'
             value='Check'
             txt='Check' />
-          <div>'Test-child ' + {this.state.queryBatchNumber}</div>
         </form>
       </div>
     )
