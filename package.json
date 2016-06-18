@@ -59,11 +59,14 @@
     "batch"
   ],
   "devDependencies": {
+    "autoprefixer": "^6.3.6",
     "babel-cli": "^6.8.0",
     "babel-core": "^6.8.0",
     "babel-loader": "^6.2.4",
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
+    "postcss-loader": "^0.9.1",
+    "precss": "^1.4.0",
     "supertest": "^1.2.0",
     "webpack": "^1.13.0"
   }

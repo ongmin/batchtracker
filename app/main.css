@@ -9,6 +9,7 @@
 /*<===== Styling: Results Table ==============>*/
 /***********************************************/
 /*<=== Font Directives ==>*/
+
 @font-face {
        font-family: 'Proxima Nova Light';
        src: url('fonts/ProximaNova-light-webfont.eot'),
@@ -97,8 +98,12 @@ a:-moz-any-link {
 }
 .topbar-top-container {
   max-width: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin: 0 auto;
 }
 #topbar-top-left li,
@@ -112,7 +117,8 @@ a:-moz-any-link {
     margin: 0px;
     padding: 0px;
     padding-left: 12px;
-    align-self: flex-start;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
 }
 
 ul#topbar-top-left > li {
@@ -145,13 +151,18 @@ div#topbar-top-right-container{
     margin: 0px;
     padding: 0px;
     margin-right: 12px;
-    align-self: flex-end;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
 }
 ul#topbar-top-right {
   line-height: 16px;
   height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-padding-start: none;
   padding-start: none;
 }
@@ -168,8 +179,12 @@ ul#topbar-top-right > li > a:hover {
     text-decoration: underline;
 }
 .topbar-middle-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -250,8 +265,12 @@ table#results-table thead tr th {
   color: #515151;
 }
 form.search-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin: 0 auto;
   width: 100%;
 }
@@ -373,7 +392,10 @@ div.container-header-table div#results-table-header p{
   -webkit-margin-after: none;
 }
 /*<=== Styling: Staff View - Input Page ===>*/
-
+#container-input-form ::-webkit-input-placeholder {
+    font-size: 9.5pt;
+    letter-spacing: 0.5pt;
+}
 #container-input-form {
   border: 1px solid #e1e5e6;
   border-top: none;
@@ -398,6 +420,7 @@ input.input-form-field {
 }
 
 input#input-form-batch-input-button {
+      font-family: 'Proxima Nova Light',Helvetica,Arial,sans-serif;
       height: 41px;
       padding: 5px 10px;
       margin-left: 5px;
@@ -407,7 +430,9 @@ input#input-form-batch-input-button {
       text-transform: uppercase;
       cursor: pointer;
 }
-
+input#input-form-batch-input-button:hover {
+  background-color: #94d5d1;
+}
 td.input-row-edit a {
     color: black;
 }
@@ -441,6 +466,19 @@ td.input-row-delete, td.input-row-edit {
 .input-table-row {
   color: #6d6d6d;
   margin-top: 5px;
+  width: 1000px;
+  margin: 0 auto;
+}
+#input-results-table {
+  box-sizing: border-box;
+  border: 1px solid #d9e1e3;
+  width: 1200px;
+  margin: 0 auto;
+  font-family: 'Proxima Nova Light',Helvetica,Arial,sans-serif;
+  font-size: 12pt;
+  letter-spacing: 0.5pt;
+}
+.input-results-table-header {
   width: 1000px;
   margin: 0 auto;
 }
@@ -509,8 +547,14 @@ div.pagination li a{
     height: 100px;
   }
   .topbar-middle-container {
-    align-items: center;
-    flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+                -ms-grid-row-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   #topbar-middle-left {
     width: 240px;
@@ -532,7 +576,8 @@ div.pagination li a{
       width: 450px;
   }
   ul#topbar-top-right {
-    justify-content: space-around;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
   }
   /*<=== Styling: Search Page ===>*/
   table#results-table thead {
@@ -574,11 +619,11 @@ div.pagination li a{
     position: relative;
     -webkit-touch-callout: none; /* Disables OS callout when touching and holding a link */
     -webkit-user-select: none;
-    user-select: none;
+    -moz-user-select: none;
+     -ms-user-select: none;
+         user-select: none;
   }
   .topbar-top-right-toggle:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     color: #fff;
     content: attr(data-open);
@@ -607,8 +652,6 @@ div.pagination li a{
     margin: 0;
     width: 100%;
     -webkit-transition: all 0.25s linear;
-    -moz-transition: all 0.25s linear;
-    -o-transition: all 0.25s linear;
     transition: all 0.25s linear;
   }
 
@@ -630,13 +673,40 @@ div.pagination li a{
     display: block;
     opacity: 1;
   }
+  /*<=== Styling: Topbar-Middle ===>*/
+  #topbar-middle-left {
+      margin-top: 0px;
+      padding-top: 20px;
+  }
+
+  /*<=== Styling: Topbar-Bottom ===>*/
+  #topbar-bottom {
+    height: 40px;
+  }
+  #topbar-bottom div {
+    width: 80%;
+    line-height: 18px;
+  }
   /*<=== Styling: Customer-Results-Table ===>*/
+  div#container-search {
+    border: none;
+  }
   form.search-bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     margin: 0 auto;
     width: 100%;
+  }
+  div.container-header-table {
+    border: none;
   }
   input#batchsearch-search-input {
     width: 100%;

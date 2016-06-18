@@ -1,4 +1,6 @@
 var path = require('path')
+var precss = require('precss')
+var autoprefixer = require('autoprefixer')
 
 const PATHS = {
   app: path.resolve(__dirname, 'app'),
@@ -27,8 +29,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css']
+        loader: 'style-loader!css-loader!postcss-loader'
       }
     ]
+  },
+  postcss: function () {
+    return [autoprefixer]
   }
 }

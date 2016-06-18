@@ -66,20 +66,20 @@ var inputForm = React.createClass({
               className='input-form-field'
               id='input-form-expiry-month'
               type='number'
-              placeholder='Expiry Month (eg. 08 for August)'
+              placeholder='Expiry Month (MM)'
               value={this.state.inputValueExpiryMonth}
               onChange={this.handleInputChangeExpiryMonth} />
             <input
               className='input-form-field'
               id='input-form-expiry-year'
               type='number'
-              placeholder='Expiry Year (eg. 2016)'
+              placeholder='Expiry Year (YYYY)'
               value={this.state.inputValueExpiryYear}
               onChange={this.handleInputChangeExpiryYear} />
           <input
             id='input-form-batch-input-button'
             type='submit'
-            value='Post'
+            value='Save'
             txt='Submit' />
           <div>{this.props.recordStatus}</div>
         </form>

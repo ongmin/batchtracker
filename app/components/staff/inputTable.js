@@ -25,12 +25,12 @@ var inputTable = React.createClass({
     return (
         <div id='input-results-table'>
           <div className="input-results-table-header">
-            <div className='sku-number'>SKU Number</div>
-            <div className='product-name'>Product Name</div>
-            <div className='batch-number'>Batch Number</div>
-            <div className='expiry-date'>Expiry Date</div>
-            <div className='input-row-edit'></div>
-            <div className='input-row-delete'></div>
+            <span className='sku-number'>SKU Number</span>
+            <span className='product-name'>Product Name</span>
+            <span className='batch-number'>Batch Number</span>
+            <span className='expiry-date'>Expiry Date</span>
+            <span className='input-row-edit'></span>
+            <span className='input-row-delete'></span>
           </div>
           <div className='input-results-table-body'>{rows}</div>
         </div>
