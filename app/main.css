@@ -760,7 +760,7 @@ input#batchsearch-input-button:hover {
 }
 
 
-div#container-search-whereto {
+div.container-search-whereto {
     font-family: 'Proxima Nova Semibold',Helvetica,Arial,sans-serif;
     font-size: 10pt;
     color: rgba(50, 50, 50, 0.5);
@@ -769,7 +769,11 @@ div#container-search-whereto {
     cursor: pointer;
 }
 
-div#container-search-whereto div {
+#container-search-whereto-mobile {
+  display: none;
+}
+
+div.container-search-whereto div {
     display: inline-block;
   }
 div#container-search {
@@ -787,7 +791,7 @@ div.container-search-inner {
   width: 65%;
   margin: 0 auto;
 }
-div#qmark {
+div.qmark {
     margin-right: 10px;
     font-weight: 800;
     border: 1px solid #777;
@@ -1143,6 +1147,12 @@ ul.pagination {
   text-transform: uppercase;
   font-weight: bold;
   }
+  #container-search-whereto-mobile {
+    display: block;
+  }
+  #container-search-whereto-desktop {
+    display: none;
+  }
 }
 @media (max-width: 550px) {
   #batchsearch-search-input{
@@ -1151,10 +1161,10 @@ ul.pagination {
   input#batchsearch-input-button{
     width: 23%;
   }
-  div#container-search-whereto {
+  div.container-search-whereto {
     text-align: center;
   }
-  div#container-search-whereto div#qmark {
+  div.container-search-whereto div.qmark {
     display: none;
   }
 }
@@ -1273,7 +1283,7 @@ ul.pagination {
     margin-top: 10px;
     border-radius: 5px;
   }
-  div#container-search-whereto {
+  div.container-search-whereto {
     margin-top: 20px;
   }
   table#results-table td:before {

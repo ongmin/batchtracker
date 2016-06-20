@@ -71,8 +71,11 @@ var homePage = React.createClass({
                         pathname: `/guide`,
                         state: { modal: true, returnTo: this.props.location.pathname }
                       }}
-                    ><div id='container-search-whereto'><div id='qmark'>?</div>Where do I find the Batch code?</div>
+                    ><div className='container-search-whereto' id="container-search-whereto-desktop"><div className='qmark'>?</div>Where do I find the Batch code?</div>
                     </Link>
+                    <a href='http://faq.paulaschoice.sg/shelf-life-after-opening/' title='Batch Code Guide' target="_blank">
+                      <div className='container-search-whereto' id="container-search-whereto-mobile"><div className='qmark'>?</div>Where do I find the Batch code?</div>
+                    </a>
                 </div>
               </div>
               <div id="query-results"></div>
