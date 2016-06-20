@@ -1,10 +1,8 @@
-
 var React = require('react')
 var Header = require('./common/header')
 var Modal = require('./common/modal')
 import { render } from 'react-dom'
 import { Router, Route, Link } from 'react-router'
-// var RouteHandler = require('react-router').RouteHandler
 
 var App = React.createClass({
   componentWillReceiveProps(nextProps) {

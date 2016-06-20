@@ -1,13 +1,13 @@
 'use strict'
 
 var React = require('react')
-var FilterableBatchRecordsTable = require('./customer/filterableBatchRecordsTable')
+var InputView = require('./inputView')
 var Home = React.createClass({
   render: function () {
     return (
         <div className='contentContainer'>
-          <FilterableBatchRecordsTable />
-        </div>
+          <InputView />
+      </div>
     )
   }
 })
