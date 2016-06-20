@@ -1,9 +1,9 @@
 var React = require('react')
 var SearchBar = require('./searchBar')
 var FilterableBatchRecordsTable = require('./filterableBatchRecordsTable')
-// var BatchRecordsTable = require('./batchRecordsTable')
 import { Link } from 'react-router'
 var batchRecordsEndpoint = '/api/batchrecords/'
+var ReactDOM = require('react-dom')
 
 var homePage = React.createClass({
   getInitialState: function () {
@@ -28,7 +28,7 @@ var homePage = React.createClass({
     })
   },
   componentDidMount: function () {
-    this.loadDataFromServer()
+    // this.loadDataFromServer()
   },
   handleInputChange: function (e) {
     this.setState({queryBatchNumber: e.target.value})
@@ -44,12 +44,19 @@ var homePage = React.createClass({
         success: function (data) {
           console.log(data)
           this.setState({batchRecords: data})
+          ReactDOM.render(
+            <FilterableBatchRecordsTable
+              queryBatchNumber={this.state.queryBatchNumber}
+              batchRecords={this.state.batchRecords} />,
+                      document.getElementById('results-baby'))
         }.bind(this),
         error: function (xhr, status, err) {
           console.error(batchRecordsEndpoint, status, err.toString())
         }
       })
     })
+    //Mounts FilterableBatchRecordsTable component
+
   },
   render: function () {
     return (
@@ -68,9 +75,7 @@ var homePage = React.createClass({
                     </Link>
                 </div>
               </div>
-              <FilterableBatchRecordsTable
-                queryBatchNumber={this.state.queryBatchNumber}
-                batchRecords={this.state.batchRecords} />
+              <div id="results-baby"></div>
             </div>
   ) }
 })
