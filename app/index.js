@@ -5,7 +5,6 @@ var React = require('react')
 import { render } from 'react-dom'
 import { IndexRoute, browserHistory, Router, Route, Link } from 'react-router'
 
-
 function loggedIn() {
   return !!localStorage.userToken
 }

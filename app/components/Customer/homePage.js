@@ -48,7 +48,7 @@ var homePage = React.createClass({
             <FilterableBatchRecordsTable
               queryBatchNumber={this.state.queryBatchNumber}
               batchRecords={this.state.batchRecords} />,
-                      document.getElementById('results-baby'))
+                      document.getElementById('query-results'))
         }.bind(this),
         error: function (xhr, status, err) {
           console.error(batchRecordsEndpoint, status, err.toString())
@@ -75,7 +75,7 @@ var homePage = React.createClass({
                     </Link>
                 </div>
               </div>
-              <div id="results-baby"></div>
+              <div id="query-results"></div>
             </div>
   ) }
 })
