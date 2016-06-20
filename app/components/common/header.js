@@ -11,7 +11,10 @@ var Header = withRouter (
     }
   },
   showLock: function () {
-    this.props.lock.show()
+    this.props.lock.show({
+      icon: '../../images/pcsglogo-only.png',
+      disableSignupAction: true
+    })
   },
   componentDidMount: function() {
     this.props.lock.getProfile(this.props.idToken, function (err, profile) {
@@ -42,7 +45,7 @@ var Header = withRouter (
           <ul id='topbar-top-right'>
             <li><Link to='/'>Home</Link></li>
             <li><a href='https://www.paulaschoice.sg/'>Shop Paula&#39;s Choice</a></li>
-            <li><a href='https://advice.paulaschoice.sg/'>Expert Advice</a></li>
+            <li><a href='http://advice.paulaschoice.sg/'>Expert Advice</a></li>
               {!!localStorage.userToken ?
                 <li><Link to='/staff/batchRecords'>Staff</Link></li>
                 : <li><div className='login-box'><a onClick={this.showLock}>Sign In</a></div></li>
