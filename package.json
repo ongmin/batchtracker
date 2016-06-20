@@ -50,6 +50,7 @@
     "react-dom": "^15.0.2",
     "react-js-pagination": "^1.1.16",
     "react-router": "^2.4.0",
+    "smoothscroll-polyfill": "^0.3.3",
     "underscore": "^1.8.3"
   },
   "keywords": [
