@@ -1,14 +1,20 @@
-var React = require('react')
-var InputForm = require('./inputForm')
-var InputTableHeader = require('./inputTableHeader')
-var InputTable = require('./inputTable')
-var InputFormMatchingProduct = require('./InputFormMatchingProduct')
+import React from 'react'
+import InputForm from './inputForm'
+import InputTable from './inputTable'
+import Pagination from 'react-js-pagination'
 
 var batchRecordsEndpoint = '/api/batchrecords/'
 var batchRecordsProtectedEndpoint = '/api/protected/batchrecords/'
-import Pagination from "react-js-pagination";
 
 var inputView = React.createClass({
+  propTypes: {
+    recordsPerPage: React.PropTypes.number
+  },
+  getDefaultProps: function () {
+    return {
+      recordsPerPage: 8
+    }
+  },
   getInitialState: function () {
     return {
       queryBatchNumber: '',
@@ -17,24 +23,22 @@ var inputView = React.createClass({
       recordStatus: []
     }
   },
-  handlePageChange(pageNumber) {
-     this.setState({activePage: pageNumber});
-     console.log(`active page is ${pageNumber}`);
-   },
+  handlePageChange (pageNumber) {
+    this.setState({ activePage: pageNumber })
+  },
   loadDataFromServer: function () {
     $.ajax({
-      beforeSend: function(xhr) {
-         if (localStorage.getItem('userToken')) {
-           xhr.setRequestHeader('Authorization',
-                 'Bearer ' + localStorage.getItem('userToken'));
-         }
-       },
+      beforeSend: function (xhr) {
+        if (window.localStorage.getItem('userToken')) {
+          xhr.setRequestHeader('Authorization',
+          'Bearer ' + window.localStorage.getItem('userToken'))
+        }
+      },
       url: batchRecordsEndpoint + this.state.queryBatchNumber,
       dataType: 'json',
       type: 'GET',
       cache: false,
       success: function (data) {
-        var updatedBatchRecords = this.state.batchRecords
         this.setState({batchRecords: data.reverse()})
       }.bind(this),
       error: function (xhr, status, err) {
@@ -56,12 +60,12 @@ var inputView = React.createClass({
                     expiryYear: obj['year'] },
       function () {
         $.ajax({
-          beforeSend: function(xhr) {
-             if (localStorage.getItem('userToken')) {
-               xhr.setRequestHeader('Authorization',
-                     'Bearer ' + localStorage.getItem('userToken'));
-             }
-           },
+          beforeSend: function (xhr) {
+            if (window.localStorage.getItem('userToken')) {
+              xhr.setRequestHeader('Authorization',
+              'Bearer ' + window.localStorage.getItem('userToken'))
+            }
+          },
           url: batchRecordsProtectedEndpoint,
           dataType: 'json',
           type: 'POST',
@@ -69,14 +73,13 @@ var inputView = React.createClass({
           data: obj,
           success: function (data) {
             this.setState({batchRecords: data.reverse()})
-            this.setState({recordStatus: ["Record Successfully Submitted"]})
+            this.setState({recordStatus: ['Record Successfully Submitted']})
           }.bind(this),
           error: function (xhr, status, err) {
             var inputErrors = ''
-            if(xhr.responseText[0] === '[') {
+            if (xhr.responseText[0] === '[') {
               inputErrors = JSON.parse(xhr.responseText)
-            }
-            else {
+            } else {
               inputErrors = [xhr.responseText]
             }
             this.setState({recordStatus: inputErrors})
@@ -86,12 +89,12 @@ var inputView = React.createClass({
   },
   handleDelete: function (id) {
     $.ajax({
-      beforeSend: function(xhr) {
-         if (localStorage.getItem('userToken')) {
-           xhr.setRequestHeader('Authorization',
-                 'Bearer ' + localStorage.getItem('userToken'));
-         }
-       },
+      beforeSend: function (xhr) {
+        if (window.localStorage.getItem('userToken')) {
+          xhr.setRequestHeader('Authorization',
+          'Bearer ' + window.localStorage.getItem('userToken'))
+        }
+      },
       url: batchRecordsProtectedEndpoint + id,
       dataType: 'json',
       type: 'DELETE',
@@ -106,12 +109,12 @@ var inputView = React.createClass({
   },
   handleUpdate: function (obj) {
     $.ajax({
-      beforeSend: function(xhr) {
-         if (localStorage.getItem('userToken')) {
-           xhr.setRequestHeader('Authorization',
-                 'Bearer ' + localStorage.getItem('userToken'));
-         }
-       },
+      beforeSend: function (xhr) {
+        if (window.localStorage.getItem('userToken')) {
+          xhr.setRequestHeader('Authorization',
+          'Bearer ' + window.localStorage.getItem('userToken'))
+        }
+      },
       url: batchRecordsProtectedEndpoint + obj.id,
       dataType: 'json',
       type: 'PUT',
@@ -122,19 +125,17 @@ var inputView = React.createClass({
       }.bind(this),
       error: function (xhr, status, err) {
         console.log(err)
-          var inputErrors = ''
-          if(xhr.responseText[0] === '[') {
-            inputErrors = JSON.parse(xhr.responseText)
-          }
-          else {
-            inputErrors = [xhr.responseText]
-          }
-          this.setState({recordStatus: inputErrors})
+        var inputErrors = ''
+        if (xhr.responseText[0] === '[') {
+          inputErrors = JSON.parse(xhr.responseText)
+        } else {
+          inputErrors = [xhr.responseText]
+        }
+        this.setState({recordStatus: inputErrors})
       }.bind(this)
     })
   },
   render: function () {
-    // const form = this.props.form
     return (
             <div>
               <InputForm
@@ -145,14 +146,14 @@ var inputView = React.createClass({
                   recordStatus={this.state.recordStatus}
                 />
               <InputTable
-                batchRecords={this.state.batchRecords.slice(2 * (this.state.activePage-1), 2 * this.state.activePage )}
+                batchRecords={this.state.batchRecords.slice(this.props.recordsPerPage * (this.state.activePage - 1), this.props.recordsPerPage * this.state.activePage)}
                 onDelete={this.handleDelete}
                 onUpdate={this.handleUpdate}
               />
               <Pagination
                  activePage={this.state.activePage}
                  totalItemsCount={this.state.batchRecords.length}
-                 itemsCountPerPage={2}
+                 itemsCountPerPage={this.props.recordsPerPage}
                  onChange={this.handlePageChange}
                />
             </div>

@@ -1,11 +1,9 @@
-var React = require('react')
-var Header = require('./common/header')
-var Modal = require('./common/modal')
-import { render } from 'react-dom'
-import { Router, Route, Link } from 'react-router'
+import React from 'react'
+import Header from './common/header'
+import Modal from './common/modal'
 
 var App = React.createClass({
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     // if we changed routes...
     if ((
       nextProps.location.key !== this.props.location.key &&
@@ -17,16 +15,16 @@ var App = React.createClass({
     }
   },
   componentWillMount: function () {
-      this.lock = new Auth0Lock('pKAebJyhjpuES7OTH5tp2LMwEJf6NRfT', 'belgian-chocolate.auth0.com');
+      this.lock = new Auth0Lock('pKAebJyhjpuES7OTH5tp2LMwEJf6NRfT', 'belgian-chocolate.auth0.com')
       this.setState({idToken: this.getIdToken()})
   },
   getIdToken: function () {
-    var idToken = localStorage.getItem('userToken')
+    var idToken = window.localStorage.getItem('userToken')
     var authHash = this.lock.parseHash(window.location.hash)
     if (!idToken && authHash) {
       if (authHash.id_token) {
         idToken = authHash.id_token
-        localStorage.setItem('userToken', authHash.id_token)
+        window.localStorage.setItem('userToken', authHash.id_token)
       }
       if (authHash.error) {
         console.log('Error signing in', authHash)

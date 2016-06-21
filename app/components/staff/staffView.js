@@ -1,5 +1,4 @@
 'use strict'
-
 var React = require('react')
 var InputView = require('./inputView')
 var Home = React.createClass({

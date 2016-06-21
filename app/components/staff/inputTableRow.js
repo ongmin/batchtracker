@@ -1,11 +1,18 @@
-var React = require('react')
-import { Link } from 'react-router'
-var EditForm = require('./edit/editForm')
-
-// Displays single batchRecord details
-// Rewrite this as stateless functional component and remove this comment
+'use strict'
+import React from 'react'
+import EditForm from './edit/editForm'
 
 var inputTableRow = React.createClass({
+  propTypes: {
+    onDelete: React.PropTypes.func.isRequired,
+    onUpdate: React.PropTypes.func.isRequired,
+    id: React.PropTypes.string,
+    skuNumber: React.PropTypes.string,
+    productName: React.PropTypes.string,
+    batchNumber: React.PropTypes.string,
+    expiryMonth: React.PropTypes.number,
+    expiryYear: React.PropTypes.number
+  },
   getInitialState: function () {
     return {
       isEditFormOpen: false
@@ -38,9 +45,9 @@ var inputTableRow = React.createClass({
       case 12: expMonth = 'Dec'; break
       default: expMonth = 'Year'
     }
-    if(this.state.isEditFormOpen) {
+    if (this.state.isEditFormOpen) {
       return (
-          <div className="input-table-row">
+          <div className='input-table-row'>
             <span className='sku-number'>{this.props.skuNumber}</span>
             <span className='product-name'>{this.props.productName}</span>
             <span className='batch-number'>{this.props.batchNumber}</span>
@@ -59,10 +66,9 @@ var inputTableRow = React.createClass({
               />
           </div>
       )
-    }
-    else {
+    } else {
       return (
-          <div className="input-table-row">
+          <div className='input-table-row'>
             <span className='sku-number'>{this.props.skuNumber}</span>
             <span className='product-name'>{this.props.productName}</span>
             <span className='batch-number'>{this.props.batchNumber}</span>
@@ -72,7 +78,6 @@ var inputTableRow = React.createClass({
           </div>
       )
     }
-
   }
 })
 

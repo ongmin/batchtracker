@@ -1,9 +1,10 @@
-var React = require('react')
-// Takes in an input queryBatchNumber
+import React from 'react'
 
 var inputForm = React.createClass({
   propTypes: {
-    onPostSubmit: React.PropTypes.func.isRequired
+    onPostSubmit: React.PropTypes.func.isRequired,
+    onInputChange: React.PropTypes.func.isRequired,
+    recordStatus: React.PropTypes.array
   },
   getInitialState: function () {
     return {

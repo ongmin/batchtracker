@@ -37,7 +37,6 @@ moltin.Authenticate(function () {
 
   app.get('/', function (req, res) { res.render('../app/index.html') })
   app.use(fallback('index.html', { root: root }))
-
 })
 
 module.exports = app

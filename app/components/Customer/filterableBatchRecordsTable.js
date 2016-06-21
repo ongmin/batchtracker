@@ -1,10 +1,8 @@
 'use strict'
-
-var React = require('react')
-var BatchRecordsTableHeader = require('./batchRecordsTableHeader')
-var BatchRecordsTable = require('./batchRecordsTable')
-var ReactDOM = require('react-dom')
-require('smoothscroll-polyfill').polyfill();
+import React from 'react'
+import BatchRecordsTableHeader from './batchRecordsTableHeader'
+import BatchRecordsTable from './batchRecordsTable'
+require('smoothscroll-polyfill').polyfill()
 
 var filterableBatchRecordsTable = React.createClass({
   propTypes: {
@@ -12,10 +10,10 @@ var filterableBatchRecordsTable = React.createClass({
     batchRecords: React.PropTypes.array
   },
   componentDidMount: function () {
-    window.scrollTo({ top: 330, left: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 330, left: 0, behavior: 'smooth' })
   },
   componentDidUpdate: function () {
-    window.scrollTo({ top: 300, left: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 300, left: 0, behavior: 'smooth' })
   },
   render: function () {
     return (

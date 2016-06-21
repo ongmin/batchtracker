@@ -14,10 +14,10 @@ const modal = React.createClass({
     background: '#fff'
   },
 
-  render() {
+  render () {
     return (
-      <div className="modal" style={this.styles}>
-        <p><Link to={this.props.returnTo}><img className="cross" src="../../../images/cross.svg" /></Link></p>
+      <div className='modal' style={this.styles}>
+        <p><Link to={this.props.returnTo}><img className='cross' src='../../../images/cross.svg' /></Link></p>
         {this.props.children}
       </div>
     )

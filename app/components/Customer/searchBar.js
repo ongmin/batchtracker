@@ -1,3 +1,4 @@
+'use strict'
 var React = require('react')
 
 var searchBar = React.createClass({
@@ -25,7 +26,7 @@ var searchBar = React.createClass({
   render: function () {
     return (
       <div>
-        <form className="search-bar" onSubmit={this.handleSubmit}>
+        <form className='search-bar' onSubmit={this.handleSubmit}>
           <input
             id='batchsearch-search-input'
             type='text'

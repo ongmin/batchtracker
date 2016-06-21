@@ -1,11 +1,15 @@
-var React = require('react')
-var SearchBar = require('./searchBar')
-var FilterableBatchRecordsTable = require('./filterableBatchRecordsTable')
+import React from 'react'
+import SearchBar from './searchBar'
+import FilterableBatchRecordsTable from './filterableBatchRecordsTable'
 import { Link } from 'react-router'
+import ReactDOM from 'react-dom'
+
 var batchRecordsEndpoint = '/api/batchrecords/'
-var ReactDOM = require('react-dom')
 
 var homePage = React.createClass({
+  propTypes: {
+    location: React.PropTypes.object
+  },
   getInitialState: function () {
     return {
       queryBatchNumber: '',
@@ -26,9 +30,6 @@ var homePage = React.createClass({
         console.error(batchRecordsEndpoint, status, err.toString())
       }
     })
-  },
-  componentDidMount: function () {
-    // this.loadDataFromServer()
   },
   handleInputChange: function (e) {
     this.setState({queryBatchNumber: e.target.value})
@@ -55,8 +56,6 @@ var homePage = React.createClass({
         }
       })
     })
-    //Mounts FilterableBatchRecordsTable component
-
   },
   render: function () {
     return (
@@ -68,20 +67,23 @@ var homePage = React.createClass({
                     onChange={this.handleInputChange}
                     onQuerySubmit={this.handleQuerySubmit} />
                     <Link to={{
-                        pathname: `/guide`,
-                        state: { modal: true, returnTo: this.props.location.pathname }
-                      }}
-                    ><div className='container-search-whereto' id="container-search-whereto-desktop"><div className='qmark'>?</div>Where do I find the Batch code?</div>
+                      pathname: `/guide`,
+                      state: { modal: true, returnTo: this.props.location.pathname }
+                    }}>
+                    <div className='container-search-whereto' id='container-search-whereto-desktop'>
+                      <div className='qmark'>?</div>Where do I find the Batch code?
+                    </div>
                     </Link>
-                    <a href='http://faq.paulaschoice.sg/shelf-life-after-opening/' title='Batch Code Guide' target="_blank">
-                      <div className='container-search-whereto' id="container-search-whereto-mobile"><div className='qmark'>?</div>Where do I find the Batch code?</div>
+                    <a href='http://faq.paulaschoice.sg/shelf-life-after-opening/' title='Batch Code Guide' target='_blank'>
+                      <div className='container-search-whereto' id='container-search-whereto-mobile'>
+                        <div className='qmark'>?</div>Where do I find the Batch code?
+                      </div>
                     </a>
                 </div>
               </div>
-              <div id="query-results"></div>
+              <div id='query-results'></div>
             </div>
   ) }
 })
 
 module.exports = homePage
-// filterableBatchRecordsTable
