@@ -121,8 +121,16 @@ var inputView = React.createClass({
         this.setState({batchRecords: data.reverse()})
       }.bind(this),
       error: function (xhr, status, err) {
-        console.error(batchRecordsProtectedEndpoint + obj.id, status, err.toString())
-      }
+        console.log(err)
+          var inputErrors = ''
+          if(xhr.responseText[0] === '[') {
+            inputErrors = JSON.parse(xhr.responseText)
+          }
+          else {
+            inputErrors = [xhr.responseText]
+          }
+          this.setState({recordStatus: inputErrors})
+      }.bind(this)
     })
   },
   render: function () {

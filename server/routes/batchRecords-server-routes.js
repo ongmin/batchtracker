@@ -72,9 +72,10 @@ module.exports = function (app, moltin) {
                   skuNumber: req.body.skuNumber,
                   'expiryDate.month': req.body.month,
                   'expiryDate.year': req.body.year }},
-        {new: true},
+        {new: true, runValidators: true },
         function (err, updatedBatchRecord) {
           if (err) {
+            console.error(err)
             if(err.code === 11000) {
               res.status(409).send('Record is already in the database.')
             }
