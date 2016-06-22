@@ -1236,6 +1236,7 @@ ul.pagination {
     opacity: 1;
   }
   /*<=== Styling: Topbar-Middle ===>*/
+
   #topbar-middle-left {
       margin-top: 0px;
       padding-top: 20px;
@@ -1243,19 +1244,19 @@ ul.pagination {
 
   /*<=== Styling: Topbar-Bottom ===>*/
   #topbar-bottom {
-    height: 40px;
+    height: 5px;
   }
   #topbar-bottom div {
-    width: 80%;
-    line-height: 18px;
+    display: none;
   }
+
   /*<=== Styling: Customer-Results-Table ===>*/
 
   /*<=== Styling: Customer-Search-Bar ===>*/
   div#container-search {
     border: none;
     height: 400px;
-    padding-top: 160px;
+    padding-top: 100px;
   }
 
   form.search-bar {
