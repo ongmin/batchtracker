@@ -430,10 +430,10 @@ textarea {
 
 @font-face {
        font-family: 'Proxima Nova Light';
-       src: url('fonts/ProximaNova-light-webfont.eot'),
-            url('fonts/ProximaNova-light-webfont.woff') format('woff'),
-            url('fonts/ProximaNova-light-webfont.ttf') format('truetype'),
-            url('fonts/ProximaNova-light-webfont.svg') format('svg');
+       src: url('fonts/proximanova-light-webfont.eot'),
+            url('fonts/proximanova-light-webfont.woff') format('woff'),
+            url('fonts/proximanova-light-webfont.ttf') format('truetype'),
+            url('fonts/proximanova-light-webfont.svg') format('svg');
 }
 
 @font-face {
