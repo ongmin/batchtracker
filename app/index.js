@@ -21,12 +21,12 @@ render((
     <Route path='/' component={require('./components/app')}>
       <IndexRoute component={require('./components/Customer/homePage')} />
       <Route path='guide' component={require('./components/Customer/batchNumberGuide')} />
-      <Route path='staff' component={require('./components/Staff/staffView')} onEnter={requireAuth}>
-        <Route path='batchRecords' component={require('./components/Staff/inputView')}>
-          <Route path='delete/:id' components={ {form: require('./components/Staff/delete/deleteForm')} } />
+      <Route path='staff' component={require('./components/staff/staffView')} onEnter={requireAuth}>
+        <Route path='batchRecords' component={require('./components/staff/inputView')}>
+          <Route path='delete/:id' components={ {form: require('./components/staff/delete/deleteForm')} } />
         </Route>
       </Route>
-      <Route path='*' component={require('./components/Common/notFoundPage')}/>
+      <Route path='*' component={require('./components/common/notFoundPage')}/>
     </Route>
   </Router>
 ), document.getElementById('app'))
