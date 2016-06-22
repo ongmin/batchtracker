@@ -25,7 +25,7 @@ var inputTable = React.createClass({
       rows.push(row)
     })
     return (
-        <div id='input-results-table'>
+        <div>
           <div className='input-results-table-header'>
             <span className='sku-number'>SKU Number</span>
             <span className='product-name'>Product Name</span>

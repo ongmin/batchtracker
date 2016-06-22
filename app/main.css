@@ -976,27 +976,25 @@ td.input-row-delete, td.input-row-edit {
 }
 ul.pagination {
   width: 390px;
-  position: fixed;
-  left: 50%;
-  top: 90%;
-  transform: translate(-50%, 0%);
+  margin-left: 55px;
 }
 ul.pagination li a{
   font-family: 'Proxima Nova Light',Helvetica,Arial,sans-serif;
   color:#fff;
+  font-size: 10pt;
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #27bbcd;
+  padding: 2px 10px;
+  background-color: #b3b1b1;
 }
 .pagination > .active {
   cursor: auto;
 }
 .pagination > .active > a {
-  background-color: #94d5d1;
+  background-color: #939292;
   cursor: auto;
 }
-.pagination > a:hover {
-  background-color: #e8f6bb;
+.pagination a:hover {
+  background-color: #939292;
 }
 
 ul.pagination li {
