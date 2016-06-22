@@ -51,7 +51,8 @@
     "react-js-pagination": "^1.1.16",
     "react-router": "^2.4.0",
     "smoothscroll-polyfill": "^0.3.3",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "webpack": "^1.13.0"
   },
   "keywords": [
     "paulaschoice",
