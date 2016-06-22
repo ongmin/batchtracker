@@ -12,7 +12,7 @@ var inputView = React.createClass({
   },
   getDefaultProps: function () {
     return {
-      recordsPerPage: 8
+      recordsPerPage: 10
     }
   },
   getInitialState: function () {

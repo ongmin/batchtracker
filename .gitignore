@@ -4,4 +4,3 @@ dist/
 dist_server
 *.log.*
 *.dist.js
-app/fonts
