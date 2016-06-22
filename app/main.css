@@ -1250,6 +1250,8 @@ ul.pagination {
     line-height: 18px;
   }
   /*<=== Styling: Customer-Results-Table ===>*/
+
+  /*<=== Styling: Customer-Search-Bar ===>*/
   div#container-search {
     border: none;
     height: 400px;
