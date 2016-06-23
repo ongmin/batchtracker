@@ -8,7 +8,7 @@ import fallback from 'express-history-api-fallback'
 import dbUri from './models/uri'
 import jwt from 'express-jwt'
 const app = express()
-mongoose.Promise = global.Promise
+mongoose.Promise = require('bluebird')
 
 var jwtCheck = jwt({ secret: new Buffer(process.env.BATCHTRACKER_AUTH0_BACK_KEY, 'base64'),
   audience: process.env.BATCHTRACKER_AUTH0_BACK_CLIENTID

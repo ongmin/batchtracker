@@ -618,7 +618,7 @@ ul#topbar-top-right > li > a:hover {
     background-position: right;
     width: 370px;
     height: 40px;
-    background-image: url('httpss://www.paulaschoice.sg/skin/frontend/ultimo/default/images/pcsglogo.png');
+    background-image: url('https://www.paulaschoice.sg/skin/frontend/ultimo/default/images/pcsglogo.png');
     background-repeat:no-repeat;
 }
 
@@ -1117,7 +1117,7 @@ ul.pagination {
   }
   /*<=== Styling: Search Page ===>*/
   div#container-search {
-    background-image: url('httpss://s3.amazonaws.com/batchtracker-app/images/BatchTracker-Banner650.jpg');
+    background-image: url('https://s3.amazonaws.com/batchtracker-app/images/BatchTracker-Banner650.jpg');
     background-position: center;
   }
   table#results-table thead {
