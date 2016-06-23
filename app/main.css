@@ -1078,7 +1078,7 @@ ul.pagination {
     height: 52px;
     background-repeat: no-repeat;
     background-size: 100%;
-    background-image: url('httpss://s3.amazonaws.com/batchtracker-app/images/pcsglogo-only.png');
+    background-image: url('https://s3.amazonaws.com/batchtracker-app/images/pcsglogo-only.png');
   }
   ul#topbar-middle-right {
     margin-right: 0;
