@@ -1,6 +1,17 @@
-var React = require('react')
+'use strict'
+import React from 'react'
 
 var editForm = React.createClass({
+  propTypes: {
+    id: React.PropTypes.string,
+    skuNumber: React.PropTypes.string,
+    productName: React.PropTypes.string,
+    batchNumber: React.PropTypes.string,
+    expiryMonth: React.PropTypes.number,
+    expiryYear: React.PropTypes.number,
+    onPutSubmit: React.PropTypes.func.isRequired,
+    closeEditForm: React.PropTypes.func.isRequired
+  },
   getInitialState: function () {
     return {
       editValueSKU: this.props.skuNumber,
@@ -32,51 +43,63 @@ var editForm = React.createClass({
       return
     }
 
-    this.props.onPutSubmit({ skuNumber: skuNumber, batchNumber: batchNumber, month: expiryMonth, year: expiryYear, id: this.props.id})
+    this.props.onPutSubmit({ skuNumber: skuNumber, batchNumber: batchNumber, month: expiryMonth, year: expiryYear, id: this.props.id })
     this.setState({editValueSKU: skuNumber, editValueBatch: batchNumber, editValueExpiryMonth: expiryMonth, editValueExpiryYear: expiryYear})
   },
-  closeEdit: function () {
-    console.log('close sesame')
-  },
+
   render: function () {
     return (
       <div id='container-edit-form'>
+      <span onClick={this.props.closeEditForm}><img className='cross' src='../../../images/cross.svg' /></span>
         <form onSubmit={this.handlePutSubmit}>
-          <input
-            className='edit-form-field'
-            id='edit-form-sku'
-            type='text'
-            placeholder={this.props.skuNumber}
-            value={this.state.editValueSKU}
-            onChange={this.handleInputChangeSKU} />
-            <input
-              className='edit-form-field'
-              id='edit-form-batch'
-              type='text'
-              placeholder={this.props.batchNumber}
-              value={this.state.editValueBatch}
-              onChange={this.handleInputChangeBatch} />
-            <input
-              className='edit-form-field'
-              id='edit-form-expiry-month'
-              type='number'
-              placeholder={this.props.expiryMonth}
-              value={this.state.editValueExpiryMonth}
-              onChange={this.handleInputChangeExpiryMonth} />
-            <input
-              className='edit-form-field'
-              id='edit-form-expiry-year'
-              type='number'
-              placeholder={this.props.expiryYear}
-              value={this.state.editValueExpiryYear}
-              onChange={this.handleInputChangeExpiryYear} />
+        <div className='editTextInput'>
+          <div className='editFormElement'>
+            <label htmlFor='edit-form-sku'>SKU Number</label>
+              <input
+                className='edit-form-field'
+                id='edit-form-sku'
+                type='text'
+                placeholder={this.props.skuNumber}
+                value={this.state.editValueSKU}
+                onChange={this.handleInputChangeSKU} />
+            </div>
+            <div className='editFormElement'>
+            <label htmlFor='edit-form-batch'>Batch Number</label>
+              <input
+                className='edit-form-field'
+                id='edit-form-batch'
+                type='text'
+                placeholder={this.props.batchNumber}
+                value={this.state.editValueBatch}
+                onChange={this.handleInputChangeBatch} />
+            </div>
+            <div className='editFormElement'>
+            <label htmlFor='edit-form-expiry-month'>Expiry Month</label>
+              <input
+                className='edit-form-field'
+                id='edit-form-expiry-month'
+                type='number'
+                placeholder={this.props.expiryMonth}
+                value={this.state.editValueExpiryMonth}
+                onChange={this.handleInputChangeExpiryMonth} />
+            </div>
+            <div className='editFormElement'>
+            <label htmlFor='edit-form-expiry-year'>Expiry Year</label>
+              <input
+                className='edit-form-field'
+                id='edit-form-expiry-year'
+                type='number'
+                placeholder={this.props.expiryYear}
+                value={this.state.editValueExpiryYear}
+                onChange={this.handleInputChangeExpiryYear} />
+            </div>
           <input
             id='edit-form-batch-input-button'
             type='submit'
             value='Save'
             txt='Save' />
+          </div>
         </form>
-        <span onClick={this.props.closeEditForm}>X</span>
       </div>
     )
   }

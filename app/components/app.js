@@ -1,23 +1,30 @@
-
-var React = require('react')
-var Header = require('./common/header')
-import { render } from 'react-dom'
-import { Router, Route, Link } from 'react-router'
-// var RouteHandler = require('react-router').RouteHandler
+import React from 'react'
+import Header from './common/header'
+import Modal from './common/modal'
 
 var App = React.createClass({
+  componentWillReceiveProps (nextProps) {
+    // if we changed routes...
+    if ((
+      nextProps.location.key !== this.props.location.key &&
+      nextProps.location.state &&
+      nextProps.location.state.modal
+    )) {
+      // save the old children
+      this.previousChildren = this.props.children
+    }
+  },
   componentWillMount: function () {
-      // this.lock = new Auth0Lock('KIiRYkKqHIoj8wphC5YOLWge55ipeCTF', 'makantime.auth0.com')
-      this.lock = new Auth0Lock('pyoICxnYbHkIf0azgqVB2bucWqAFUdKY', 'belgian-chocolate.auth0.com');
+      this.lock = new Auth0Lock('pKAebJyhjpuES7OTH5tp2LMwEJf6NRfT', 'belgian-chocolate.auth0.com')
       this.setState({idToken: this.getIdToken()})
   },
   getIdToken: function () {
-    var idToken = localStorage.getItem('userToken')
+    var idToken = window.localStorage.getItem('userToken')
     var authHash = this.lock.parseHash(window.location.hash)
     if (!idToken && authHash) {
       if (authHash.id_token) {
         idToken = authHash.id_token
-        localStorage.setItem('userToken', authHash.id_token)
+        window.localStorage.setItem('userToken', authHash.id_token)
       }
       if (authHash.error) {
         console.log('Error signing in', authHash)
@@ -27,12 +34,28 @@ var App = React.createClass({
     return idToken
   },
   render: function () {
+    let { location } = this.props
+
+    let isModal = (
+      location.state &&
+      location.state.modal &&
+      this.previousChildren
+    )
+
     if (this.state.idToken) {
       return (
         <div>
           <Header lock={this.lock} idToken={this.state.idToken} />
           <div className='bodyContainer'>
-            {this.props.children}
+          { isModal ?
+            this.previousChildren :
+            this.props.children
+          }
+          {isModal && (
+            <Modal isOpen={true} returnTo={location.state.returnTo}>
+              {this.props.children}
+            </Modal>
+          )}
           </div>
         </div>
         )
@@ -41,7 +64,16 @@ var App = React.createClass({
         <div>
           <Header lock={this.lock}/>
           <div className='bodyContainer'>
-            {this.props.children}
+          {isModal ?
+            this.previousChildren :
+            this.props.children
+            }
+
+          {isModal && (
+            <Modal isOpen={true} returnTo={location.state.returnTo}>
+              {this.props.children}
+            </Modal>
+          )}
           </div>
         </div>
 

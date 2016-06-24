@@ -1,10 +1,11 @@
-var React = require('react')
-var BatchRecordRow = require('./batchRecordRow')
+'use strict'
+import React from 'react'
+import BatchRecordRow from './batchRecordRow'
 
-// Displays all batchRecords matching input after searchBar-button is clicked
-// When there is input change in searchbar, unmount component until searchBar-button is clicked again
-// If no results, display that there are no results
 var batchRecordsTable = React.createClass({
+  propTypes: {
+    batchRecords: React.PropTypes.array
+  },
   render: function () {
     var rows = []
     this.props.batchRecords.forEach(function (batchRecord) {
@@ -24,7 +25,6 @@ var batchRecordsTable = React.createClass({
             <tr>
               <th className='sku-number'>SKU Number</th>
               <th className='product-name'>Product Name</th>
-              <th className='batch-number'>Batch Number</th>
               <th className='expiry-date'>Expiry Date</th>
             </tr>
           </thead>

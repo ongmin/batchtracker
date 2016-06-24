@@ -1,79 +1,30 @@
-var React = require('react')
-var SearchBar = require('./searchBar')
-var BatchRecordsTableHeader = require('./batchRecordsTableHeader')
-var BatchRecordsTable = require('./batchRecordsTable')
-
-// State lives in filterableBatchRecordsTable component
-// Customer inputs queryBatchNumber into searchBar and hits searchBar-button
-// Action makes request to server and receives results
-// Dispatcher dispatches a function with results payload to whoever is interseted
-// Store's state changes due to new result received by the action
-// The View re-renders by listening to Store's change
-
-var batchRecordsEndpoint = '/api/batchrecords/'
+'use strict'
+import React from 'react'
+import BatchRecordsTableHeader from './batchRecordsTableHeader'
+import BatchRecordsTable from './batchRecordsTable'
+require('smoothscroll-polyfill').polyfill()
 
 var filterableBatchRecordsTable = React.createClass({
-  getInitialState: function () {
-    return {
-      queryBatchNumber: '',
-      batchRecords: []
-    }
-  },
-  loadDataFromServer: function () {
-    $.ajax({
-      url: batchRecordsEndpoint + this.state.queryBatchNumber,
-      dataType: 'json',
-      type: 'GET',
-      cache: false,
-      success: function (data) {
-        console.log(data)
-        this.setState({batchRecords: data})
-      }.bind(this),
-      error: function (xhr, status, err) {
-        console.error(batchRecordsEndpoint, status, err.toString())
-      }
-    })
+  propTypes: {
+    queryBatchNumber: React.PropTypes.string,
+    batchRecords: React.PropTypes.array
   },
   componentDidMount: function () {
-    this.loadDataFromServer()
+    window.scrollTo({ top: 330, left: 0, behavior: 'smooth' })
   },
-  handleInputChange: function (e) {
-    this.setState({queryBatchNumber: e.target.value})
-  },
-  handleQuerySubmit: function (obj) {
-    console.log(obj)
-    this.setState({ queryBatchNumber: obj['queryBatchNumber'] }, function () {
-      $.ajax({
-        url: batchRecordsEndpoint + this.state.queryBatchNumber,
-        dataType: 'json',
-        type: 'GET',
-        cache: false,
-        success: function (data) {
-          console.log(data)
-          this.setState({batchRecords: data})
-        }.bind(this),
-        error: function (xhr, status, err) {
-          console.error(batchRecordsEndpoint, status, err.toString())
-        }
-      })
-    })
+  componentDidUpdate: function () {
+    window.scrollTo({ top: 300, left: 0, behavior: 'smooth' })
   },
   render: function () {
     return (
-            <div>
-              <div id='container-search'>
-                <SearchBar
-                  value={this.state.queryBatchNumber}
-                  onChange={this.handleInputChange}
-                  onQuerySubmit={this.handleQuerySubmit} />
-                <div>'Test-Parent ' + {this.state.queryBatchNumber} </div>
-              </div>
-              <BatchRecordsTableHeader
-                queryBatchNumber={this.state.queryBatchNumber} />
-              <BatchRecordsTable
-                batchRecords={this.state.batchRecords} />
-            </div>
-  ) }
+      <div className='container-header-table'>
+        <BatchRecordsTableHeader
+          queryBatchNumber={this.props.queryBatchNumber} />
+        <BatchRecordsTable
+          batchRecords={this.props.batchRecords} />
+      </div>
+    )
+  }
 })
 
 module.exports = filterableBatchRecordsTable

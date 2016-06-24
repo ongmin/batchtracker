@@ -9,9 +9,10 @@
   "scripts": {
     "start": "npm run build && npm run start-server",
     "start-server": "nodemon dist_server/server.js",
-    "build": "npm run clean && mkdir dist && npm run build-images && npm run build-css && npm run build-html && npm run build-webpack && npm run build-server",
+    "build": "npm run clean && mkdir dist && npm run build-images && npm run build-fonts && npm run build-css && npm run build-html && npm run build-webpack && npm run build-server",
     "clean": "rm -rf dist && rm -rf dist_server",
     "build-images": "cp -r app/images dist/images",
+    "build-fonts": "cp -r app/fonts dist/fonts",
     "build-css": "cp app/main.css dist/bundle.css",
     "build-html": "cp app/index.html dist/index.html",
     "build-webpack": "webpack",
@@ -38,7 +39,6 @@
     "express": "^4.13.4",
     "express-history-api-fallback": "^2.0.0",
     "express-jwt": "^3.4.0",
-    "flux": "^2.1.1",
     "fs": "0.0.2",
     "history": "^2.1.1",
     "mongoose": "^4.4.14",
@@ -50,7 +50,7 @@
     "react-dom": "^15.0.2",
     "react-js-pagination": "^1.1.16",
     "react-router": "^2.4.0",
-    "superagent": "^1.8.3",
+    "smoothscroll-polyfill": "^0.3.3",
     "underscore": "^1.8.3"
   },
   "keywords": [
@@ -60,11 +60,14 @@
     "batch"
   ],
   "devDependencies": {
+    "autoprefixer": "^6.3.6",
     "babel-cli": "^6.8.0",
     "babel-core": "^6.8.0",
     "babel-loader": "^6.2.4",
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
+    "postcss-loader": "^0.9.1",
+    "precss": "^1.4.0",
     "supertest": "^1.2.0",
     "webpack": "^1.13.0"
   }

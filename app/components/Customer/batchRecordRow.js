@@ -1,9 +1,13 @@
-var React = require('react')
-
-// Displays single batchRecord details
-// Rewrite this as stateless functional component and remove this comment
+'use strict'
+import React from 'react'
 
 var batchRecordRow = React.createClass({
+  propTypes: {
+    skuNumber: React.PropTypes.string,
+    productName: React.PropTypes.string,
+    expiryMonth: React.PropTypes.number,
+    expiryYear: React.PropTypes.number
+  },
   render: function () {
     var expMonth = ''
     switch (this.props.expiryMonth) {
@@ -23,10 +27,9 @@ var batchRecordRow = React.createClass({
     }
     return (
         <tr>
-        <td className='sku-number'>{this.props.skuNumber}</td>
-        <td className='product-name'>{this.props.productName}</td>
-        <td className='batch-number'>{this.props.batchNumber}</td>
-        <td className='expiry-date'>{expMonth} / {this.props.expiryYear}</td>
+        <td className='sku-number' data-label='SKU Number'>{this.props.skuNumber}</td>
+        <td className='product-name' data-label='Product Name'>{this.props.productName}</td>
+        <td className='expiry-date' data-label='Expiry Date'>{expMonth} / {this.props.expiryYear}</td>
         </tr>
     )
   }
