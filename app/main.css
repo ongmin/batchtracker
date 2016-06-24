@@ -430,10 +430,10 @@ textarea {
 
 @font-face {
        font-family: 'Proxima Nova Light';
-       src: url('fonts/ProximaNova-light-webfont.eot'),
-            url('fonts/ProximaNova-light-webfont.woff') format('woff'),
-            url('fonts/ProximaNova-light-webfont.ttf') format('truetype'),
-            url('fonts/ProximaNova-light-webfont.svg') format('svg');
+       src: url('fonts/proximanova-light-webfont.eot'),
+            url('fonts/proximanova-light-webfont.woff') format('woff'),
+            url('fonts/proximanova-light-webfont.ttf') format('truetype'),
+            url('fonts/proximanova-light-webfont.svg') format('svg');
 }
 
 @font-face {
@@ -777,7 +777,7 @@ div.container-search-whereto div {
     display: inline-block;
   }
 div#container-search {
-  background-image: url('images/BatchTracker-Banner.jpg');
+  background-image: url('https://s3.amazonaws.com/batchtracker-app/images/BatchTracker-Banner.jpg');
   background-size: 100%;
   background-repeat: no-repeat;
   height: 472px;
@@ -824,7 +824,7 @@ div.container-header-table div#results-table-header p{
   border: 1px solid #e1e5e6;
   border-top: none;
   border-bottom: none;
-  background-image: url('images/BatchCode-banner3.jpg');
+  background-image: url('https://s3.amazonaws.com/batchtracker-app/images/BatchCode-Banner3.jpg');
   padding-top: 75px;
   box-sizing: border-box;
   height: 186px;
@@ -976,27 +976,25 @@ td.input-row-delete, td.input-row-edit {
 }
 ul.pagination {
   width: 390px;
-  position: fixed;
-  left: 50%;
-  top: 90%;
-  transform: translate(-50%, 0%);
+  margin-left: 55px;
 }
 ul.pagination li a{
   font-family: 'Proxima Nova Light',Helvetica,Arial,sans-serif;
   color:#fff;
+  font-size: 10pt;
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #27bbcd;
+  padding: 2px 10px;
+  background-color: #b3b1b1;
 }
 .pagination > .active {
   cursor: auto;
 }
 .pagination > .active > a {
-  background-color: #94d5d1;
+  background-color: #939292;
   cursor: auto;
 }
-.pagination > a:hover {
-  background-color: #e8f6bb;
+.pagination a:hover {
+  background-color: #939292;
 }
 
 ul.pagination li {
@@ -1029,7 +1027,7 @@ ul.pagination {
   /*<=== Styling: Topbar ===>*/
 
   div#container-search {
-    background-image: url('images/BatchTracker-Banner.jpg');
+    background-image: url('https://s3.amazonaws.com/batchtracker-app/images/BatchTracker-Banner.jpg');
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -1080,7 +1078,7 @@ ul.pagination {
     height: 52px;
     background-repeat: no-repeat;
     background-size: 100%;
-    background-image: url('images/pcsglogo-only.png');
+    background-image: url('https://s3.amazonaws.com/batchtracker-app/images/pcsglogo-only.png');
   }
   ul#topbar-middle-right {
     margin-right: 0;
@@ -1119,7 +1117,7 @@ ul.pagination {
   }
   /*<=== Styling: Search Page ===>*/
   div#container-search {
-    background-image: url('images/BatchTracker-Banner650.jpg');
+    background-image: url('https://s3.amazonaws.com/batchtracker-app/images/BatchTracker-Banner650.jpg');
     background-position: center;
   }
   table#results-table thead {
@@ -1236,6 +1234,7 @@ ul.pagination {
     opacity: 1;
   }
   /*<=== Styling: Topbar-Middle ===>*/
+
   #topbar-middle-left {
       margin-top: 0px;
       padding-top: 20px;
@@ -1243,17 +1242,19 @@ ul.pagination {
 
   /*<=== Styling: Topbar-Bottom ===>*/
   #topbar-bottom {
-    height: 40px;
+    height: 5px;
   }
   #topbar-bottom div {
-    width: 80%;
-    line-height: 18px;
+    display: none;
   }
+
   /*<=== Styling: Customer-Results-Table ===>*/
+
+  /*<=== Styling: Customer-Search-Bar ===>*/
   div#container-search {
     border: none;
     height: 400px;
-    padding-top: 160px;
+    padding-top: 100px;
   }
 
   form.search-bar {

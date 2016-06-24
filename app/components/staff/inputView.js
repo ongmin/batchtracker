@@ -12,7 +12,7 @@ var inputView = React.createClass({
   },
   getDefaultProps: function () {
     return {
-      recordsPerPage: 8
+      recordsPerPage: 10
     }
   },
   getInitialState: function () {
@@ -145,17 +145,19 @@ var inputView = React.createClass({
                   onInputChange={this.handleInputChange}
                   recordStatus={this.state.recordStatus}
                 />
-              <InputTable
-                batchRecords={this.state.batchRecords.slice(this.props.recordsPerPage * (this.state.activePage - 1), this.props.recordsPerPage * this.state.activePage)}
-                onDelete={this.handleDelete}
-                onUpdate={this.handleUpdate}
-              />
-              <Pagination
-                 activePage={this.state.activePage}
-                 totalItemsCount={this.state.batchRecords.length}
-                 itemsCountPerPage={this.props.recordsPerPage}
-                 onChange={this.handlePageChange}
-               />
+              <div id='input-results-table'>
+                <Pagination
+                   activePage={this.state.activePage}
+                   totalItemsCount={this.state.batchRecords.length}
+                   itemsCountPerPage={this.props.recordsPerPage}
+                   onChange={this.handlePageChange}
+                 />
+                <InputTable
+                  batchRecords={this.state.batchRecords.slice(this.props.recordsPerPage * (this.state.activePage - 1), this.props.recordsPerPage * this.state.activePage)}
+                  onDelete={this.handleDelete}
+                  onUpdate={this.handleUpdate}
+                />
+              </div>
             </div>
   ) }
 })
