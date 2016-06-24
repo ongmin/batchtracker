@@ -58,6 +58,7 @@
     "path": "^0.12.7",
     "pm2": "^0.15.10",
     "postcss-loader": "^0.9.1",
+    "precss": "^1.4.0",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
     "react-js-pagination": "^1.1.16",
