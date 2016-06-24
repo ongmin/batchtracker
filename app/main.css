@@ -777,7 +777,7 @@ div.container-search-whereto div {
     display: inline-block;
   }
 div#container-search {
-  background-image: url('https://s3.amazonaws.com/batchtracker-app/images/BatchTracker-Banner.jpg');
+  background-image: url('../images/BatchTracker-Banner.jpg');
   background-size: 100%;
   background-repeat: no-repeat;
   height: 472px;
@@ -824,7 +824,7 @@ div.container-header-table div#results-table-header p{
   border: 1px solid #e1e5e6;
   border-top: none;
   border-bottom: none;
-  background-image: url('https://s3.amazonaws.com/batchtracker-app/images/BatchCode-Banner3.jpg');
+  background-image: url('../images/BatchCode-Banner3.jpg');
   padding-top: 75px;
   box-sizing: border-box;
   height: 186px;
@@ -1027,7 +1027,7 @@ ul.pagination {
   /*<=== Styling: Topbar ===>*/
 
   div#container-search {
-    background-image: url('https://s3.amazonaws.com/batchtracker-app/images/BatchTracker-Banner.jpg');
+    background-image: url('../images/BatchTracker-Banner.jpg');
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -1078,7 +1078,7 @@ ul.pagination {
     height: 52px;
     background-repeat: no-repeat;
     background-size: 100%;
-    background-image: url('https://s3.amazonaws.com/batchtracker-app/images/pcsglogo-only.png');
+    background-image: url('../images/pcsglogo-only.png');
   }
   ul#topbar-middle-right {
     margin-right: 0;
@@ -1117,7 +1117,7 @@ ul.pagination {
   }
   /*<=== Styling: Search Page ===>*/
   div#container-search {
-    background-image: url('https://s3.amazonaws.com/batchtracker-app/images/BatchTracker-Banner650.jpg');
+    background-image: url('../images/BatchTracker-Banner650.jpg');
     background-position: center;
   }
   table#results-table thead {
