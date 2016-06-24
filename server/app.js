@@ -32,7 +32,7 @@ moltin.Authenticate(function () {
   app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({ extended: true }))
   app.use(express.static(root))
-  app.use(cors())
+  // app.use(cors())
 
   require('./routes/batchRecords-server-routes.js')(app, moltin, jwtCheck)
 
