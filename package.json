@@ -1,7 +1,10 @@
 {
   "name": "batchtracker",
   "version": "1.0.0",
-  "description": "Purpose: For consumers to check expiry date based on batch numbers",
+  "description": "For consumers to check expiry date based on batch numbers",
+  "engines": {
+    "node": "5.1.1"
+  },
   "main": "app.js",
   "directories": {
     "test": "test"
