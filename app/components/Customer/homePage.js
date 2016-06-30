@@ -74,7 +74,7 @@ var homePage = React.createClass({
                       <div className='qmark'>?</div>Where do I find the Batch code?
                     </div>
                     </Link>
-                    <a href='http://faq.paulaschoice.sg/shelf-life-after-opening/' title='Batch Code Guide' target='_blank'>
+                    <a href='http://faq.paulaschoice.sg/product-expiry-date-checker/' title='Batch Code Guide' target='_blank'>
                       <div className='container-search-whereto' id='container-search-whereto-mobile'>
                         <div className='qmark'>?</div>Where do I find the Batch code?
                       </div>

@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router'
 var Header = withRouter(
   React.createClass({
     propTypes: {
-      lock: React.PropTypes.object,
+      // lock: React.PropTypes.object,
       idToken: React.PropTypes.string,
       router: React.PropTypes.object
     },
@@ -13,21 +13,6 @@ var Header = withRouter(
       return {
         profile: null
       }
-    },
-    showLock: function () {
-      this.props.lock.show({
-        icon: '../../images/pcsglogo-only.png',
-        disableSignupAction: true
-      })
-    },
-    componentDidMount: function () {
-      this.props.lock.getProfile(this.props.idToken, function (err, profile) {
-        if (err) {
-          console.log('Error loading the Profile', err)
-          return
-        }
-        this.setState({profile: profile})
-      }.bind(this))
     },
     logOut: function () {
       window.localStorage.removeItem('userToken')
@@ -50,10 +35,6 @@ var Header = withRouter(
                 <li><Link to='/'>Home</Link></li>
                 <li><a href='https://www.paulaschoice.sg/'>Shop Paula&#39;s Choice</a></li>
                 <li><a href='http://advice.paulaschoice.sg/'>Expert Advice</a></li>
-              {!!window.localStorage.userToken ?
-                <li><Link to='/staff/batchRecords'>Staff</Link></li>
-                : <li><div className='login-box'><a onClick={this.showLock}>Sign In</a></div></li>
-              }
               {!!window.localStorage.userToken ?
                 <li><a onClick={this.logOut}>Logout</a></li> :
                 null

@@ -45,11 +45,11 @@ var App = React.createClass({
     if (this.state.idToken) {
       return (
         <div>
-          <Header lock={this.lock} idToken={this.state.idToken} />
+          <Header idToken={this.state.idToken} />
           <div className='bodyContainer'>
           { isModal ?
             this.previousChildren :
-            this.props.children
+            React.cloneElement(this.props.children, { lock: this.lock, idToken: this.state.idToken })
           }
           {isModal && (
             <Modal isOpen={true} returnTo={location.state.returnTo}>
@@ -66,9 +66,8 @@ var App = React.createClass({
           <div className='bodyContainer'>
           {isModal ?
             this.previousChildren :
-            this.props.children
-            }
-
+            React.cloneElement(this.props.children, { lock:this.lock })
+          }
           {isModal && (
             <Modal isOpen={true} returnTo={location.state.returnTo}>
               {this.props.children}
