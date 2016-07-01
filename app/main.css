@@ -565,7 +565,7 @@ ul#topbar-top-left > li:first-child {
 }
 
 div#topbar-top-right-container{
-    width: 480px;
+    width: 350px;
     margin: 0px;
     padding: 0px;
     margin-right: 12px;
@@ -824,8 +824,26 @@ div.container-header-table div#results-table-header p{
   -webkit-margin-after: none;
 }
 
-
-
+/*<=== Styling: Staff View - Login Page ===>*/
+.login-container {
+  text-align: center;
+  margin-top: 1
+}
+.sign-in-button-link button:hover {
+  cursor: pointer;
+  background-color: #94d5d1;
+}
+.sign-in-button-link button {
+  font-family: 'Proxima Nova Light',Helvetica,Arial,sans-serif;
+  background-color: #27bbcd;
+  color: #fff;
+  text-transform: uppercase;
+  border: none;
+  width: 300px;
+  letter-spacing: 1.5pt;
+  font-size: 13pt;
+  margin-top: 30px;
+}
 /*<=== Styling: Staff View - Input Page ===>*/
 #container-input-form ::-webkit-input-placeholder {
     font-size: 9.5pt;
