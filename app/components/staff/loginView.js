@@ -13,8 +13,8 @@ var loginView = React.createClass({
   },
   render: function () {
     return (
-        <div className='contentContainer'>
-        <p>Click <a onClick={this.showLock}>here</a> to sign in </p>
+        <div className='login-container'>
+        <a onClick={this.showLock} className="sign-in-button-link"><button>Sign in</button></a>
         </div>
     )
   }
