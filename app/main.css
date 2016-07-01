@@ -1,3 +1,4 @@
+
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 
 /**
@@ -659,7 +660,8 @@ table#results-table {
 }
 
 div#results-table-header {
-  /*font-size: 10pt;*/
+  font-size: 12pt;
+  padding: 8px 0px 0px;
   color: #27bbcd;
   font-family: 'Proxima Nova Semibold',Helvetica,Arial,sans-serif;
   text-align: center;
@@ -667,6 +669,7 @@ div#results-table-header {
 
 table#results-table {
   margin: 0 auto;
+  margin-bottom: 40px;
 }
 table#results-table tbody tr td,
 table#results-table thead tr th {
@@ -679,7 +682,8 @@ table#results-table thead tr th {
     padding-left: 5px;
 }
 table#results-table thead tr th {
-  color: #515151;
+  color: #2a2a2a;
+  font-size: 12.5pt;
 }
 form.search-bar {
   display: -webkit-box;
@@ -691,9 +695,11 @@ form.search-bar {
   margin: 0 auto;
   width: 100%;
 }
+
 input#batchsearch-search-input {
     box-sizing: border-box;
     border: 4px solid #27bbcd;
+    background-color: white !important;
     height: 45px;
     width: 80%;
     padding: 0px 10px;
@@ -703,6 +709,10 @@ input#batchsearch-search-input {
     font-family: 'Proxima Nova Light',Helvetica,Arial,sans-serif;
     letter-spacing: 1.0pt;
     color: #27bbcd;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
 input#batchsearch-input-button {
@@ -813,6 +823,9 @@ div.container-header-table div#results-table-header p{
   -webkit-margin-before: none;
   -webkit-margin-after: none;
 }
+
+
+
 /*<=== Styling: Staff View - Input Page ===>*/
 #container-input-form ::-webkit-input-placeholder {
     font-size: 9.5pt;
@@ -894,6 +907,7 @@ td.input-row-delete, td.input-row-edit {
   width: 1000px;
   margin: 0 auto;
 }
+
 #input-results-table {
   box-sizing: border-box;
   border: 1px solid #d9e1e3;
@@ -903,15 +917,27 @@ td.input-row-delete, td.input-row-edit {
   font-size: 12pt;
   letter-spacing: 0.5pt;
 }
+
 .input-results-table-header {
   width: 1000px;
   margin: 0 auto;
 }
-#input-results-table .sku-number ,#input-results-table .batch-number, #input-results-table .input-row-edit, #input-results-table .input-row-delete, #input-results-table .product-name, #input-results-table .expiry-date  {
+
+.input-results-table-body {
+    margin-bottom: 40px;
+}
+
+#input-results-table .sku-number,
+#input-results-table .batch-number,
+#input-results-table .input-row-edit,
+#input-results-table .input-row-delete,
+#input-results-table .product-name,
+#input-results-table .expiry-date  {
   display: inline-block;
 }
 
-#input-results-table .sku-number , #input-results-table .batch-number {
+#input-results-table .sku-number,
+#input-results-table .batch-number {
   width: 15%;
 }
 #input-results-table .input-row-edit {
@@ -939,7 +965,7 @@ td.input-row-delete, td.input-row-edit {
   padding: 10px 15px 20px;
   margin-top: 10px;
   margin-bottom: 20px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #444;
   /* border-top: 1px solid black; */
 }
 
@@ -947,7 +973,8 @@ td.input-row-delete, td.input-row-edit {
   font-size: 10pt;
   width: 172px;
 }
-#container-edit-form input {
+.edit-form-field {
+  padding: 0px 10px;
 }
 .editFormElement {
   width: 140px;

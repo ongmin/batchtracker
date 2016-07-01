@@ -1,5 +1,4 @@
 var path = require('path')
-var precss = require('precss')
 var autoprefixer = require('autoprefixer')
 
 const PATHS = {
