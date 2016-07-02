@@ -48,22 +48,22 @@ var inputTableRow = React.createClass({
     if (this.state.isEditFormOpen) {
       return (
           <div className='input-table-row'>
-          <EditForm
-            batchNumber={this.props.batchNumber}
-            productName={this.props.productName}
-            skuNumber={this.props.skuNumber}
-            expiryMonth={this.props.expiryMonth}
-            expiryYear={this.props.expiryYear}
-            id={this.props.id}
-            onPutSubmit={this.props.onUpdate}
-            closeEditForm={this.closeEditForm}
-            />
             <span className='sku-number'>{this.props.skuNumber}</span>
             <span className='product-name'>{this.props.productName}</span>
             <span className='batch-number'>{this.props.batchNumber}</span>
             <span className='expiry-date'> {expMonth} / {this.props.expiryYear}</span>
             <span className='input-row-edit' onClick={this.showHideEditForm}>edit</span>
             <span className='input-row-delete' onClick={this.handleDelete}>delete</span>
+            <EditForm
+              batchNumber={this.props.batchNumber}
+              productName={this.props.productName}
+              skuNumber={this.props.skuNumber}
+              expiryMonth={this.props.expiryMonth}
+              expiryYear={this.props.expiryYear}
+              id={this.props.id}
+              onPutSubmit={this.props.onUpdate}
+              closeEditForm={this.closeEditForm}
+              />
           </div>
       )
     } else {

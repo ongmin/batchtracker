@@ -5,3 +5,4 @@ dist_server
 *.log.*
 *.dist.js
 Dockerfile
+_*

@@ -939,6 +939,12 @@ td.input-row-delete, td.input-row-edit {
 .input-results-table-header {
   width: 1000px;
   margin: 0 auto;
+  font-weight: 800;
+  font-size: 12.5pt;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 5px 0px;
+  margin-bottom: 10px;
 }
 
 .input-results-table-body {
