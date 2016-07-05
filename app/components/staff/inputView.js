@@ -124,7 +124,6 @@ var inputView = React.createClass({
         this.setState({batchRecords: data.reverse()})
       }.bind(this),
       error: function (xhr, status, err) {
-        console.log(err)
         var inputErrors = ''
         if (xhr.responseText[0] === '[') {
           inputErrors = JSON.parse(xhr.responseText)
