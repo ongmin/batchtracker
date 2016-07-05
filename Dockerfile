@@ -16,8 +16,8 @@ RUN npm install n --global
 RUN n 5.1.1
 
 # Bundle app source
-COPY . /usr/src/app
+COPY . /
 
-EXPOSE 8080
+EXPOSE 9000
 
 CMD [ "npm", "start" ]
