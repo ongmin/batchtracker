@@ -20,7 +20,6 @@ var inputTableRow = React.createClass({
   },
   handleDelete: function () {
     this.props.onDelete(this.props.id)
-    console.log('deleted')
   },
   showEditForm: function () {
     this.setState({isEditFormOpen: true})

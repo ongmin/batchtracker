@@ -3,7 +3,7 @@ const BatchRecord = require('./../models/batchRecord.js')
 module.exports = function (app, schemaClient) {
   app.route('/api/batchRecords')
   .get((req, res) => {
-    BatchRecord.find({}).exec()
+    BatchRecord.find({}).sort({timeStamp: -1}).exec()
     .then(batchRecords => {
       res.json(batchRecords)
     })
@@ -28,6 +28,7 @@ module.exports = function (app, schemaClient) {
     })
     .then((products) => {
       var title = products['results'][0]['name']
+      newBatchRecord.timeStamp = Math.round(new Date().getTime() / 1000)
       newBatchRecord.productName = title
       newBatchRecord.batchNumber = req.body.batchNumber
       newBatchRecord.skuNumber = req.body.skuNumber
@@ -37,7 +38,7 @@ module.exports = function (app, schemaClient) {
     })
       .then(batchRecord => {
         console.log(batchRecord._id + ' created!')
-        return BatchRecord.find({}).exec()
+        return BatchRecord.find({}).sort({timeStamp: -1}).exec()
       })
       .then(batchRecords => {
         res.json(batchRecords)
@@ -62,7 +63,7 @@ module.exports = function (app, schemaClient) {
     BatchRecord.findByIdAndRemove(req.params.id).exec()
     .then((batchRecord) => {
       console.log(batchRecord._id + ' deleted')
-      return BatchRecord.find({}).exec()
+      return BatchRecord.find({}).sort({timeStamp: -1}).exec()
     })
     .then((batchRecords) => {
       res.json(batchRecords)
@@ -96,7 +97,7 @@ module.exports = function (app, schemaClient) {
     })
     .then(batchRecord => {
       console.log(batchRecord._id + ' updated!')
-      return BatchRecord.find({}).exec()
+      return BatchRecord.find({}).sort({timeStamp: -1}).exec()
     })
     .then(batchRecords => {
       res.json(batchRecords)

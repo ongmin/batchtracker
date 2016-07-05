@@ -3,9 +3,10 @@ var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
 var batchRecordSchema = Schema({
+  timeStamp: {type: Number, required: '{PATH} is required!'},
   skuNumber: { type: String, required: '{PATH} is required!' },
   batchNumber: { type: String, required: '{PATH} is required!' },
-  productName: { type: String, required: 'Invalid SKU Number' },
+  productName: { type: String, required: '{PATH} is required!' },
   expiryDate: {
     month: {
       type: Number,
