@@ -21,7 +21,6 @@ var inputTable = React.createClass({
                     onDelete={this.props.onDelete}
                     onUpdate={this.props.onUpdate}
                   />
-      console.log(batchRecord._id)
       rows.push(row)
     })
     return (

@@ -65,6 +65,7 @@
     "react-dom": "^15.0.2",
     "react-js-pagination": "^1.1.16",
     "react-router": "^2.4.0",
+    "schema-client": "^2.2.1",
     "smoothscroll-polyfill": "^0.3.3",
     "supertest": "^1.2.0",
     "underscore": "^1.8.3",

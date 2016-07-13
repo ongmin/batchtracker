@@ -39,7 +39,7 @@ var inputView = React.createClass({
       type: 'GET',
       cache: false,
       success: function (data) {
-        this.setState({batchRecords: data.reverse()})
+        this.setState({batchRecords: data})
       }.bind(this),
       error: function (xhr, status, err) {
         console.error(batchRecordsEndpoint, status, err.toString())
@@ -72,7 +72,7 @@ var inputView = React.createClass({
           cache: false,
           data: obj,
           success: function (data) {
-            this.setState({batchRecords: data.reverse()})
+            this.setState({batchRecords: data})
             this.setState({recordStatus: ['Record Successfully Submitted']})
           }.bind(this),
           error: function (xhr, status, err) {
@@ -100,7 +100,7 @@ var inputView = React.createClass({
       type: 'DELETE',
       cache: false,
       success: function (data) {
-        this.setState({batchRecords: data.reverse()})
+        this.setState({batchRecords: data})
       }.bind(this),
       error: function (xhr, status, err) {
         console.error(batchRecordsEndpoint + id, status, err.toString())
@@ -121,10 +121,9 @@ var inputView = React.createClass({
       cache: false,
       data: obj,
       success: function (data) {
-        this.setState({batchRecords: data.reverse()})
+        this.setState({batchRecords: data})
       }.bind(this),
       error: function (xhr, status, err) {
-        console.log(err)
         var inputErrors = ''
         if (xhr.responseText[0] === '[') {
           inputErrors = JSON.parse(xhr.responseText)
